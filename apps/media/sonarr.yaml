@@ -1,0 +1,28 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: sonarr
+  namespace: media
+spec:
+  interval: 24h
+  type: oci
+  url: oci://tccr.io/truecharts
+
+---
+
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: sonarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: sonarr
+      interval: 12h
+      sourceRef:
+        kind: HelmRepository
+        name: sonarr
+      version: 23.x
+  interval: 1h
+  # @ref https://github.com/truecharts/public/tree/master/charts/stable/sonarr

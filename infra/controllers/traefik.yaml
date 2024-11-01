@@ -52,7 +52,7 @@ spec:
       dashboard:
         enabled: true
         entryPoints: [websecure]
-        matchRule: Host(`o5s.lol`)
+        matchRule: Host(`lb.o5s.lol`)
     providers:
       kubernetesGateway:
         enabled: true
