@@ -2,26 +2,16 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: jellyfin
-  namespace: media
+  name: grafana
+  namespace: o11y
 spec:
   chart:
     spec:
-      chart: jellyfin
+      chart: grafana
       sourceRef:
         kind: HelmRepository
         name: truecharts
         namespace: flux-system
   interval: 1h
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
-  # @ref https://github.com/truecharts/public/tree/master/charts/stable/jellyfin
-  values:
-    persistence:
-      config:
-        size: 5Gi
-        storageClass: openebs-hostpath
-      media:
-        enabled: true
-        type: pvc
-        mountPath: /Media
-        existingClaim: media-nfs
+  # @ref https://github.com/truecharts/public/tree/master/charts/premium/grafana

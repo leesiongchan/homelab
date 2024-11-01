@@ -1,0 +1,13 @@
+{
+  "lsp": {
+    "yaml-language-server": {
+      "settings": {
+        "yaml": {
+          "schemas": {
+            "https://json.schemastore.org/kustomization": "kustomization.yaml"
+          }
+        }
+      }
+    }
+  }
+}

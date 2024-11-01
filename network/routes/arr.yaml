@@ -1,0 +1,59 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: arr
+  namespace: media
+spec:
+  hostnames: [arr.o5s.lol]
+  parentRefs:
+    - name: traefik-gateway
+      namespace: network
+  rules:
+    - matches:
+        - path:
+            value: /autobrr
+      backendRefs:
+        - name: autobrr
+          port: 7474
+    - matches:
+        - path:
+            value: /bazarr
+      backendRefs:
+        - name: bazarr
+          port: 6767
+    - matches:
+        - path:
+            value: /posterr
+      backendRefs:
+        - name: posterr
+          port: 9876
+    - matches:
+        - path:
+            value: /prowlarr
+      backendRefs:
+        - name: prowlarr
+          port: 9696
+    - matches:
+        - path:
+            value: /radarr
+      backendRefs:
+        - name: radarr
+          port: 7878
+    - matches:
+        - path:
+            value: /radarr4k
+      backendRefs:
+        - name: radarr4k
+          port: 7878
+    - matches:
+        - path:
+            value: /sonarr
+      backendRefs:
+        - name: sonarr
+          port: 8989
+    - matches:
+        - path:
+            value: /sonarr4k
+      backendRefs:
+        - name: sonarr4k
+          port: 8989

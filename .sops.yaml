@@ -1,0 +1,10 @@
+keys:
+  - &leesiongchan age1tz53d84qcl20t4u29hv956tdgz2j56us0lx0343wew7zrg9zcumqk9wctr
+creation_rules:
+  - path_regex: secrets/.+\.sops\.yaml$
+    encrypted_regex: ^(data|stringData)$
+    key_groups:
+      - age: [*leesiongchan]
+  - path_regex: .*.encrypted$
+    key_groups:
+      - age: [*leesiongchan]

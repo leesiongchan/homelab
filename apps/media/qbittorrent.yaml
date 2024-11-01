@@ -1,0 +1,67 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: qbittorrent
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: qbittorrent
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+  interval: 1h
+  # @ref https://github.com/truecharts/public/blob/master/charts/library/common
+  # @ref https://github.com/truecharts/public/tree/master/charts/stable/qbittorrent
+  values:
+    qbitportforward:
+      enabled: true
+    workload:
+      qbitportforward:
+        podSpec:
+          containers:
+            qbitportforward:
+              env:
+                QBT_USERNAME: admin
+                QBT_PASSWORD:
+                  secretKeyRef:
+                    name: media-secret
+                    key: ADMIN__PASSWORD
+                    expandObjectName: false
+    persistence:
+      config:
+        size: 5Gi
+        storageClass: openebs-hostpath
+      media:
+        enabled: true
+        type: pvc
+        mountPath: /Media
+        existingClaim: media-nfs
+    addons:
+      vpn:
+        type: gluetun
+        killSwitch: true
+        excludedNetworks_IPv4: []
+        excludedNetworks_IPv6: []
+        env:
+          VPN_SERVICE_PROVIDER: private internet access
+          VPN_PORT_FORWARDING: "on"
+          OPENVPN_USER:
+            secretKeyRef:
+              name: media-secret
+              key: PIA__USERNAME
+              expandObjectName: false
+          OPENVPN_PASSWORD:
+            secretKeyRef:
+              name: media-secret
+              key: PIA__PASSWORD
+              expandObjectName: false
+          SERVER_REGIONS: Singapore
+          DOT: "off"
+          DNS_KEEP_NAMESERVER: "off"
+          FIREWALL_INPUT_PORTS: 10095,8000
+          HTTPPROXY: "on"
+          HTTPPROXY_LOG: "on"
+          HTTPPROXY_LISTENING_ADDRESS: :8000

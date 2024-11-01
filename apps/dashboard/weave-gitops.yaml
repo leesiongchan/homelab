@@ -1,0 +1,31 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  annotations:
+    metadata.weave.works/description:
+      This is the Weave GitOps Dashboard. It provides
+      a simple way to get insights into your GitOps workloads.
+  name: weave-gitops
+  namespace: dashboard
+spec:
+  chart:
+    spec:
+      chart: weave-gitops
+      sourceRef:
+        kind: HelmRepository
+        name: weave-gitops
+        namespace: flux-system
+  interval: 1h
+  # @ref https://github.com/weaveworks/weave-gitops/tree/main/charts/gitops-server
+  values:
+    adminUser:
+      create: true
+      passwordHash: $2a$10$eOKKMNmGRqt3SH2ZYRtDLOVg3qVIdqVCkY3jGLIRG36GZTk0kNNFK
+      username: admin
+    # oidcSecret:
+    #   create: true
+    #   clientID: file:///mnt/secrets/authentik_generic_oauth_client_id
+    #   clientSecret: file:///mnt/secrets/authentik_generic_oauth_client_secret
+    #   issuerURL: https://auth.o5s.lol/application/o/generic_oauth/
+    #   redirectURL: https://flux.o5s.lol/oauth2/callback

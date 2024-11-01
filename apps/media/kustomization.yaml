@@ -1,0 +1,30 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - namespaces.yaml
+  - configs/media-secret.yaml
+  - configs/pv.yaml
+  - media-pg-cluster.yaml
+  - jellyfin.yaml
+  - jellyseerr.yaml
+  - jellystat.yaml
+  - qbittorrent.yaml
+  - sabnzbd.yaml
+  # arr stack
+  - autobrr.yaml
+  - bazarr.yaml
+  - flaresolverr.yaml
+  # - posterr.yaml
+  - prowlarr.yaml
+  - radarr.yaml
+  - radarr4k.yaml
+  - recyclarr.yaml
+  - sonarr.yaml
+  - sonarr4k.yaml
+configMapGenerator:
+  - name: recyclarr-config
+    namespace: media
+    files:
+      - recyclarr.yml=./configs/recyclarr-config.yaml
+generatorOptions:
+  disableNameSuffixHash: true

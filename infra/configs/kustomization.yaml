@@ -1,5 +1,14 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - cluster-issuers.yaml
-  - namespaces.yaml
+  - bitwarden-secret-store.yaml
+  - digitalocean-token.yaml
+  - internal-address-pool.yaml
+  - o5s-issuer.yaml
+secretGenerator:
+  - name: bitwarden-secret
+    namespace: security
+    envs:
+      - bitwarden-secret.encrypted
+generatorOptions:
+  disableNameSuffixHash: true

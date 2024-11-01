@@ -1,0 +1,15 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/external-secrets.io/externalsecret_v1beta1.json
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: digitalocean-token
+  namespace: security
+spec:
+  data:
+    - secretKey: token
+      remoteRef:
+        key: 0fdcac13-4492-47d9-8fe1-b21d00802480
+  refreshInterval: 12h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: bitwarden-secret-store

@@ -1,0 +1,44 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: kube-prometheus-stack
+  namespace: o11y
+spec:
+  chart:
+    spec:
+      chart: kube-prometheus-stack
+      sourceRef:
+        kind: HelmRepository
+        name: prometheus-community
+        namespace: flux-system
+  interval: 1h
+  # @ref https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
+  values:
+    cleanPrometheusOperatorObjectNames: true
+    # @ref https://github.com/grafana/helm-charts/tree/main/charts/grafana
+    grafana:
+      enabled: true
+      extraSecretMounts:
+        - name: generic-oauth-secret
+          mountPath: /etc/secrets/generic_oauth
+          readOnly: true
+          secretName: terraform-auth
+      grafana.ini:
+        auth:
+          signout_redirect_url: https://auth.o5s.lol/application/o/generic_oauth/end-session/
+        auth.generic_oauth:
+          enabled: true
+          name: authentik
+          # auto_login: true
+          client_id: $__file{/etc/secrets/generic_oauth/authentik_generic_oauth_client_id}
+          client_secret: $__file{/etc/secrets/generic_oauth/authentik_generic_oauth_client_secret}
+          scopes: openid profile email
+          api_url: https://auth.o5s.lol/application/o/userinfo/
+          auth_url: https://auth.o5s.lol/application/o/authorize/
+          token_url: http://authentik-server.auth.svc.cluster.local/application/o/token/
+          # Optionally map user groups to Grafana roles
+          role_attribute_path: 'Admin'
+          # role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
+        server:
+          root_url: https://o11y.o5s.lol

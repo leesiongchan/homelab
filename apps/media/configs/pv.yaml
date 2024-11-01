@@ -1,0 +1,35 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  annotations:
+    pv.kubernetes.io/provisioned-by: nfs.csi.k8s.io
+  name: media-nfs
+  namespace: media
+spec:
+  accessModes: [ReadOnlyMany, ReadWriteMany]
+  capacity:
+    storage: 2Ti
+  csi:
+    driver: nfs.csi.k8s.io
+    volumeAttributes:
+      server: localhost
+      share: /export/stevejobs
+      subDir: /Media
+    volumeHandle: media-nfs.media.svc.cluster.local##/export/stevejobs
+  mountOptions: [nfsvers=4.2]
+  persistentVolumeReclaimPolicy: Retain
+  storageClassName: csi-driver-nfs
+
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: media-nfs
+  namespace: media
+spec:
+  accessModes: [ReadOnlyMany, ReadWriteMany]
+  resources:
+    requests:
+      storage: 2Ti
+  storageClassName: csi-driver-nfs
+  volumeName: media-nfs

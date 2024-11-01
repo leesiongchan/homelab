@@ -1,14 +1,4 @@
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: cert-manager
-  namespace: security
-spec:
-  interval: 24h
-  url: https://charts.jetstack.io
-
----
-
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
@@ -18,13 +8,13 @@ spec:
   chart:
     spec:
       chart: cert-manager
-      interval: 12h
       sourceRef:
         kind: HelmRepository
-        name: cert-manager
+        name: jetstack
+        namespace: flux-system
       version: 1.x
   interval: 1h
-  # @ref https://artifacthub.io/packages/helm/cert-manager/cert-manager
+  # @ref https://github.com/cert-manager/cert-manager/blob/master/deploy/charts/cert-manager/README.template.md
   values:
     config:
       apiVersion: controller.config.cert-manager.io/v1alpha1

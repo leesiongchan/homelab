@@ -1,0 +1,45 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: recyclarr
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: recyclarr
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+  interval: 1h
+  # @ref https://github.com/truecharts/public/blob/master/charts/library/common
+  # @ref https://github.com/truecharts/public/tree/master/charts/stable/recyclarr
+  values:
+    workload:
+      main:
+        podSpec:
+          initContainers:
+            initconfig:
+              enabled: false
+          containers:
+            main:
+              env:
+                CRON_SCHEDULE: "* * * * *"
+              envFrom:
+                - secretRef:
+                    name: media-secret
+                    expandObjectName: false
+    persistence:
+      config:
+        size: 5Gi
+        storageClass: openebs-hostpath
+      config-file:
+        enabled: true
+        type: configmap
+        objectName: recyclarr-config
+        expandObjectName: false
+        mountPath: /config/recyclarr.yml
+        subPath: recyclarr.yml
+        readOnly: true
+        targetSelectorAll: true
