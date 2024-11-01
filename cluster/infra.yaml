@@ -22,8 +22,6 @@ metadata:
   name: infra-configs
   namespace: flux-system
 spec:
-  dependsOn:
-    - name: infra-controllers
   interval: 1h
   path: ./infra/configs
   prune: true
@@ -50,4 +48,3 @@ spec:
   sourceRef:
     kind: GitRepository
     name: flux-system
-  wait: true
