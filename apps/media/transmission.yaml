@@ -1,0 +1,27 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: transmission
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: transmission
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+  interval: 1h
+  # @ref https://github.com/truecharts/public/blob/master/charts/library/common
+  # @ref https://github.com/truecharts/public/tree/master/charts/stable/transmission
+  values:
+    persistence:
+      config:
+        size: 5Gi
+        storageClass: openebs-hostpath
+      media:
+        enabled: true
+        type: pvc
+        mountPath: /Media
+        existingClaim: media-nfs
