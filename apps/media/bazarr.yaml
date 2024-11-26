@@ -63,11 +63,7 @@ spec:
                     expandObjectName: false
             exportarr:
               env:
-                APIKEY:
-                  secretKeyRef:
-                    name: media-secret
-                    key: BAZARR__AUTH__APIKEY
-                    expandObjectName: false
+                URL: http://bazarr:6767/bazarr
     persistence:
       config:
         size: 5Gi

@@ -18,18 +18,6 @@ spec:
   values:
     qbitportforward:
       enabled: true
-    workload:
-      qbitportforward:
-        podSpec:
-          containers:
-            qbitportforward:
-              env:
-                QBT_USERNAME: admin
-                QBT_PASSWORD:
-                  secretKeyRef:
-                    name: media-secret
-                    key: ADMIN__PASSWORD
-                    expandObjectName: false
     persistence:
       config:
         size: 5Gi

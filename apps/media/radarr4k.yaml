@@ -80,11 +80,7 @@ spec:
                     expandObjectName: false
             exportarr:
               env:
-                APIKEY:
-                  secretKeyRef:
-                    name: media-secret
-                    key: RADARR4k__AUTH__APIKEY
-                    expandObjectName: false
+                URL: http://radarr4k:7878/radarr4k
     persistence:
       config:
         size: 5Gi
