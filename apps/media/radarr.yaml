@@ -80,6 +80,11 @@ spec:
                     expandObjectName: false
             exportarr:
               env:
+                APIKEY:
+                  secretKeyRef:
+                    name: media-secret
+                    key: RADARR__AUTH__APIKEY
+                    expandObjectName: false
                 URL: http://radarr:7878/radarr
     persistence:
       config:

@@ -80,6 +80,11 @@ spec:
                     expandObjectName: false
             exportarr:
               env:
+                APIKEY:
+                  secretKeyRef:
+                    name: media-secret
+                    key: PROWLARR__AUTH__APIKEY
+                    expandObjectName: false
                 URL: http://prowlarr:9696/prowlarr
     persistence:
       config:

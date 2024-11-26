@@ -80,6 +80,11 @@ spec:
                     expandObjectName: false
             exportarr:
               env:
+                APIKEY:
+                  secretKeyRef:
+                    name: media-secret
+                    key: SONARR4k__AUTH__APIKEY
+                    expandObjectName: false
                 URL: http://sonarr4k:8989/sonarr4k
     persistence:
       config:
