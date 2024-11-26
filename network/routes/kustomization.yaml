@@ -12,4 +12,5 @@ resources:
   - portainer.yaml
   - qbittorrent.yaml
   - sabnzbd.yaml
+  - wallos.yaml
   - weave-gitops.yaml

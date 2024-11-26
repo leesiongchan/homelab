@@ -15,3 +15,15 @@ spec:
   interval: 1h
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/stable/homarr
+  values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                AUTH_PROVIDER: oidc
+                AUTH_OIDC_URI: 
+                AUTH_OIDC_CLIENT_SECRET: client_secret
+                AUTH_OIDC_CLIENT_ID: homarr
+                AUTH_OIDC_CLIENT_NAME: Authentik
