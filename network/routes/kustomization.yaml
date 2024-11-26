@@ -6,6 +6,7 @@ resources:
   - grafana.yaml
   - headlamp.yaml
   - homarr.yaml
+  - homebox.yaml
   - jellyfin.yaml
   - jellyseerr.yaml
   - jellystat.yaml
