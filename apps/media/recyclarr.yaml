@@ -24,8 +24,6 @@ spec:
               enabled: false
           containers:
             main:
-              env:
-                CRON_SCHEDULE: "* * * * *"
               envFrom:
                 - secretRef:
                     name: media-secret
