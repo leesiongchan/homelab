@@ -32,5 +32,3 @@ cluster-issuer -> databases -> apps -> terraform -> routes
 - [ ] oauth for weave, grafana, portainer
 - [ ] suggestarr (https://github.com/giuseppe99barchetta/SuggestArr)
 - [ ] omegabrr (https://github.com/autobrr/omegabrr)
-- [ ] jellystats
-- [ ] wallos
