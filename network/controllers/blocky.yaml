@@ -20,4 +20,5 @@ spec:
       dns:
         type: LoadBalancer
     k8sgateway:
-      domains: [o5s.lol]
+      domains:
+        - domain: o5s.lol
