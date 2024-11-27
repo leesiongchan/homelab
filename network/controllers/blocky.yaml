@@ -22,3 +22,5 @@ spec:
     k8sgateway:
       domains:
         - domain: o5s.lol
+          dnsChallange:
+            enabled: false
