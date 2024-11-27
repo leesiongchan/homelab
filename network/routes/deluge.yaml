@@ -14,4 +14,4 @@ spec:
             value: /
       backendRefs:
         - name: deluge
-          port: 10109
+          port: 8112
