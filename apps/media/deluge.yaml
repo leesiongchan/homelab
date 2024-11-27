@@ -20,9 +20,9 @@ spec:
       main:
         podSpec:
           initContainers:
-            init-deluge:
+            init-config:
               enabled: true
-              type: init
+              type: install
               imageSelector: k8s-tools-image
               command:
                 - sh
@@ -46,9 +46,8 @@ spec:
                     expandObjectName: false
                 VPN_PROV: pia
                 VPN_CLIENT: openvpn
-                ENABLE_STARTUP_SCRIPTS: "no"
+                LAN_NETWORK: 10.43.0.0/16
                 STRICT_PORT_FORWARD: "yes"
-                USERSPACE_WIREGUARD: "no"
     persistence:
       config:
         size: 5Gi
