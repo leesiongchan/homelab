@@ -35,6 +35,9 @@ spec:
                     expandObjectName: false
                 VPN_PROV: pia
                 VPN_CLIENT: openvpn
+                ENABLE_STARTUP_SCRIPTS: "no"
+                STRICT_PORT_FORWARD: "yes"
+                USERSPACE_WIREGUARD: "no"
     persistence:
       config:
         size: 5Gi
