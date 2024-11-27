@@ -3,6 +3,7 @@ kind: Kustomization
 resources:
   - arr.yaml
   - authentik.yaml
+  - deluge.yaml
   - grafana.yaml
   - headlamp.yaml
   - homarr.yaml

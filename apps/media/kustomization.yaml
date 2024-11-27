@@ -5,6 +5,8 @@ resources:
   - configs/media-secret.yaml
   - configs/pv.yaml
   - media-pg-cluster.yaml
+  # ---
+  - deluge.yaml
   - jellyfin.yaml
   - jellyseerr.yaml
   - jellystat.yaml
