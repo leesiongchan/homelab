@@ -12,7 +12,6 @@ resources:
   - jellystat.yaml
   - qbittorrent.yaml
   - sabnzbd.yaml
-  - transmission.yaml
   # arr stack
   - autobrr.yaml
   - bazarr.yaml
