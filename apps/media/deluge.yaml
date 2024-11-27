@@ -58,6 +58,10 @@ spec:
         type: pvc
         mountPath: /Media
         existingClaim: media-nfs
+    securityContext:
+      container:
+        capabilities:
+          add: [NET_ADMIN]
     image:
       repository: binhex/arch-delugevpn
       pullPolicy: IfNotPresent
