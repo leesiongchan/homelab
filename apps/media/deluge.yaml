@@ -53,6 +53,7 @@ spec:
       config:
         size: 5Gi
         storageClass: openebs-hostpath
+        targetSelectAll: true
       media:
         enabled: true
         type: pvc
