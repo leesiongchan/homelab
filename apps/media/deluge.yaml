@@ -62,6 +62,7 @@ spec:
       container:
         capabilities:
           add: [NET_ADMIN]
+        privileged: true
     image:
       repository: binhex/arch-delugevpn
       pullPolicy: IfNotPresent
