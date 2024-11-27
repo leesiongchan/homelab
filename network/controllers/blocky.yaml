@@ -16,11 +16,10 @@ spec:
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/premium/blocky
   values:
+    customDNS:
+      mapping:
+        - domain: o5s.lol
+          dnsserver: 192.168.0.241
     service:
       dns:
         type: LoadBalancer
-    k8sgateway:
-      domains:
-        - domain: o5s.lol
-          dnsChallenge:
-            enabled: false
