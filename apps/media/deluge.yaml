@@ -16,6 +16,25 @@ spec:
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/stable/deluge
   values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              env:
+                VPN_ENABLED: "yes"
+                VPN_USER:
+                  secretKeyRef:
+                    name: media-secret
+                    key: PIA__USERNAME
+                    expandObjectName: false
+                VPN_PASS:
+                  secretKeyRef:
+                    name: media-secret
+                    key: PIA__PASSWORD
+                    expandObjectName: false
+                VPN_PROV: pia
+                VPN_CLIENT: openvpn
     persistence:
       config:
         size: 5Gi
@@ -25,3 +44,7 @@ spec:
         type: pvc
         mountPath: /Media
         existingClaim: media-nfs
+    image:
+      repository: binhex/arch-delugevpn
+      pullPolicy: IfNotPresent
+      tag: 2.1.1-6-05
