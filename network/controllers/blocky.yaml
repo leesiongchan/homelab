@@ -19,7 +19,7 @@ spec:
     customDNS:
       mapping:
         - domain: o5s.lol
-          dnsserver: 192.168.0.220
+          dnsserver: 192.168.0.240
     service:
       dns:
         type: LoadBalancer
