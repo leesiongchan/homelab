@@ -19,6 +19,17 @@ spec:
     workload:
       main:
         podSpec:
+          initContainers:
+            init-deluge:
+              enabled: true
+              type: init
+              imageSelector: k8s-tools-image
+              command:
+                - sh
+                - -c
+                - mkdir -p /config/openvpn/ && curl -sLo openvpn.zip
+                  https://www.privateinternetaccess.com/openvpn/openvpn.zip && unzip
+                  openvpn.zip -o -d /config/openvpn/
           containers:
             main:
               env:
@@ -51,3 +62,7 @@ spec:
       repository: binhex/arch-delugevpn
       pullPolicy: IfNotPresent
       tag: 2.1.1-6-05
+    k8s-tools-image:
+      repository: kubesail/k8s-tools
+      pullPolicy: IfNotPresent
+      tag: v1
