@@ -58,7 +58,6 @@ spec:
         mountPath: /config/config.js
         subPath: config.js
         readOnly: true
-        targetSelectorAll: true
       qbittorrent-backup:
         enabled: true
         type: pvc
@@ -69,5 +68,3 @@ spec:
         type: pvc
         mountPath: /Media/Downloads/bt
         existingClaim: media-nfs
-
-    

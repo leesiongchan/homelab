@@ -36,12 +36,12 @@ spec:
             linkDir: "/Media/Downloads/bt/xseeds",
             linkType: "hardlink",
             outputDir: "/config",
-            qbittorrentUrl: "http://qbittorrent.media.svc.cluster.local",
-            radarr: ["http://radarr.media.svc.cluster.local/radarr?apikey={{ .RADARR_API_KEY }}"],
+            qbittorrentUrl: "http://qbittorrent.media.svc.cluster.local:10095",
+            radarr: ["http://radarr.media.svc.cluster.local:7878?apikey={{ .RADARR_API_KEY }}"],
             skipRecheck: true,
-            sonarr: ["http://sonarr.media.svc.cluster.local/sonarr?apikey={{ .SONARR_API_KEY }}"],
+            sonarr: ["http://sonarr.media.svc.cluster.local:8989?apikey={{ .SONARR_API_KEY }}"],
             torrentDir: "/config/qBittorrent/BT_backup",
-            torznab: ["http://prowlarr.media.svc.cluster.local:9696/prowlarr/api?apikey={{ .PROWLARR_API_KEY }}"],
+            torznab: ["http://prowlarr.media.svc.cluster.local:9696/api?apikey={{ .PROWLARR_API_KEY }}"],
           };
   refreshInterval: 1h
   secretStoreRef:
