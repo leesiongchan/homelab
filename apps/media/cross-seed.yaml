@@ -44,7 +44,12 @@ spec:
     persistence:
       config:
         enabled: true
-        type: emptyDir
+        size: 5Gi
+        storageClass: openebs-hostpath
+        targetSelector:
+          main:
+            main:
+              mountPath: /config
       config-file:
         enabled: true
         type: secret
