@@ -62,9 +62,11 @@ spec:
         enabled: true
         type: pvc
         mountPath: /config/qBittorrent/BT_backup
+        subPath: qBittorrent/BT_backup
         existingClaim: qbittorrent-config
       media-bt:
         enabled: true
         type: pvc
         mountPath: /Media/Downloads/bt
+        subPath: Downloads/bt
         existingClaim: media-nfs
