@@ -46,7 +46,6 @@ spec:
                     expandObjectName: false
                 VPN_PROV: pia
                 VPN_CLIENT: openvpn
-                LAN_NETWORK: 10.43.0.0/16
                 STRICT_PORT_FORWARD: "yes"
     persistence:
       config:
@@ -60,9 +59,10 @@ spec:
         existingClaim: media-nfs
     securityContext:
       container:
+        allowPrivilegeEscalation: true
+        privileged: true
         capabilities:
           add: [NET_ADMIN]
-        privileged: true
     image:
       repository: binhex/arch-delugevpn
       pullPolicy: IfNotPresent

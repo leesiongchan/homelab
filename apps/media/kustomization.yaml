@@ -6,6 +6,7 @@ resources:
   - configs/pv.yaml
   - media-pg-cluster.yaml
   # ---
+  - cross-seed.yaml
   - deluge.yaml
   - jellyfin.yaml
   - jellyseerr.yaml

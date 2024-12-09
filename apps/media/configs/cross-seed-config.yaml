@@ -1,0 +1,48 @@
+---
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/external-secrets.io/externalsecret_v1beta1.json
+apiVersion: external-secrets.io/v1beta1
+kind: ExternalSecret
+metadata:
+  name: cross-seed-config
+  namespace: media
+spec:
+  data:
+    - secretKey: CROSS_SEED_API_KEY
+      remoteRef:
+        key: cb298359-d993-493c-b6fd-b23900c6a7ed
+    - secretKey: PROWLARR_API_KEY
+      remoteRef:
+        key: a102c463-5673-4bd5-b6f6-b22000e8e5ea
+    - secretKey: RADARR_API_KEY
+      remoteRef:
+        key: f4a9a4b8-f09b-4b6f-9838-b22000c535ff
+    - secretKey: SONARR_API_KEY
+      remoteRef:
+        key: 31715aa4-aa79-49e7-bd98-b22000c51a4b
+  target:
+    name: cross-seed-config
+    template:
+      engineVersion: v2
+      data:
+        config.js: |
+          module.exports = {
+            action: "inject",
+            apiKey: "{{ .CROSS_SEED_API_KEY }}",
+            includeEpisodes: true,
+            includeNonVideos: true,
+            includeSingleEpisodes: true,
+            linkCategory: "xseed",
+            linkDir: "/Media/Downloads/bt/xseeds",
+            linkType: "hardlink",
+            outputDir: "/config",
+            qbittorrentUrl: "http://qbittorrent.media.svc.cluster.local",
+            radarr: ["http://radarr.media.svc.cluster.local/radarr?apikey={{ .RADARR_API_KEY }}"],
+            skipRecheck: true,
+            sonarr: ["http://sonarr.media.svc.cluster.local/sonarr?apikey={{ .SONARR_API_KEY }}"],
+            torrentDir: "/config/qBittorrent/BT_backup",
+            torznab: ["http://prowlarr.media.svc.cluster.local/prowlarr/api?apikey={{ .PROWLARR_API_KEY }}"],
+          };
+  refreshInterval: 1h
+  secretStoreRef:
+    kind: ClusterSecretStore
+    name: bitwarden-secret-store
