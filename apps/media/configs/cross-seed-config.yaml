@@ -33,7 +33,7 @@ spec:
             includeNonVideos: true,
             includeSingleEpisodes: true,
             linkCategory: "xseed",
-            linkDir: "/Media/Downloads/bt/xseeds",
+            linkDir: "/Media/Downloads/bt/complete/xseeds",
             linkType: "hardlink",
             outputDir: "/config",
             qbittorrentUrl: "http://qbittorrent.media.svc.cluster.local:10095",
