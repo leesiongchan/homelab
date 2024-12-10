@@ -29,8 +29,8 @@ spec:
                 - -c
                 - mkdir -p /config/openvpn/ && curl -sLo openvpn.zip
                   https://www.privateinternetaccess.com/openvpn/openvpn.zip && unzip
-                  openvpn.zip -o -d /tmp/openvpn/
-                  mv /tmp/openvpn/{china.ovpn,*.crt,*.pem} /config/openvpn/
+                  openvpn.zip -o -d /config/openvpn_backup/
+                  mv /config/openvpn_backup/{china.ovpn,*.crt,*.pem} /config/openvpn/
           containers:
             main:
               env:
