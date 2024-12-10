@@ -16,6 +16,14 @@ spec:
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/stable/jellyfin
   values:
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              resources:
+                limits:
+                  amd.com/gpu: 1
     persistence:
       config:
         size: 5Gi
