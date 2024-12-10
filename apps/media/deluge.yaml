@@ -25,12 +25,12 @@ spec:
               type: install
               imageSelector: k8s-tools-image
               command:
-                - sh
+                - bash
                 - -c
                 - mkdir -p /config/openvpn/ &&
                   curl -sLo openvpn.zip https://www.privateinternetaccess.com/openvpn/openvpn.zip &&
-                  unzip openvpn.zip -o -d /tmp/openvpn/ &&
-                  mv /tmp/openvpn/{china.ovpn,ca.rsa.2048.crt,crl.rsa.2048.pem} /config/openvpn/
+                  unzip -o openvpn.zip -d /tmp/openvpn/ &&
+                  mv /tmp/openvpn/{china.ovpn,*.crt,*.pem} /config/openvpn/
           containers:
             main:
               env:
