@@ -20,6 +20,7 @@ spec:
         configs:
           - from: 2024-04-01
             store: tsdb
+            object_store: s3
             schema: v13
             index:
               prefix: loki_index_
@@ -52,7 +53,7 @@ spec:
 
     # Enable minio for storage
     minio:
-      enabled: false
+      enabled: true
 
     # Zero out replica counts of other deployment modes
     singleBinary:
