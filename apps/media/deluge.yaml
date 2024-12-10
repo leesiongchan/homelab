@@ -33,7 +33,7 @@ spec:
           containers:
             main:
               env:
-                LAN_NETWORK: 192.168.0.1/24
+                LAN_NETWORK: 192.168.0.0/24
                 VPN_ENABLED: "yes"
                 VPN_USER:
                   secretKeyRef:
@@ -47,6 +47,7 @@ spec:
                     expandObjectName: false
                 VPN_PROV: pia
                 VPN_CLIENT: openvpn
+                VPN_OPTIONS: --config /config/openvpn/china.ovpn
                 STRICT_PORT_FORWARD: "yes"
     persistence:
       config:
