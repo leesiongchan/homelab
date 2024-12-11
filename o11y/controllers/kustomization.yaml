@@ -4,6 +4,7 @@ resources:
   - namespaces.yaml
   - grafana.yaml
   # - kube-prometheus-stack.yaml
-  - loki.yaml
+  # - loki.yaml
   - prometheus-operator.yaml
   - prometheus.yaml
+  - vector.yaml

@@ -29,7 +29,20 @@ cluster-issuer -> databases -> apps -> terraform -> routes
 
 ## TODOs:
 
-- [ ] oauth for weave, grafana, portainer
-- [ ] suggestarr (https://github.com/giuseppe99barchetta/SuggestArr)
-- [ ] omegabrr (https://github.com/autobrr/omegabrr)
-- [ ] Maybe (https://github.com/maybe-finance/maybe)
+- oauth for weave, grafana, portainer
+- suggestarr (https://github.com/giuseppe99barchetta/SuggestArr)
+- omegabrr (https://github.com/autobrr/omegabrr)
+- Maybe (https://github.com/maybe-finance/maybe)
+- Minio
+- Immich
+- xpipe
+- Home Assistant
+- huginn
+- rocket.chat
+- novu
+- logseq
+- Vector
+- changedetection
+- actual budget
+- borg
+- unbound
