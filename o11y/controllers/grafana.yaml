@@ -10,8 +10,20 @@ spec:
       chart: grafana
       sourceRef:
         kind: HelmRepository
-        name: truecharts
+        name: grafana
         namespace: flux-system
   interval: 1h
-  # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/premium/grafana
+  values:
+    datasources:
+      datasources.yaml:
+        apiVersion: 1
+        datasources:
+          - name: Prometheus
+            type: prometheus
+            uid: prometheus
+            access: proxy
+            url: http://prometheus-operated.o11y.svc.cluster.local:9090
+            jsonData:
+              timeInterval: 1m
+            isDefault: true
