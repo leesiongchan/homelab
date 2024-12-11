@@ -15,30 +15,112 @@ spec:
   interval: 1h
   # @ref https://github.com/prometheus-community/helm-charts/tree/main/charts/kube-prometheus-stack
   values:
-    cleanPrometheusOperatorObjectNames: true
-    # @ref https://github.com/grafana/helm-charts/tree/main/charts/grafana
-    grafana:
+    ## Manages Prometheus and Alertmanager components
+    ##
+    prometheusOperator:
       enabled: true
-      extraSecretMounts:
-        - name: generic-oauth-secret
-          mountPath: /etc/secrets/generic_oauth
-          readOnly: true
-          secretName: terraform-auth
-      grafana.ini:
-        auth:
-          signout_redirect_url: https://auth.o5s.lol/application/o/generic_oauth/end-session/
-        auth.generic_oauth:
-          enabled: true
-          name: authentik
-          # auto_login: true
-          client_id: $__file{/etc/secrets/generic_oauth/authentik_generic_oauth_client_id}
-          client_secret: $__file{/etc/secrets/generic_oauth/authentik_generic_oauth_client_secret}
-          scopes: openid profile email
-          api_url: https://auth.o5s.lol/application/o/userinfo/
-          auth_url: https://auth.o5s.lol/application/o/authorize/
-          token_url: http://authentik-server.auth.svc.cluster.local/application/o/token/
-          # Optionally map user groups to Grafana roles
-          role_attribute_path: 'Admin'
-          # role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
-        server:
-          root_url: https://o11y.o5s.lol
+
+    windowsMonitoring:
+      ## Deploys the windows-exporter and Windows-specific dashboards and rules (job name must be 'windows-exporter')
+      enabled: false
+
+    ## Configuration for prometheus-windows-exporter
+    ## ref: https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus-windows-exporter
+    ##
+    prometheus-windows-exporter:
+      ## Enable ServiceMonitor and set Kubernetes label to use as a job label
+      ##
+      prometheus:
+        monitor:
+          enabled: false
+
+    ## Using default values from https://github.com/grafana/helm-charts/blob/main/charts/grafana/values.yaml
+    ##
+    grafana:
+      enabled: false
+      forceDeployDashboards: false
+      defaultDashboardsEnabled: false
+
+    ## Flag to disable all the kubernetes component scrapers
+    ##
+    kubernetesServiceMonitors:
+      enabled: false
+
+    ## Component scraping the kube api server
+    ##
+    kubeApiServer:
+      enabled: false
+
+    ## Component scraping the kubelet and kubelet-hosted cAdvisor
+    ##
+    kubelet:
+      enabled: false
+
+    ## Component scraping the kube controller manager
+    ##
+    kubeControllerManager:
+      enabled: false
+
+    ## Component scraping coreDns. Use either this or kubeDns
+    ##
+    coreDns:
+      enabled: false
+
+    ## Component scraping kubeDns. Use either this or coreDns
+    ##
+    kubeDns:
+      enabled: false
+
+    ## Component scraping etcd
+    ##
+    kubeEtcd:
+      enabled: false
+
+    ## Component scraping kube scheduler
+    ##
+    kubeScheduler:
+      enabled: false
+
+    ## Component scraping kube proxy
+    ##
+    kubeProxy:
+      enabled: false
+
+    ## Component scraping kube state metrics
+    ##
+    kubeStateMetrics:
+      enabled: false
+
+    ## dontDeploy node exporter as a daemonset to all nodes
+    ##
+    nodeExporter:
+      enabled: false
+
+    cleanPrometheusOperatorObjectNames: true
+
+    # @ref https://github.com/grafana/helm-charts/tree/main/charts/grafana
+    # grafana:
+    #   enabled: false
+    #   extraSecretMounts:
+    #     - name: generic-oauth-secret
+    #       mountPath: /etc/secrets/generic_oauth
+    #       readOnly: true
+    #       secretName: terraform-auth
+    #   grafana.ini:
+    #     auth:
+    #       signout_redirect_url: https://auth.o5s.lol/application/o/generic_oauth/end-session/
+    #     auth.generic_oauth:
+    #       enabled: true
+    #       name: authentik
+    #       # auto_login: true
+    #       client_id: $__file{/etc/secrets/generic_oauth/authentik_generic_oauth_client_id}
+    #       client_secret: $__file{/etc/secrets/generic_oauth/authentik_generic_oauth_client_secret}
+    #       scopes: openid profile email
+    #       api_url: https://auth.o5s.lol/application/o/userinfo/
+    #       auth_url: https://auth.o5s.lol/application/o/authorize/
+    #       token_url: http://authentik-server.auth.svc.cluster.local/application/o/token/
+    #       # Optionally map user groups to Grafana roles
+    #       role_attribute_path: 'Admin'
+    #       # role_attribute_path: contains(groups, 'Grafana Admins') && 'Admin' || contains(groups, 'Grafana Editors') && 'Editor' || 'Viewer'
+    #     server:
+    #       root_url: https://o11y.o5s.lol
