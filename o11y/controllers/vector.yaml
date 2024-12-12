@@ -58,7 +58,7 @@ spec:
         prometheus:
           type: prometheus_exporter
           inputs: [host_metrics, internal_metrics]
-          address: prometheus-operated.o11y.svc.cluster.local:9090
+          address: 0.0.0.0:9090
         loki:
           type: loki
           inputs: [kubernetes_logs]
