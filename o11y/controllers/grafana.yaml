@@ -77,32 +77,22 @@ spec:
       kubernetes:
         k8s-system-api-server:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json
-          token: ''
         k8s-system-coredns:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-coredns.json
-          token: ''
         k8s-views-global:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-global.json
-          token: ''
         k8s-views-namespaces:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-namespaces.json
-          token: ''
         k8s-views-nodes:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-nodes.json
-          token: ''
         k8s-views-pods:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
-          token: ''
       media:
         media-arr:
           url: https://raw.githubusercontent.com/onedr0p/exportarr/refs/heads/master/examples/grafana/dashboard2.json
-          token: ''
-        media-radarr:
-          url: https://raw.githubusercontent.com/onedr0p/exportarr/refs/heads/master/examples/grafana/dashboard.json
       log:
         log-general:
           url: https://raw.githubusercontent.com/acaylor/grafana/main/dashboards/loki-dashboard.json
-          token: ''
     sidecar:
       dashboards:
         enabled: true

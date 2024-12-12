@@ -63,6 +63,8 @@ spec:
           type: loki
           inputs: [kubernetes_logs]
           endpoint: loki-headless.o11y.svc.cluster.local:3100
+          encoding:
+            codec: json
         stdout:
           type: console
           inputs: [kubernetes_logs]
