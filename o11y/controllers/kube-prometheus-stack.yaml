@@ -88,13 +88,13 @@ spec:
 
     ## Component scraping kube state metrics
     ##
-    kubeStateMetrics:
-      enabled: false
+    # kubeStateMetrics:
+    #   enabled: false
 
     ## dontDeploy node exporter as a daemonset to all nodes
     ##
-    nodeExporter:
-      enabled: false
+    # nodeExporter:
+    #   enabled: false
 
     cleanPrometheusOperatorObjectNames: true
 

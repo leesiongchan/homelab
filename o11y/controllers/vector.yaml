@@ -62,9 +62,11 @@ spec:
         loki:
           type: loki
           inputs: [kubernetes_logs]
-          address: loki-headless.o11y.svc.cluster.local:3100
+          endpoint: loki-headless.o11y.svc.cluster.local:3100
         stdout:
           type: console
           inputs: [kubernetes_logs]
           encoding:
             codec: json
+    podMonitor:
+      enabled: true
