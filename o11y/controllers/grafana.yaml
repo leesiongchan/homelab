@@ -49,16 +49,32 @@ spec:
       dashboardproviders.yaml:
         apiVersion: 1
         providers:
-          - name: 'grafana-dashboards-kubernetes'
+          - name: 'kubernetes'
             orgId: 1
             folder: 'Kubernetes'
             type: file
             disableDeletion: true
             editable: true
             options:
-              path: /var/lib/grafana/dashboards/grafana-dashboards-kubernetes
+              path: /var/lib/grafana/dashboards/kubernetes
+          - name: 'media'
+            orgId: 1
+            folder: 'Media'
+            type: file
+            disableDeletion: true
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/media
+          - name: 'log'
+            orgId: 1
+            folder: 'Log'
+            type: file
+            disableDeletion: true
+            editable: true
+            options:
+              path: /var/lib/grafana/dashboards/log
     dashboards:
-      grafana-dashboards-kubernetes:
+      kubernetes:
         k8s-system-api-server:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json
           token: ''
@@ -76,6 +92,16 @@ spec:
           token: ''
         k8s-views-pods:
           url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
+          token: ''
+      media:
+        media-arr:
+          url: https://raw.githubusercontent.com/onedr0p/exportarr/refs/heads/master/examples/grafana/dashboard2.json
+          token: ''
+        media-radarr:
+          url: https://raw.githubusercontent.com/onedr0p/exportarr/refs/heads/master/examples/grafana/dashboard.json
+      log:
+        log-general:
+          url: https://raw.githubusercontent.com/acaylor/grafana/main/dashboards/loki-dashboard.json
           token: ''
     sidecar:
       dashboards:

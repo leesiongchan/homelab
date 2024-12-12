@@ -34,3 +34,37 @@ spec:
   # @ref https://github.com/vectordotdev/helm-charts/tree/develop/charts/vector
   values:
     role: Agent
+    customConfig:
+      data_dir: /vector-data-dir
+      api:
+        enabled: true
+        address: 127.0.0.1:8686
+        playground: false
+      sources:
+        kubernetes_logs:
+          type: kubernetes_logs
+        host_metrics:
+          filesystem:
+            devices:
+              excludes: [binfmt_misc]
+            filesystems:
+              excludes: [binfmt_misc]
+            mountpoints:
+              excludes: ["*/proc/sys/fs/binfmt_misc"]
+          type: host_metrics
+        internal_metrics:
+          type: internal_metrics
+      sinks:
+        prometheus:
+          type: prometheus_exporter
+          inputs: [host_metrics, internal_metrics]
+          address: prometheus-operated.o11y.svc.cluster.local:9090
+        loki:
+          type: loki
+          inputs: [kubernetes_logs]
+          address: loki-headless.o11y.svc.cluster.local:3100
+        stdout:
+          type: console
+          inputs: [kubernetes_logs]
+          encoding:
+            codec: json
