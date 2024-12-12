@@ -50,7 +50,7 @@ spec:
         # storageClass: ceph-block
         size: 50Gi
     gateway:
-      replicas: 0
+      replicas: 1
     backend:
       replicas: 0
     read:
