@@ -43,48 +43,48 @@ spec:
 
     ## Flag to disable all the kubernetes component scrapers
     ##
-    kubernetesServiceMonitors:
-      enabled: false
+    # kubernetesServiceMonitors:
+    #   enabled: false
 
     ## Component scraping the kube api server
     ##
-    kubeApiServer:
-      enabled: false
+    # kubeApiServer:
+    #   enabled: false
 
     ## Component scraping the kubelet and kubelet-hosted cAdvisor
     ##
-    kubelet:
-      enabled: false
+    # kubelet:
+    #   enabled: false
 
     ## Component scraping the kube controller manager
     ##
-    kubeControllerManager:
-      enabled: false
+    # kubeControllerManager:
+    #   enabled: false
 
     ## Component scraping coreDns. Use either this or kubeDns
     ##
-    coreDns:
-      enabled: false
+    # coreDns:
+    #   enabled: false
 
     ## Component scraping kubeDns. Use either this or coreDns
     ##
-    kubeDns:
-      enabled: false
+    # kubeDns:
+    #   enabled: false
 
     ## Component scraping etcd
     ##
-    kubeEtcd:
-      enabled: false
+    # kubeEtcd:
+    #   enabled: false
 
     ## Component scraping kube scheduler
     ##
-    kubeScheduler:
-      enabled: false
+    # kubeScheduler:
+    #   enabled: false
 
     ## Component scraping kube proxy
     ##
-    kubeProxy:
-      enabled: false
+    # kubeProxy:
+    #   enabled: false
 
     ## Component scraping kube state metrics
     ##
