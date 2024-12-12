@@ -113,5 +113,10 @@ spec:
         searchNamespace: ALL
         provider:
           foldersFromFilesStructure: true
+      datasources:
+        enabled: true
+        label: grafana_datasources
+        labelValue: "1"
+        searchNamespace: ALL
     testFramework:
       enabled: false
