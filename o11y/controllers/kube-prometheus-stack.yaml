@@ -38,8 +38,8 @@ spec:
     ##
     grafana:
       enabled: false
-      forceDeployDashboards: false
-      defaultDashboardsEnabled: false
+      # forceDeployDashboards: false
+      # defaultDashboardsEnabled: false
 
     ## Flag to disable all the kubernetes component scrapers
     ##
