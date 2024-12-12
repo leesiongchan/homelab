@@ -65,6 +65,12 @@ spec:
           endpoint: loki-headless.o11y.svc.cluster.local:3100
           encoding:
             codec: json
+          labels:
+            job: "{{ source_type }}"
+            kubernetes_container_name: "{{ kubernetes.container_name }}"
+            kubernetes_pod_labels_app: "{{ kubernetes.pod_labels.app }}"
+            kubernetes_pod_namespace: "{{ kubernetes.pod_namespace }}"
+
         stdout:
           type: console
           inputs: [kubernetes_logs]
