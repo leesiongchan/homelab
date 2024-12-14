@@ -37,6 +37,9 @@ spec:
               image: image
               env:
                 PERMS: false
+                PGID: 568
+                PUID: 568
+                UMASK: "002"
               resources:
                 requests:
                   cpu: 10m
