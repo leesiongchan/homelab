@@ -46,15 +46,17 @@ spec:
                 limits:
                   cpu: "4"
                   memory: 8Gi
+              securityContext:
+                runAsNonRoot: false
     persistence:
-      # config:
-      #   enabled: true
-      #   size: 5Gi
-      #   storageClass: openebs-hostpath
-      #   targetSelector:
-      #     main:
-      #       main:
-      #         mountPath: /config
+      config:
+        enabled: true
+        size: 5Gi
+        storageClass: openebs-hostpath
+        targetSelector:
+          main:
+            main:
+              mountPath: /config
       media-nfs:
         enabled: true
         type: pvc
