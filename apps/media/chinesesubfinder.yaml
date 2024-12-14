@@ -24,11 +24,11 @@ spec:
       main:
         ports:
           main:
-           port: 19037
-           targetPort: 19037
-          web:
-            port: 19035
-            targetPort: 19035
+           port: 19035
+           targetPort: 19035
+          media:
+            port: 19037
+            targetPort: 19037
     workload:
       main:
         podSpec:
@@ -47,14 +47,14 @@ spec:
                   cpu: "4"
                   memory: 8Gi
     persistence:
-      config:
-        enabled: true
-        size: 5Gi
-        storageClass: openebs-hostpath
-        targetSelector:
-          main:
-            main:
-              mountPath: /config
+      # config:
+      #   enabled: true
+      #   size: 5Gi
+      #   storageClass: openebs-hostpath
+      #   targetSelector:
+      #     main:
+      #       main:
+      #         mountPath: /config
       media-nfs:
         enabled: true
         type: pvc
