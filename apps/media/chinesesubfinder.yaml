@@ -20,9 +20,9 @@ spec:
   # @ref https://github.com/truecharts/public/tree/master/charts/premium/app-template
   values:
     image:
-      repository: ChineseSubFinder/ChineseSubFinder
+      repository: allanpk716/chinesesubfinder
       pullPolicy: IfNotPresent
-      tag: latest
+      tag: v0.55.3
     service:
       main:
         ports:
