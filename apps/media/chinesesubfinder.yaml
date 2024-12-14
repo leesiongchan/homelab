@@ -41,9 +41,11 @@ spec:
                 PUID: 568
               resources:
                 requests:
-                  cpu: 20m
+                  cpu: 10m
+                  memory: 50Mi
                 limits:
-                  memory: 1024Mi
+                  cpu: "4"
+                  memory: 8Gi
     persistence:
       config:
         enabled: true
@@ -53,7 +55,7 @@ spec:
           main:
             main:
               mountPath: /config
-      media:
+      media-nfs:
         enabled: true
         type: pvc
         mountPath: /Media
