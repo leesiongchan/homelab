@@ -7,6 +7,7 @@ resources:
   - configs/pv.yaml
   - media-pg-cluster.yaml
   # ---
+  - chinese-subfinder.yaml
   - cross-seed.yaml
   - deluge.yaml
   - jellyfin.yaml

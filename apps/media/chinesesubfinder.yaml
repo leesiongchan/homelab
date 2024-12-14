@@ -1,0 +1,59 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: cross-seed
+  namespace: media
+spec:
+  chart:
+    spec:
+      chart: app-template
+      sourceRef:
+        kind: HelmRepository
+        name: truecharts
+        namespace: flux-system
+  dependsOn:
+    - name: qbittorrent
+      namespace: media
+  interval: 1h
+  # @ref https://github.com/truecharts/public/blob/master/charts/library/common
+  # @ref https://github.com/truecharts/public/tree/master/charts/premium/app-template
+  values:
+    image:
+      repository: ChineseSubFinder/ChineseSubFinder
+      pullPolicy: IfNotPresent
+      tag: latest
+    service:
+      main:
+        ports:
+          main:
+           port: 19037
+           targetPort: 19037
+          web:
+            port: 19035
+            targetPort: 19035
+    workload:
+      main:
+        podSpec:
+          containers:
+            main:
+              image: image
+              resources:
+                requests:
+                  cpu: 10m
+                limits:
+                  memory: 512Mi
+    persistence:
+      config:
+        enabled: true
+        size: 5Gi
+        storageClass: openebs-hostpath
+        targetSelector:
+          main:
+            main:
+              mountPath: /config
+      media:
+        enabled: true
+        type: pvc
+        mountPath: /Media
+        existingClaim: media-nfs
