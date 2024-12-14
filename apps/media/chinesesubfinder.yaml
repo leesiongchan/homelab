@@ -12,9 +12,6 @@ spec:
         kind: HelmRepository
         name: truecharts
         namespace: flux-system
-  dependsOn:
-    - name: qbittorrent
-      namespace: media
   interval: 1h
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/premium/app-template
@@ -38,6 +35,8 @@ spec:
           containers:
             main:
               image: image
+              env:
+                PERMS: false
               resources:
                 requests:
                   cpu: 10m
