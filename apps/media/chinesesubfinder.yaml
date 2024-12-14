@@ -38,7 +38,7 @@ spec:
               env:
                 PERMS: false
                 # PGID: 568
-                PUID: 568
+                # PUID: 568
               resources:
                 requests:
                   cpu: 10m
