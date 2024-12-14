@@ -38,13 +38,11 @@ spec:
               env:
                 PERMS: false
                 PGID: 568
-                PUID: 568
-                UMASK: "002"
               resources:
                 requests:
-                  cpu: 10m
+                  cpu: 20m
                 limits:
-                  memory: 512Mi
+                  memory: 1024Mi
     persistence:
       config:
         enabled: true
