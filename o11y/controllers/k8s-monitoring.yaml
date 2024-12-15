@@ -1,0 +1,54 @@
+# yaml-language-server: $schema=https://kubernetes-schemas.pages.dev/helm.toolkit.fluxcd.io/helmrelease_v2.json
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: k8s-monitoring
+  namespace: o11y
+spec:
+  chart:
+    spec:
+      chart: k8s-monitoring
+      sourceRef:
+        kind: HelmRepository
+        name: grafana
+        namespace: flux-system
+  interval: 1h
+  # @ref https://github.com/grafana/k8s-monitoring-helm/tree/main/charts/k8s-monitoring
+  values:
+    cluster:
+      name: "k8s-monitoring"
+
+    destinations:
+      - name: "loki"
+        type: "loki"
+        config:
+          url: "http://loki-headless.o11y.svc.cluster.local:3100"
+          username: "admin"
+          password: "testadmin"
+
+    destinations:
+      - name: prometheus
+        type: prometheus
+        url: http://prometheus-server.o11y.svc.cluster.local
+      - name: loki
+        type: loki
+        url: http://loki-headless.o11y.svc.cluster.local:3100
+      # - name: otlpGateway
+      #   type: otlp
+      #   url: https://otlp.o11y.svc.cluster.local:4317/v1/traces
+      #   auth:
+      #     type: basic
+      #     username: "my-username"
+      #     password: "my-password"
+      #   metrics: { enabled: true }
+      #   logs:    { enabled: true }
+      #   traces:  { enabled: true }
+
+    clusterMetrics:
+      enabled: true
+
+    clusterEvents:
+      enabled: true
+
+    podLogs:
+      enabled: true
