@@ -27,7 +27,7 @@ spec:
             type: prometheus
             uid: prometheus
             access: proxy
-            url: http://prometheus-operated.o11y.svc.cluster.local:9090
+            url: http://prometheus-server.o11y.svc.cluster.local
             jsonData:
               timeInterval: 1m
             isDefault: true
