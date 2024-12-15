@@ -81,7 +81,7 @@ spec:
     persistence:
       config:
         enabled: true
-        hostPath: /app/config
+        mountPath: /app/config
         sizze: 5Gi
     # persistence:
     #   config:
