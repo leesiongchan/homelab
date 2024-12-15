@@ -81,6 +81,7 @@ spec:
     persistence:
       config:
         enabled: true
+        type: emptyDir
         mountPath: /app/config
         sizze: 5Gi
     # persistence:
