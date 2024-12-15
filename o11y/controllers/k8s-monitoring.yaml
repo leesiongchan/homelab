@@ -19,14 +19,6 @@ spec:
       name: "k8s-monitoring"
 
     destinations:
-      - name: "loki"
-        type: "loki"
-        config:
-          url: "http://loki-headless.o11y.svc.cluster.local:3100"
-          username: "admin"
-          password: "testadmin"
-
-    destinations:
       - name: prometheus
         type: prometheus
         url: http://prometheus-server.o11y.svc.cluster.local
