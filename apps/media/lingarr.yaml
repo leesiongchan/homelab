@@ -64,13 +64,13 @@ spec:
           containers:
             main:
               imageSelector: image
-              env:
-                DB_CONNECTION: mysql
-                DB_HOST: *dbHost
-                DB_PORT: *dbPort
-                DB_DATABASE: *dbName
-                DB_USERNAME: *dbUser
-                DB_PASSWORD: *dbPassword
+              # env:
+              #   DB_CONNECTION: mysql
+              #   DB_HOST: *dbHost
+              #   DB_PORT: *dbPort
+              #   DB_DATABASE: *dbName
+              #   DB_USERNAME: *dbUser
+              #   DB_PASSWORD: *dbPassword
               resources:
                 requests:
                   cpu: 10m
