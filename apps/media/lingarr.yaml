@@ -78,6 +78,11 @@ spec:
                 limits:
                   cpu: "4"
                   memory: 8Gi
+    persistence:
+      config:
+        enabled: true
+        hostPath: /app/config
+        sizze: 5Gi
     # persistence:
     #   config:
     #     enabled: true
