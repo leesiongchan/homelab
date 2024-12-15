@@ -19,6 +19,9 @@ spec:
     cluster:
       name: "k8s-monitoring"
 
+    #
+    # Destinations
+    #
     destinations:
       - name: prometheus
         type: prometheus
@@ -44,8 +47,24 @@ spec:
       enabled: true
     clusterEvents:
       enabled: true
+    nodeLogs:
+      enabled: true
     podLogs:
       enabled: true
+    # applicationObservability:
+    #   enabled: true
+    # autoInstrumentation:
+    #   enabled: true
+    # annotationAutodiscovery:
+    #   enabled: true
+    # prometheusOperatorObjects:
+    #   enabled: true
+    # profiling:
+    #   enabled: true
+    # integrations:
+    #   enabled: true
+    # selfReporting:
+    #   enabled: true
 
     #
     # Collectors (Alloy instances)
