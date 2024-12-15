@@ -46,8 +46,8 @@ spec:
 
     alloy-metrics:
       enabled: true
-    # alloy-singleton:
-    #   enabled: true
+    alloy-singleton:
+      enabled: true
     # alloy-logs:
     #   enabled: true
     # alloy-receiver:
