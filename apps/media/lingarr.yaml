@@ -20,10 +20,10 @@ spec:
       repository: lingarr/lingarr
       pullPolicy: IfNotPresent
       tag: latest
-    postgress-init-image:
-      repository: ghcr.io/onedr0p/postgres-init
-      tag: "16"
-      pullPolicy: IfNotPresent
+    # postgress-init-image:
+    #   repository: ghcr.io/onedr0p/postgres-init
+    #   tag: "16"
+    #   pullPolicy: IfNotPresent
     service:
       main:
         ports:
@@ -78,22 +78,22 @@ spec:
                 limits:
                   cpu: "4"
                   memory: 8Gi
-    persistence:
-      config:
-        enabled: true
-        type: pvc
-        size: 5Gi
-        mountPath: /app/config
-        storageClass: openebs-hostpath
-      media-movies:
-        enabled: true
-        type: pvc
-        mountPath: /Media/Movies
-        subPath: Movies
-        existingClaim: media-nfs
-      media-shows:
-        enabled: true
-        type: pvc
-        mountPath: /Media/Shows
-        subPath: Shows
-        existingClaim: media-nfs
+    # persistence:
+    #   config:
+    #     enabled: true
+    #     type: pvc
+    #     size: 5Gi
+    #     mountPath: /app/config
+    #     storageClass: openebs-hostpath
+    #   media-movies:
+    #     enabled: true
+    #     type: pvc
+    #     mountPath: /Media/Movies
+    #     subPath: Movies
+    #     existingClaim: media-nfs
+    #   media-shows:
+    #     enabled: true
+    #     type: pvc
+    #     mountPath: /Media/Shows
+    #     subPath: Shows
+    #     existingClaim: media-nfs
