@@ -37,6 +37,9 @@ spec:
       #   logs:    { enabled: true }
       #   traces:  { enabled: true }
 
+    #
+    # Features
+    #
     clusterMetrics:
       enabled: true
     clusterEvents:
@@ -44,12 +47,15 @@ spec:
     podLogs:
       enabled: true
 
+    #
+    # Collectors (Alloy instances)
+    #
     alloy-metrics:
       enabled: true
     alloy-singleton:
       enabled: true
-    # alloy-logs:
-    #   enabled: true
+    alloy-logs:
+      enabled: true
     # alloy-receiver:
     #   enabled: true
     # alloy-profiles:
