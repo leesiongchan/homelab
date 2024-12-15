@@ -33,34 +33,34 @@ spec:
     workload:
       main:
         podSpec:
-          initContainers:
-            init-db:
-              enabled: true
-              type: init
-              imageSelector: postgress-init-image
-              env:
-                INIT_POSTGRES_HOST: &dbHost media-pg-cluster-rw.media.svc.cluster.local
-                INIT_POSTGRES_PORT: &dbPort
-                  secretKeyRef:
-                    name: media-pg-cluster-app
-                    key: port
-                    expandObjectName: false
-                INIT_POSTGRES_DBNAME: &dbName lingarr
-                INIT_POSTGRES_USER: &dbUser
-                  secretKeyRef:
-                    name: media-pg-cluster-app
-                    key: username
-                    expandObjectName: false
-                INIT_POSTGRES_PASS: &dbPassword
-                  secretKeyRef:
-                    name: media-pg-cluster-app
-                    key: password
-                    expandObjectName: false
-                INIT_POSTGRES_SUPER_PASS:
-                  secretKeyRef:
-                    name: media-pg-cluster-superuser
-                    key: password
-                    expandObjectName: false
+          # initContainers:
+          #   init-db:
+          #     enabled: true
+          #     type: init
+          #     imageSelector: postgress-init-image
+          #     env:
+          #       INIT_POSTGRES_HOST: &dbHost media-pg-cluster-rw.media.svc.cluster.local
+          #       INIT_POSTGRES_PORT: &dbPort
+          #         secretKeyRef:
+          #           name: media-pg-cluster-app
+          #           key: port
+          #           expandObjectName: false
+          #       INIT_POSTGRES_DBNAME: &dbName lingarr
+          #       INIT_POSTGRES_USER: &dbUser
+          #         secretKeyRef:
+          #           name: media-pg-cluster-app
+          #           key: username
+          #           expandObjectName: false
+          #       INIT_POSTGRES_PASS: &dbPassword
+          #         secretKeyRef:
+          #           name: media-pg-cluster-app
+          #           key: password
+          #           expandObjectName: false
+          #       INIT_POSTGRES_SUPER_PASS:
+          #         secretKeyRef:
+          #           name: media-pg-cluster-superuser
+          #           key: password
+          #           expandObjectName: false
           containers:
             main:
               imageSelector: image
@@ -88,12 +88,12 @@ spec:
       media-movies:
         enabled: true
         type: pvc
-        mountPath: /movies
-        subPath: Media/Movies
+        mountPath: /Media/Movies
+        subPath: Movies
         existingClaim: media-nfs
       media-shows:
         enabled: true
         type: pvc
-        mountPath: /tv
-        subPath: Media/Shows
+        mountPath: /Media/Shows
+        subPath: Shows
         existingClaim: media-nfs
