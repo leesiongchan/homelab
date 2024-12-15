@@ -66,7 +66,7 @@ spec:
           encoding:
             codec: json
           labels:
-            job: vector
+            "pod_labels_*" = "{{ kubernetes.pod_labels }}"
         stdout:
           type: console
           inputs: [kubernetes_logs]
