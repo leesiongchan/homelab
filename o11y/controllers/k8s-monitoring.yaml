@@ -12,6 +12,7 @@ spec:
         kind: HelmRepository
         name: grafana
         namespace: flux-system
+      version: 2.0.0-rc.9
   interval: 1h
   # @ref https://github.com/grafana/k8s-monitoring-helm/tree/main/charts/k8s-monitoring
   values:
@@ -38,9 +39,18 @@ spec:
 
     clusterMetrics:
       enabled: true
-
     clusterEvents:
       enabled: true
-
     podLogs:
+      enabled: true
+
+    alloy-metrics:
+      enabled: true
+    alloy-singleton:
+      enabled: true
+    alloy-logs:
+      enabled: true
+    alloy-receiver:
+      enabled: true
+    alloy-profiles:
       enabled: true
