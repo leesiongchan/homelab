@@ -23,6 +23,12 @@ spec:
           port: 6767
     - matches:
         - path:
+            value: /lingarr
+      backendRefs:
+        - name: lingarr
+          port: 9876
+    - matches:
+        - path:
             value: /posterr
       backendRefs:
         - name: posterr
