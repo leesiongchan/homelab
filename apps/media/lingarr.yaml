@@ -80,7 +80,10 @@ spec:
                   memory: 8Gi
     persistence:
       config:
+        enabled: true
+        type: pvc
         size: 5Gi
+        mountPath: /config
         storageClass: openebs-hostpath
       media:
         enabled: true
