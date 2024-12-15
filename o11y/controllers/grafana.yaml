@@ -15,6 +15,8 @@ spec:
   interval: 1h
   # @ref https://github.com/grafana/helm-charts/tree/main/charts/grafana
   values:
+    adminUser: admin
+    adminPassword: testadmin
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -42,7 +44,7 @@ spec:
             type: alertmanager
             uid: alertmanager
             access: proxy
-            url: http://alertmanager-operated.o11y.svc.cluster.local:9093
+            url: http://prometheus-alertmanager.o11y.svc.cluster.local:9093
             jsonData:
               implementation: prometheus
     dashboardProviders:

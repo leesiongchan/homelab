@@ -19,3 +19,7 @@ spec:
       - job_name: 'vector'
         static_configs:
           - targets: ['vector-agent.o11y.svc.cluster.local:9090']
+    kube-state-metrics:
+      enabled: false
+    prometheus-node-exporter:
+      enabled: false

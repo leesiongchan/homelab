@@ -56,13 +56,13 @@ spec:
           type: internal_metrics
       sinks:
         prometheus:
-          type: prometheus_remote_write
+          type: prometheus_exporter
           inputs: [host_metrics, internal_metrics]
-          endpoint: http://prometheus-server.o11y.svc.cluster.local/api/v1/write
+          address: 0.0.0.0:9090
         loki:
           type: loki
           inputs: [kubernetes_logs]
-          endpoint: http://loki-headless.o11y.svc.cluster.local:3100
+          endpoint: http://loki-headless.o11y.svc.cluster.local:3100/loki/v1/push
           encoding:
             codec: json
           labels:
