@@ -3,8 +3,8 @@ kind: Kustomization
 resources:
   - namespaces.yaml
   - grafana.yaml
-  - kube-prometheus-stack.yaml
+  # - kube-prometheus-stack.yaml
   - loki.yaml
   # - prometheus-operator.yaml
-  # - prometheus.yaml
+  - prometheus.yaml
   - vector.yaml

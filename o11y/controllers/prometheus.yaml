@@ -10,8 +10,12 @@ spec:
       chart: prometheus
       sourceRef:
         kind: HelmRepository
-        name: truecharts
+        name: prometheus-community
         namespace: flux-system
   interval: 1h
-  # @ref https://github.com/truecharts/public/blob/master/charts/library/common
-  # @ref https://github.com/truecharts/public/tree/master/charts/premium/prometheus
+  # @ref https://github.com/prometheus-community/helm-charts/tree/main/charts/prometheus
+  values:
+    extraScrapeConfigs: |
+      - job_name: 'vector'
+        static_configs:
+          - targets: ['vector-agent.o11y.svc.cluster.local:9090']
