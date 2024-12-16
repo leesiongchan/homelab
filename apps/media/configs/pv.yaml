@@ -12,7 +12,7 @@ spec:
   csi:
     driver: nfs.csi.k8s.io
     volumeAttributes:
-      server: localhost
+      server: 192.168.0.200
       share: /export/stevejobs
       subDir: /Media
     volumeHandle: media-nfs.media.svc.cluster.local##/export/stevejobs
@@ -30,6 +30,6 @@ spec:
   accessModes: [ReadOnlyMany, ReadWriteMany]
   resources:
     requests:
-      storage: 2Ti
+      storage: 8Ti
   storageClassName: csi-driver-nfs
   volumeName: media-nfs
