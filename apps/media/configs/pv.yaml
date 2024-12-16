@@ -13,10 +13,10 @@ spec:
     driver: nfs.csi.k8s.io
     volumeAttributes:
       server: 192.168.0.200
-      share: /export/stevejobs
+      share: /volume1/stevejobs
       subDir: /Media
     volumeHandle: media-nfs.media.svc.cluster.local##/export/stevejobs
-  mountOptions: [nfsvers=4.2]
+  mountOptions: [nfsvers=4.1]
   persistentVolumeReclaimPolicy: Retain
   storageClassName: csi-driver-nfs
 
