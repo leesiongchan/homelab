@@ -8,7 +8,7 @@ metadata:
 spec:
   accessModes: [ReadOnlyMany, ReadWriteMany]
   capacity:
-    storage: 2Ti
+    storage: 8Ti
   csi:
     driver: nfs.csi.k8s.io
     volumeAttributes:
