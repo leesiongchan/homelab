@@ -15,7 +15,7 @@ spec:
       server: 192.168.0.200
       share: /volume1/stevejobs
       subDir: /Media
-    volumeHandle: media-nfs.media.svc.cluster.local##/export/stevejobs
+    volumeHandle: 192.168.0.200#/Media#/volume1/stevejobs
   mountOptions: [nfsvers=4.1]
   persistentVolumeReclaimPolicy: Retain
   storageClassName: csi-driver-nfs
