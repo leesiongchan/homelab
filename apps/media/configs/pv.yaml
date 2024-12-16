@@ -14,8 +14,8 @@ spec:
     volumeAttributes:
       server: 192.168.0.200
       share: /volume1/stevejobs
-      subDir: /Media
-    volumeHandle: 192.168.0.200#/Media#/volume1/stevejobs
+      subDir: Media
+    volumeHandle: 192.168.0.200#Media#/volume1/stevejobs
   mountOptions: [nfsvers=4.1]
   persistentVolumeReclaimPolicy: Retain
   storageClassName: csi-driver-nfs
