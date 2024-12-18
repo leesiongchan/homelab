@@ -28,7 +28,7 @@ spec:
         url: http://prometheus-server.o11y.svc.cluster.local
       - name: loki
         type: loki
-        url: http://loki.o11y.svc.cluster.local:3100
+        url: http://loki.o11y.svc.cluster.local:3100/loki/api/v1/push
       # - name: otlpGateway
       #   type: otlp
       #   url: https://otlp.o11y.svc.cluster.local:4317/v1/traces
