@@ -44,10 +44,13 @@ spec:
             torznab: [
               "http://prowlarr.media.svc.cluster.local:9696/prowlarr/1/api?apikey={{ .PROWLARR_API_KEY }}",
               "http://prowlarr.media.svc.cluster.local:9696/prowlarr/3/api?apikey={{ .PROWLARR_API_KEY }}",
-              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/5/api?apikey={{ .PROWLARR_API_KEY }}",
-              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/8/api?apikey={{ .PROWLARR_API_KEY }}",
               "http://prowlarr.media.svc.cluster.local:9696/prowlarr/9/api?apikey={{ .PROWLARR_API_KEY }}",
               "http://prowlarr.media.svc.cluster.local:9696/prowlarr/10/api?apikey={{ .PROWLARR_API_KEY }}",
+              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/11/api?apikey={{ .PROWLARR_API_KEY }}",
+              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/12/api?apikey={{ .PROWLARR_API_KEY }}",
+              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/13/api?apikey={{ .PROWLARR_API_KEY }}",
+              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/14/api?apikey={{ .PROWLARR_API_KEY }}",
+              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/15/api?apikey={{ .PROWLARR_API_KEY }}",
             ],
           };
   refreshInterval: 1h

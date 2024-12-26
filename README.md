@@ -21,12 +21,6 @@ $ sh ./scripts/reset-cluster.sh
 
 More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/master/pkgs/applications/networking/cluster/k3s/docs/CLUSTER_UPKEEP.md) section.
 
-## Reconcile order
-
-namespaces -> sources -> tf-controller -> secrets -> external-secrets -> bitwarden-secret-store -> secrets-externals ->
-reflector -> openebs -> cloudnative-pg -> kube-prometheus-stack -> cert-manager ->
-cluster-issuer -> databases -> apps -> terraform -> routes
-
 ## TODOs:
 
 - oauth for weave, grafana, portainer
