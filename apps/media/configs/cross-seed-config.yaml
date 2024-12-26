@@ -51,6 +51,7 @@ spec:
               "http://prowlarr.media.svc.cluster.local:9696/prowlarr/13/api?apikey={{ .PROWLARR_API_KEY }}",
               "http://prowlarr.media.svc.cluster.local:9696/prowlarr/14/api?apikey={{ .PROWLARR_API_KEY }}",
               "http://prowlarr.media.svc.cluster.local:9696/prowlarr/15/api?apikey={{ .PROWLARR_API_KEY }}",
+              "http://prowlarr.media.svc.cluster.local:9696/prowlarr/16/api?apikey={{ .PROWLARR_API_KEY }}",
             ],
           };
   refreshInterval: 1h
