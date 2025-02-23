@@ -38,6 +38,12 @@ spec:
       config:
         size: 5Gi
         storageClass: openebs-hostpath
+      downloads:
+        enabled: true
+        type: pvc
+        size: 50Gi
+        mountPath: /downloads
+        storageClass: openebs-hostpath
       media:
         enabled: true
         type: pvc
