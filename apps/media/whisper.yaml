@@ -45,6 +45,6 @@ spec:
     persistence:
       cache:
         enabled: true
-        mountPath: /root/.cache
+        mountPath: /.cache
         size: 5Gi
         storageClass: openebs-hostpath
