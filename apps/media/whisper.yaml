@@ -48,3 +48,8 @@ spec:
         mountPath: /.cache
         size: 5Gi
         storageClass: openebs-hostpath
+      config:
+        enabled: true
+        mountPath: /.config
+        size: 5Gi
+        storageClass: openebs-hostpath
