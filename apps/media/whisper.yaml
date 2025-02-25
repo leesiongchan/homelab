@@ -43,7 +43,8 @@ spec:
                   cpu: 4
                   memory: 8Gi
     persistence:
-      config:
+      cache:
         enabled: true
+        mountPath: /root/.cache
         size: 5Gi
         storageClass: openebs-hostpath
