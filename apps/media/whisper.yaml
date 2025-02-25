@@ -37,8 +37,8 @@ spec:
                 ASR_MODEL: small 
               resources:
                 requests:
-                  cpu: 10m
-                  memory: 50Mi
+                  cpu: 2
+                  memory: 1Gi
                 limits:
                   cpu: 4
                   memory: 8Gi
