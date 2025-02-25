@@ -12,6 +12,9 @@ spec:
         kind: HelmRepository
         name: csi-driver-nfs
         namespace: flux-system
-      version: v4.8.0
+      version: v4.9.0
   interval: 1h
+  upgrade:
+    remediation:
+      retries: 3
   # @ref https://github.com/kubernetes-csi/csi-driver-nfs/tree/master/charts
