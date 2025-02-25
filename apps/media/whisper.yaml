@@ -15,15 +15,15 @@ spec:
   interval: 1h
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/premium/app-template
-  values:
-    workload:
-      main:
-        podSpec:
-          containers:
-            main:
-              env:
-                ASR_MODEL: small
-                # ASR_ENGINE: whisperx
+  # values:
+  #   workload:
+  #     main:
+  #       podSpec:
+  #         containers:
+  #           main:
+  #             env:
+  #               ASR_MODEL: small
+  #               # ASR_ENGINE: whisperx
   # values:
   #   image:
   #     repository: onerahmet/openai-whisper-asr-webservice
