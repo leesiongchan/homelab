@@ -7,7 +7,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: app-template
+      chart: whisper-asr-webservice
       sourceRef:
         kind: HelmRepository
         name: truecharts
@@ -16,40 +16,49 @@ spec:
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/premium/app-template
   values:
-    image:
-      repository: onerahmet/openai-whisper-asr-webservice
-      pullPolicy: IfNotPresent
-      tag: latest
-    service:
-      main:
-        ports:
-          main:
-           port: 9000
-           targetPort: 9000
     workload:
       main:
         podSpec:
           containers:
             main:
-              imageSelector: image
               env:
+                ASR_MODEL: small
                 ASR_ENGINE: whisperx
-                ASR_MODEL: small 
-              resources:
-                requests:
-                  cpu: 2
-                  memory: 1Gi
-                limits:
-                  cpu: 4
-                  memory: 8Gi
-    persistence:
-      cache:
-        enabled: true
-        mountPath: /.cache
-        size: 5Gi
-        storageClass: openebs-hostpath
-      config:
-        enabled: true
-        mountPath: /.config
-        size: 5Gi
-        storageClass: openebs-hostpath
+  # values:
+  #   image:
+  #     repository: onerahmet/openai-whisper-asr-webservice
+  #     pullPolicy: IfNotPresent
+  #     tag: latest
+  #   service:
+  #     main:
+  #       ports:
+  #         main:
+  #          port: 9000
+  #          targetPort: 9000
+  #   workload:
+  #     main:
+  #       podSpec:
+  #         containers:
+  #           main:
+  #             imageSelector: image
+  #             env:
+  #               ASR_ENGINE: whisperx
+  #               ASR_MODEL: small 
+  #             resources:
+  #               requests:
+  #                 cpu: 2
+  #                 memory: 4Gi
+  #               limits:
+  #                 cpu: 4
+  #                 memory: 8Gi
+  #   persistence:
+  #     cache:
+  #       enabled: true
+  #       mountPath: /.cache
+  #       size: 5Gi
+  #       storageClass: openebs-hostpath
+  #     config:
+  #       enabled: true
+  #       mountPath: /.config
+  #       size: 5Gi
+  #       storageClass: openebs-hostpath
