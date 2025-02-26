@@ -15,15 +15,20 @@ spec:
   interval: 1h
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/premium/app-template
+  # @ref https://github.com/truecharts/public/blob/master/charts/stable/whisper-asr-webservice/values.yaml
   values:
     workload:
       main:
         podSpec:
           containers:
             main:
+              imageSelector: gpuimage
               env:
                 ASR_MODEL: small
                 # ASR_ENGINE: whisperx
+              resources:
+                limits:
+                  amd.com/gpu: 1
   # values:
   #   image:
   #     repository: onerahmet/openai-whisper-asr-webservice
