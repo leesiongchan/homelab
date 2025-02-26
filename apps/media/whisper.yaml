@@ -22,7 +22,7 @@ spec:
         podSpec:
           containers:
             main:
-              imageSelector: gpuimage
+              imageSelector: gpuImage
               env:
                 ASR_MODEL: small
                 # ASR_ENGINE: whisperx
