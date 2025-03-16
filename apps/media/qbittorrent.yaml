@@ -16,6 +16,11 @@ spec:
   # @ref https://github.com/truecharts/public/blob/master/charts/library/common
   # @ref https://github.com/truecharts/public/tree/master/charts/stable/qbittorrent
   values:
+    service:
+      torrent:
+        ports:
+          torrent:
+            port: 56881
     qbitportforward:
       enabled: true
     persistence:

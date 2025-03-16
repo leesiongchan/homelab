@@ -41,3 +41,5 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 - borg
 - unbound
 - janitorr
+- unpackerr
+- Frigate 
