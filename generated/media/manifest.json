@@ -1,0 +1,4 @@
+{
+    "apps-v1.Deployment-unpackerr.yaml": "environments/media/main.jsonnet",
+    "v1.Service-unpackerr.yaml": "environments/media/main.jsonnet"
+}

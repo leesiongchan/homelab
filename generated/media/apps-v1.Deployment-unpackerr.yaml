@@ -1,0 +1,68 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unpackerr
+  namespace: media
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: unpackerr
+  template:
+    metadata:
+      labels:
+        name: unpackerr
+    spec:
+      containers:
+      - env:
+        - name: UN_ACTIVITY
+          value: "true"
+        - name: UN_RADARR_0_PATHS_0
+          value: /Media/Downloads/bt/complete/radarr
+        - name: UN_RADARR_0_URL
+          value: http://radarr.media.svc.cluster.local:7878/radarr
+        - name: UN_SONARR_0_PATHS_0
+          value: /Media/Downloads/bt/complete/tv-sonarr
+        - name: UN_SONARR_0_URL
+          value: http://sonarr.media.svc.cluster.local:8989/sonarr
+        - name: UN_WEBSERVER_LISTEN_ADDR
+          value: 0.0.0.0:80
+        - name: UN_WEBSERVER_METRICS
+          value: "true"
+        - name: UN_RADARR_0_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: RADARR__AUTH__APIKEY
+              name: media-secret
+        - name: UN_SONARR_0_API_KEY
+          valueFrom:
+            secretKeyRef:
+              key: SONARR__AUTH__APIKEY
+              name: media-secret
+        image: ghcr.io/unpackerr/unpackerr:latest
+        imagePullPolicy: IfNotPresent
+        name: unpackerr
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
+        volumeMounts:
+        - mountPath: /config
+          name: config
+        - mountPath: /Media/Downloads/bt/complete/radarr
+          name: media
+          subPath: Downloads/bt/complete/radarr
+        - mountPath: /Media/Downloads/bt/complete/tv-sonarr
+          name: media
+          subPath: Downloads/bt/complete/tv-sonarr
+      volumes:
+      - emptyDir: {}
+        name: config
+      - name: media
+        persistentVolumeClaim:
+          claimName: media-nfs
