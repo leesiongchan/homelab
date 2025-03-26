@@ -20,7 +20,15 @@ spec:
         - daemon
         image: ghcr.io/cross-seed/cross-seed:6
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /api/ping
+            port: 2468
         name: cross-seed
+        readinessProbe:
+          httpGet:
+            path: /api/ping
+            port: 2468
         resources:
           limits:
             cpu: "1"
