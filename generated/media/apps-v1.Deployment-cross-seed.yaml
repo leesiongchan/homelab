@@ -36,6 +36,7 @@ spec:
           name: cross-seed-config
         - mountPath: /config/config.js
           name: xseed-config
+          subPath: config.js
         - mountPath: /Media/Downloads/bt
           name: media-nfs
       volumes:
@@ -44,8 +45,7 @@ spec:
           claimName: cross-seed-config
       - name: xseed-config
         secret:
-          defaultMode:
-            subPath: config.js
+          defaultMode: 400
           secretName: xseed-config
       - name: media-nfs
         persistentVolumeClaim:
