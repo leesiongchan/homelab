@@ -35,16 +35,14 @@ spec:
           runAsGroup: 1000
           runAsUser: 1000
         volumeMounts:
-        - mountPath: /config/config.js
-          name: xseed-config
-          subPath: config.js
+        - mountPath: /config
+          name: cross-seed-config
         - mountPath: /Media/Downloads/bt
           name: media-nfs
       volumes:
-      - name: xseed-config
-        secret:
-          defaultMode: 256
-          secretName: xseed-config
+      - name: cross-seed-config
+        persistentVolumeClaim:
+          claimName: cross-seed-config
       - name: media-nfs
         persistentVolumeClaim:
           claimName: media-nfs
