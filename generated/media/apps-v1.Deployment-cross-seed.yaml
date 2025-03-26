@@ -45,6 +45,7 @@ spec:
         - mountPath: /config/config.js
           name: xseed-config
           readOnly: true
+          subPath: config.js
         - mountPath: /Media/Downloads/bt
           name: media-nfs
       volumes:
