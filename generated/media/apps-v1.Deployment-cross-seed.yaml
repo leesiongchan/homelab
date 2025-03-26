@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cross-seed
+  namespace: media
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: cross-seed
+  template:
+    metadata:
+      labels:
+        name: cross-seed
+    spec:
+      containers:
+      - args:
+        - daemon
+        image: ghcr.io/cross-seed/cross-seed:6
+        imagePullPolicy: IfNotPresent
+        name: cross-seed
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 10m
+            memory: 128Mi
+        securityContext:
+          runAsGroup: 1000
+          runAsUser: 1000
+        volumeMounts:
+        - mountPath: /config
+          name: cross-seed-config
+        - mountPath: /config/config.js
+          name: xseed-config
+          subPath: config.js
+        - mountPath: /Media/Downloads/bt
+          name: media-nfs
+      volumes:
+      - name: cross-seed-config
+        persistentVolumeClaim:
+          claimName: cross-seed-config
+      - name: xseed-config
+        secret:
+          defaultMode: 420
+          secretName: xseed-config
+      - name: media-nfs
+        persistentVolumeClaim:
+          claimName: media-nfs
