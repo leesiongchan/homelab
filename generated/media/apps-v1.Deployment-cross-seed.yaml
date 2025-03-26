@@ -44,7 +44,8 @@ spec:
           claimName: cross-seed-config
       - name: xseed-config
         secret:
-          defaultMode: 256
+          defaultMode:
+            subPath: config.js
           secretName: xseed-config
       - name: media-nfs
         persistentVolumeClaim:
