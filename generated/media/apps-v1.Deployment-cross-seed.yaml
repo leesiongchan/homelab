@@ -3,6 +3,9 @@ kind: Deployment
 metadata:
   name: cross-seed
   namespace: media
+name: name
+secret:
+  secretName: secretName
 spec:
   minReadySeconds: 10
   replicas: 1
@@ -32,17 +35,12 @@ spec:
           runAsGroup: 1000
           runAsUser: 1000
         volumeMounts:
-        - mountPath: /config
-          name: cross-seed-config
         - mountPath: /config/config.js
           name: xseed-config
           subPath: config.js
         - mountPath: /Media/Downloads/bt
           name: media-nfs
       volumes:
-      - name: cross-seed-config
-        persistentVolumeClaim:
-          claimName: cross-seed-config
       - name: xseed-config
         secret:
           defaultMode: 256
