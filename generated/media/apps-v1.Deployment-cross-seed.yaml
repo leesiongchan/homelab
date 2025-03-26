@@ -3,9 +3,6 @@ kind: Deployment
 metadata:
   name: cross-seed
   namespace: media
-name: name
-secret:
-  secretName: secretName
 spec:
   minReadySeconds: 10
   replicas: 1
