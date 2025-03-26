@@ -27,8 +27,6 @@ spec:
           value: /Media/Downloads/bt/complete/tv-sonarr
         - name: UN_SONARR_0_URL
           value: http://sonarr.media.svc.cluster.local:8989/sonarr
-        - name: UN_WEBSERVER_LISTEN_ADDR
-          value: 0.0.0.0:80
         - name: UN_WEBSERVER_METRICS
           value: "true"
         - name: UN_RADARR_0_API_KEY
