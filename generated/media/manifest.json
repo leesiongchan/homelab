@@ -5,7 +5,7 @@
     "external-secrets.io-v1beta1.ExternalSecret-xseed-config.yaml": "environments/media/main.jsonnet",
     "v1.ConfigMap-recyclarr-config.yaml": "environments/media/main.jsonnet",
     "v1.PersistentVolumeClaim-cross-seed-config.yaml": "environments/media/main.jsonnet",
-    "v1.PersistentVolumeClaim-recyclarr-config.yaml": "environments/media/main.jsonnet",
+    "v1.PersistentVolumeClaim-recyclarr-config-pvc.yaml": "environments/media/main.jsonnet",
     "v1.Service-cross-seed.yaml": "environments/media/main.jsonnet",
     "v1.Service-unpackerr.yaml": "environments/media/main.jsonnet"
 }

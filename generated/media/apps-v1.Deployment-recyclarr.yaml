@@ -51,14 +51,14 @@ spec:
             memory: 64Mi
         volumeMounts:
         - mountPath: /config
-          name: recyclarr-config
+          name: recyclarr-config-pvc
         - mountPath: /config/recyclarr.yml
           name: recyclarr-config
           subPath: recyclarr.yml
       volumes:
-      - name: recyclarr-config
+      - name: recyclarr-config-pvc
         persistentVolumeClaim:
-          claimName: recyclarr-config
+          claimName: recyclarr-config-pvc
       - configMap:
           name: recyclarr-config
         name: recyclarr-config
