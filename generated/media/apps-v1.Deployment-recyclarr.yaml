@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: recyclarr
+  namespace: media
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: recyclarr
+  template:
+    metadata:
+      labels:
+        name: recyclarr
+    spec:
+      containers:
+      - env:
+        - name: CRON_SCHEDULE
+          value: '@daily'
+        - name: RADARR__AUTH__APIKEY
+          valueFrom:
+            secretKeyRef:
+              key: RADARR__AUTH__APIKEY
+              name: media-secret
+        - name: RADARR4k__AUTH__APIKEY
+          valueFrom:
+            secretKeyRef:
+              key: RADARR4k__AUTH__APIKEY
+              name: media-secret
+        - name: SONARR__AUTH__APIKEY
+          valueFrom:
+            secretKeyRef:
+              key: SONARR__AUTH__APIKEY
+              name: media-secret
+        - name: SONARR4k__AUTH__APIKEY
+          valueFrom:
+            secretKeyRef:
+              key: SONARR4k__AUTH__APIKEY
+              name: media-secret
+        image: ghcr.io/recyclarr/recyclarr:7
+        imagePullPolicy: IfNotPresent
+        name: recyclarr
+        resources:
+          limits:
+            cpu: "1"
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
+        volumeMounts:
+        - mountPath: /config
+          name: recyclarr-config
+        - mountPath: /config/recyclarr.yml
+          name: recyclarr-config
+          subPath: recyclarr.yml
+      volumes:
+      - name: recyclarr-config
+        persistentVolumeClaim:
+          claimName: recyclarr-config
+      - configMap:
+          name: recyclarr-config
+        name: recyclarr-config
