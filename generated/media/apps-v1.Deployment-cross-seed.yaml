@@ -32,10 +32,10 @@ spec:
         resources:
           limits:
             cpu: "1"
-            memory: 512Mi
+            memory: 128Mi
           requests:
             cpu: 10m
-            memory: 128Mi
+            memory: 64Mi
         securityContext:
           runAsGroup: 1000
           runAsUser: 1000
@@ -45,8 +45,9 @@ spec:
         - mountPath: /config/config.js
           name: xseed-config
           subPath: config.js
-        - mountPath: /Media/Downloads/bt
+        - mountPath: /Media/Downloads/bt/complete
           name: media-nfs
+          subPath: Downloads/bt/complete
       volumes:
       - name: cross-seed-config
         persistentVolumeClaim:
