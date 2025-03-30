@@ -39,8 +39,7 @@ spec:
             cpu: 100m
             memory: 256Mi
         securityContext:
-          runAsGroup: 1000
-          runAsUser: 1000
+          runAsNonRoot: true
         volumeMounts:
         - mountPath: /Media/Downloads
           name: media-nfs
