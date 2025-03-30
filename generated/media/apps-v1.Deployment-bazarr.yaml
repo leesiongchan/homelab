@@ -27,7 +27,6 @@ spec:
         image: lscr.io/linuxserver/bazarr:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:
-          haha: das
           httpGet:
             httpHeaders:
             - name: X-API-KEY
