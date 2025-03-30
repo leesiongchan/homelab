@@ -19,10 +19,6 @@ spec:
       - env:
         - name: BAZARR__SERVER__URLBASE
           value: /bazarr
-        - name: PGID
-          value: "1000"
-        - name: PUID
-          value: "1000"
         - name: BAZARR__AUTH__APIKEY
           valueFrom:
             secretKeyRef:
