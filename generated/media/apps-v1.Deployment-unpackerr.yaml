@@ -59,6 +59,9 @@ spec:
         - mountPath: /config
           name: unpackerr-config-pvc
       volumes:
+      - name: unpackerr-config-pvc
+        persistentVolumeClaim:
+          claimName: unpackerr-config-pvc
       - name: media
         persistentVolumeClaim:
           claimName: media-nfs
