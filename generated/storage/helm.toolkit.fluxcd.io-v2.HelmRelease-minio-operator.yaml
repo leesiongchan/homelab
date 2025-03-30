@@ -10,12 +10,5 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: minio-operator
-  values:
-    minio:
-      tenant:
-        accessKey: minio
-        key: minio123
-        name: minio
-        replicas: 1
-        secret: minio
-        storageClass: standard
+  interval: 1h
+  values: {}
