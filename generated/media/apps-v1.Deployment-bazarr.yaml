@@ -19,10 +19,6 @@ spec:
       - env:
         - name: BAZARR__SERVER__URLBASE
           value: /bazarr
-        - name: PGID
-          value: "1000"
-        - name: PUID
-          value: "1000"
         - name: BAZARR__AUTH__APIKEY
           valueFrom:
             secretKeyRef:
@@ -38,6 +34,10 @@ spec:
           requests:
             cpu: 100m
             memory: 256Mi
+        securityContext:
+          runAsGroup: 931
+          runAsNonRoot: true
+          runAsUser: 931
         volumeMounts:
         - mountPath: /Media/Downloads
           name: media-nfs
