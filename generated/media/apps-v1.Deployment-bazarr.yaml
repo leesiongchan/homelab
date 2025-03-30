@@ -24,7 +24,7 @@ spec:
             secretKeyRef:
               key: BAZARR__AUTH__APIKEY
               name: media-secret
-        image: lscr.io/linuxserver/bazarr:development
+        image: lscr.io/linuxserver/bazarr:latest
         imagePullPolicy: IfNotPresent
         name: bazarr
         resources:
@@ -34,18 +34,17 @@ spec:
           requests:
             cpu: 100m
             memory: 256Mi
-        securityContext:
-          allowPrivilegeEscalation: true
-          privileged: true
         volumeMounts:
-        - mountPath: /Media/Downloads
+        - mountPath: /Media
           name: media-nfs
-          subPath: Downloads
+          subPath: Shows
         - mountPath: /config/backup
           name: media-nfs
           subPath: Backup
         - mountPath: /config
           name: bazarr-config-pvc
+        - mountPath: /Media
+          name: media-nfs
       volumes:
       - name: bazarr-config-pvc
         persistentVolumeClaim:
