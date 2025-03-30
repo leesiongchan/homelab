@@ -41,21 +41,21 @@ spec:
           runAsUser: 1000
         volumeMounts:
         - mountPath: /config
-          name: cross-seed-config
+          name: cross-seed-config-pvc
         - mountPath: /config/config.js
-          name: xseed-config
+          name: cross-seed-config-secret
           subPath: config.js
         - mountPath: /Media/Downloads/bt/complete
           name: media-nfs
           subPath: Downloads/bt/complete
       volumes:
-      - name: cross-seed-config
+      - name: cross-seed-config-pvc
         persistentVolumeClaim:
-          claimName: cross-seed-config
-      - name: xseed-config
+          claimName: cross-seed-config-pvc
+      - name: cross-seed-config-secret
         secret:
           defaultMode: 420
-          secretName: xseed-config
+          secretName: cross-seed-config-secret
       - name: media-nfs
         persistentVolumeClaim:
           claimName: media-nfs

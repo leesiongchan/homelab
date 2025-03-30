@@ -1,0 +1,49 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bazarr
+  namespace: media
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: bazarr
+  template:
+    metadata:
+      labels:
+        name: bazarr
+    spec:
+      containers:
+      - env:
+        - name: BAZARR__SERVER__URLBASE
+          value: /bazarr
+        - name: BAZARR__AUTH__APIKEY
+          valueFrom:
+            secretKeyRef:
+              key: BAZARR__AUTH__APIKEY
+              name: media-secret
+        image: lscr.io/linuxserver/bazarr:latest
+        imagePullPolicy: IfNotPresent
+        name: bazarr
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        volumeMounts:
+        - mountPath: /Media/Downloads
+          name: media-nfs
+          subPath: Downloads
+        - mountPath: /config/backup
+          name: media-nfs
+          subPath: Backup
+        - mountPath: /config
+          name: bazarr-config-pvc
+      volumes:
+      - name: media-nfs
+        persistentVolumeClaim:
+          claimName: media-nfs

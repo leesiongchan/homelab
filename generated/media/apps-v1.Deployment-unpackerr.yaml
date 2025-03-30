@@ -39,7 +39,7 @@ spec:
             secretKeyRef:
               key: SONARR__AUTH__APIKEY
               name: media-secret
-        image: ghcr.io/unpackerr/unpackerr:latest
+        image: ghcr.io/unpackerr/unpackerr:0.14
         imagePullPolicy: IfNotPresent
         name: unpackerr
         resources:
@@ -48,19 +48,17 @@ spec:
             memory: 512Mi
           requests:
             cpu: 100m
-            memory: 128Mi
+            memory: 256Mi
         volumeMounts:
-        - mountPath: /config
-          name: config
         - mountPath: /Media/Downloads/bt/complete/radarr
           name: media
           subPath: Downloads/bt/complete/radarr
         - mountPath: /Media/Downloads/bt/complete/tv-sonarr
           name: media
           subPath: Downloads/bt/complete/tv-sonarr
+        - mountPath: /config
+          name: unpackerr-config-pvc
       volumes:
-      - emptyDir: {}
-        name: config
       - name: media
         persistentVolumeClaim:
           claimName: media-nfs

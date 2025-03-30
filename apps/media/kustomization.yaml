@@ -17,7 +17,7 @@ resources:
   - whisper.yaml
   # arr stack
   # - autobrr.yaml
-  - bazarr.yaml
+  # - bazarr.yaml
   - flaresolverr.yaml
   # - lingarr.yaml
   # - posterr.yaml
