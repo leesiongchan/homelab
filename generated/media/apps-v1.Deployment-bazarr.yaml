@@ -35,12 +35,6 @@ spec:
             cpu: 100m
             memory: 256Mi
         volumeMounts:
-        - mountPath: /Media
-          name: media-nfs
-          subPath: Shows
-        - mountPath: /config/backup
-          name: media-nfs
-          subPath: Backup
         - mountPath: /config
           name: bazarr-config-pvc
         - mountPath: /Media
