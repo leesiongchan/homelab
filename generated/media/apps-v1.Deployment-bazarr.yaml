@@ -26,7 +26,19 @@ spec:
               name: media-secret
         image: lscr.io/linuxserver/bazarr:latest
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpHeaders:
+          - name: X-API-KEY
+            value: $BAZARR__AUTH__APIKEY
+          path: /api/system/health
+          port: 6767
         name: bazarr
+        readinessProbe:
+          httpHeaders:
+          - name: X-API-KEY
+            value: $BAZARR__AUTH__APIKEY
+          path: /api/system/health
+          port: 6767
         resources:
           limits:
             cpu: "1"
