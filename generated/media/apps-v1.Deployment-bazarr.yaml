@@ -28,7 +28,7 @@ spec:
             secretKeyRef:
               key: BAZARR__AUTH__APIKEY
               name: media-secret
-        image: lscr.io/linuxserver/bazarr:latest
+        image: lscr.io/linuxserver/bazarr:development
         imagePullPolicy: IfNotPresent
         name: bazarr
         resources:
