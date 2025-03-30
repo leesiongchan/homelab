@@ -35,9 +35,8 @@ spec:
             cpu: 100m
             memory: 256Mi
         securityContext:
-          runAsGroup: 931
-          runAsNonRoot: true
-          runAsUser: 931
+          allowPrivilegeEscalation: true
+          privileged: true
         volumeMounts:
         - mountPath: /Media/Downloads
           name: media-nfs
