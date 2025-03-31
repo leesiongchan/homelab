@@ -11,6 +11,7 @@ resources:
   - jellyfin.yaml
   - jellyseerr.yaml
   - jellystat.yaml
+  - minio.yaml
   - portainer.yaml
   - qbittorrent.yaml
   - sabnzbd.yaml
