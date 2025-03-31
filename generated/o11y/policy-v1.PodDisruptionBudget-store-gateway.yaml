@@ -1,0 +1,12 @@
+apiVersion: policy/v1
+kind: PodDisruptionBudget
+metadata:
+  labels:
+    name: store-gateway
+  name: store-gateway
+  namespace: o11y
+spec:
+  maxUnavailable: 2
+  selector:
+    matchLabels:
+      name: store-gateway

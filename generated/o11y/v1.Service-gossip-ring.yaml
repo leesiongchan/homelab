@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: gossip-ring
+  namespace: o11y
+spec:
+  clusterIP: None
+  ports:
+  - appProtocol: tcp
+    name: gossip-ring
+    port: 7946
+    protocol: TCP
+    targetPort: 7946
+  selector:
+    gossip_ring_member: "true"
