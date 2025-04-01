@@ -1,4 +1,5 @@
 {
+    "helm.toolkit.fluxcd.io-v2.HelmRelease-grafana.yaml": "environments/o11y/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-k8s-monitoring.yaml": "environments/o11y/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-mimir.yaml": "environments/o11y/main.jsonnet"
 }
