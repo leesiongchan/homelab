@@ -41,6 +41,7 @@ spec:
         configs:
         - from: "2024-04-01"
           index:
+            period: 24h
             prefix: loki_index_
           object_store: s3
           schema: v13
