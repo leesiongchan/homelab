@@ -13,8 +13,16 @@ spec:
         namespace: flux-system
   interval: 1h
   values:
+    alloy-metrics:
+      enabled: true
+    alloy-singleton:
+      enabled: true
     cluster:
       name: k8s-monitoring
+    clusterEvents:
+      enabled: true
+    clusterMetrics:
+      enabled: true
     destinations:
     - name: mimir
       type: prometheus
