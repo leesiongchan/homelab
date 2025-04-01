@@ -100,8 +100,7 @@ spec:
     metadata-cache:
       enabled: true
       replicas: 3
-    minio:
-      enabled: false
+    mimir:
       structuredConfig:
         alertmanager_storage:
           s3:
@@ -115,10 +114,13 @@ spec:
             s3:
               access_key_id: minio
               endpoint: minio.storage.svc.cluster.local:9000
+              insecure: true
               secret_access_key: minio123
         ruler_storage:
           s3:
             bucket_name: mimir-ruler
+    minio:
+      enabled: false
     nginx:
       replicas: 1
       resources:
