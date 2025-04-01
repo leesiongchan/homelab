@@ -41,11 +41,22 @@ spec:
         configs:
         - from: "2024-04-01"
           index:
-            period: 24h
             prefix: loki_index_
           object_store: s3
           schema: v13
           store: tsdb
+      storage:
+        bucketNames:
+          admin: loki-admin
+          chunks: loki-chunks
+          ruler: loki-ruler
+        s3:
+          accessKeyId: minio
+          endpoint: minio.storage.svc.cluster.local
+          http_config:
+            insecure_skip_verify: true
+          secretAccessKey: minio123
+        type: s3
       tracing:
         enabled: true
     minio:
