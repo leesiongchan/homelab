@@ -11,4 +11,7 @@ spec:
         kind: HelmRepository
         name: minio-operator
   interval: 1h
-  values: {}
+  values:
+    tenant:
+      exposeServices:
+        minio: true
