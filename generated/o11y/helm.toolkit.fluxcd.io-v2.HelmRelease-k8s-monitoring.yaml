@@ -15,12 +15,8 @@ spec:
   values:
     alloy-metrics:
       enabled: true
-    alloy-singleton:
-      enabled: true
     cluster:
       name: k8s-monitoring
-    clusterEvents:
-      enabled: true
     clusterMetrics:
       enabled: true
     destinations:
