@@ -28,27 +28,6 @@ spec:
       replicas: 1
     index-cache:
       enabled: true
-    ingester:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: target
-                operator: In
-                values:
-                - ingester
-            topologyKey: kubernetes.io/hostname
-          - labelSelector:
-              matchExpressions:
-              - key: app.kubernetes.io/component
-                operator: In
-                values:
-                - ingester
-            topologyKey: kubernetes.io/hostname
-      topologySpreadConstraints: {}
-      zoneAwareReplication:
-        topologyKey: kubernetes.io/hostname
     metadata-cache:
       enabled: true
     mimir:
@@ -64,8 +43,7 @@ spec:
             backend: s3
             s3:
               access_key_id: minio
-              endpoint: minio.storage.svc.cluster.local:9000
-              insecure: true
+              endpoint: minio.storage.svc.cluster.local
               secret_access_key: minio123
         ruler_storage:
           s3:
