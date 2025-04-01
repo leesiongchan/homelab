@@ -44,6 +44,7 @@ spec:
             s3:
               access_key_id: minio
               endpoint: minio.storage.svc.cluster.local
+              insecure: true
               secret_access_key: minio123
         ruler_storage:
           s3:
