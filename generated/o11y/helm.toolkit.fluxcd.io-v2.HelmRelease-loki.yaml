@@ -53,9 +53,10 @@ spec:
           ruler: loki-ruler
         s3:
           accessKeyId: minio
-          endpoint: minio.storage.svc.cluster.local
+          endpoint: minio.storage.svc.cluster.local:9000
           http_config:
             insecure_skip_verify: true
+          s3forcepathstyle: false
           secretAccessKey: minio123
         type: s3
       tracing:
