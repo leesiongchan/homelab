@@ -29,4 +29,4 @@ spec:
           name: Loki
           type: loki
           uid: loki
-          url: http://loki-headless.o11y.svc.cluster.local:3100
+          url: http://loki.o11y.svc.cluster.local:3100
