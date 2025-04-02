@@ -99,29 +99,9 @@ spec:
     ruler:
       replicas: 1
     store_gateway:
-      affinity:
-        podAntiAffinity:
-          requiredDuringSchedulingIgnoredDuringExecution:
-          - labelSelector:
-              matchExpressions:
-              - key: target
-                operator: In
-                values:
-                - store-gateway
-            topologyKey: kubernetes.io/hostname
-          - labelSelector:
-              matchExpressions:
-              - key: app.kubernetes.io/component
-                operator: In
-                values:
-                - store-gateway
-            topologyKey: kubernetes.io/hostname
       replicas: 1
       resources:
         limits:
           memory: 300Mi
         requests:
           memory: 50Mi
-      topologySpreadConstraints: {}
-      zoneAwareReplication:
-        topologyKey: kubernetes.io/hostname
