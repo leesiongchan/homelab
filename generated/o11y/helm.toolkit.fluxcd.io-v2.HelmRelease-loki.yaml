@@ -61,7 +61,7 @@ spec:
           endpoint: minio.storage.svc.cluster.local
           http_config:
             insecure_skip_verify: true
-          s3forcepathstyle: true
+          s3ForcePathStyle: true
           secretAccessKey: minio123
         type: s3
       tracing:
