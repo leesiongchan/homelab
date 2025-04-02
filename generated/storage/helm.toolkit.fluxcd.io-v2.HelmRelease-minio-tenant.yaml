@@ -16,7 +16,8 @@ spec:
       env:
       - name: MINIO_BROWSER_REDIRECT_URL
         value: https://minio.o5s.lol
+      name: minio
       pools:
       - servers: 1
         size: 2Gi
-        volumesPerServer: 4
+        volumesPerServer: 2
