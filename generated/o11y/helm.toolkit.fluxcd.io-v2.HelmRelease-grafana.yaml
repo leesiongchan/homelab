@@ -23,10 +23,10 @@ spec:
           isDefault: true
           name: Mimir
           type: prometheus
-          uid: mimir
+          uid: prom
           url: http://mimir-nginx.o11y.svc.cluster.local/prometheus
         - access: proxy
           name: Loki
           type: loki
           uid: loki
-          url: http://loki.o11y.svc.cluster.local:3100
+          url: http://loki-gateway.o11y.svc.cluster.local

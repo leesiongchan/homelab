@@ -28,10 +28,10 @@ spec:
     destinations:
     - name: mimir
       type: prometheus
-      url: http://mimir-nginx.o11y.svc.cluster.local/api/v1/write
+      url: http://mimir-nginx.o11y.svc.cluster.local/api/v1/push
     - name: loki
       type: loki
-      url: http://loki.o11y.svc.cluster.local:3100/loki/api/v1/push
+      url: http://loki-gateway.o11y.svc.cluster.local/loki/api/v1/push
     nodeLogs:
       enabled: true
     podLogs:
