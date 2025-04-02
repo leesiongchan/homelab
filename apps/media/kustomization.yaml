@@ -14,7 +14,7 @@ resources:
   - jellystat.yaml
   - qbittorrent.yaml
   - sabnzbd.yaml
-  - whisper.yaml
+  # - whisper.yaml
   # arr stack
   # - autobrr.yaml
   # - bazarr.yaml
