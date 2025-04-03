@@ -46,7 +46,7 @@ spec:
     index-cache:
       enabled: true
     ingester:
-      replicas: 2
+      replicas: 1
       resources:
         limits:
           memory: 500Mi
