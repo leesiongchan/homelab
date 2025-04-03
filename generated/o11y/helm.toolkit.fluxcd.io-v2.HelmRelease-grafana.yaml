@@ -30,3 +30,17 @@ spec:
           type: loki
           uid: loki
           url: http://loki-gateway.o11y.svc.cluster.local
+        - access: proxy
+          jsonData:
+            lokiSearch:
+              datasourceUid: loki
+            serviceMap:
+              datasourceUid: prom
+            tracesToLogsV2:
+              datasourceUid: loki
+            tracesToMetrics:
+              datasourceUid: prom
+          name: Tempo
+          type: tempo
+          uid: tempo
+          url: http://tempo-query-frontend.o11y.svc.cluster.local:3100
