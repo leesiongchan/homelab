@@ -19,6 +19,10 @@ spec:
       enabled: true
     alloy-singleton:
       enabled: true
+    applicationObservability:
+      enabled: true
+    autoInstrumentation:
+      enabled: true
     cluster:
       name: k8s-monitoring
     clusterEvents:
