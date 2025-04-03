@@ -6,12 +6,10 @@ metadata:
 spec:
   chart:
     spec:
-      chart: tempo-distributed
+      chart: tempo
       sourceRef:
         kind: HelmRepository
         name: grafana
         namespace: flux-system
   interval: 1h
-  values:
-    ingester:
-      replicas: 1
+  values: {}
