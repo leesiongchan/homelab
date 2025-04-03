@@ -107,3 +107,5 @@ spec:
           memory: 300Mi
         requests:
           memory: 50Mi
+      zoneAwareReplication:
+        enabled: false
