@@ -43,4 +43,4 @@ spec:
           name: Tempo
           type: tempo
           uid: tempo
-          url: http://tempo-query-frontend.o11y.svc.cluster.local:3100
+          url: http://tempo.o11y.svc.cluster.local:3100
