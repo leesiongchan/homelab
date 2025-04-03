@@ -13,6 +13,8 @@ spec:
         namespace: flux-system
   interval: 1h
   values:
+    allow-receiver:
+      enabled: true
     alloy-logs:
       enabled: true
     alloy-metrics:
