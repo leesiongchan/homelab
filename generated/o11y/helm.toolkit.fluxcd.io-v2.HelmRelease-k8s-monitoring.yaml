@@ -32,6 +32,10 @@ spec:
     - name: loki
       type: loki
       url: http://loki-gateway.o11y.svc.cluster.local/loki/api/v1/push
+    - name: tempo
+      protocol: http
+      type: otlp
+      url: http://tempo-query-frontend.o11y.svc.cluster.local:3100/otlp
     nodeLogs:
       enabled: true
     podLogs:
