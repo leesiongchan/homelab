@@ -16,7 +16,7 @@ spec:
     alloy-logs:
       enabled: true
     alloy-metrics:
-      enabled: true
+      enabled: false
     alloy-receiver:
       alloy:
         extraPorts:
@@ -24,23 +24,23 @@ spec:
           port: 4317
           protocol: TCP
           targetPort: 4317
-      enabled: true
+      enabled: false
     alloy-singleton:
       enabled: true
     applicationObservability:
-      enabled: true
+      enabled: false
       receivers:
         otlp:
           grpc:
             enabled: true
     autoInstrumentation:
-      enabled: true
+      enabled: false
     cluster:
       name: k8s-monitoring
     clusterEvents:
-      enabled: true
+      enabled: false
     clusterMetrics:
-      enabled: true
+      enabled: false
     destinations:
     - name: mimir
       type: prometheus
@@ -52,6 +52,6 @@ spec:
       type: otlp
       url: http://tempo.o11y.svc.cluster.local:4317
     nodeLogs:
-      enabled: true
+      enabled: false
     podLogs:
       enabled: true
