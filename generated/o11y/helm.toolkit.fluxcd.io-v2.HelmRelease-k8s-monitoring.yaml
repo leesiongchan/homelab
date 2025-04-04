@@ -33,8 +33,6 @@ spec:
         otlp:
           grpc:
             enabled: true
-          http:
-            enabled: true
     autoInstrumentation:
       enabled: true
     cluster:
