@@ -17,13 +17,7 @@ spec:
       enabled: true
     alloy-metrics:
       enabled: true
-    alloy-receiver:
-      enabled: true
     alloy-singleton:
-      enabled: true
-    applicationObservability:
-      enabled: true
-    autoInstrumentation:
       enabled: true
     cluster:
       name: k8s-monitoring
@@ -38,10 +32,16 @@ spec:
     - name: loki
       type: loki
       url: http://loki-gateway.o11y.svc.cluster.local/loki/api/v1/push
-    - name: tempo
+    - logs:
+        enabled: true
+      metrics:
+        enabled: true
+      name: tempo
       protocol: grpc
+      traces:
+        enabled: true
       type: otlp
-      url: http://tempo.o11y.svc.cluster.local:4317/otlp
+      url: http://tempo.o11y.svc.cluster.local:4317
     nodeLogs:
       enabled: true
     podLogs:
