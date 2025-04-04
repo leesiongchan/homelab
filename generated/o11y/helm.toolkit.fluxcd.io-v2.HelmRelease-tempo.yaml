@@ -17,6 +17,7 @@ spec:
       metricsGenerator:
         enabled: true
         remoteWriteUrl: http://mimir-nginx.o11y.svc.cluster.local/api/v1/push
+      reportingEnabled: false
       storage:
         trace:
           backend: s3
