@@ -52,7 +52,7 @@ spec:
       url: http://loki-gateway.o11y.svc.cluster.local/loki/api/v1/push
     - name: tempo
       type: otlp
-      url: http://tempo.o11y.svc.cluster.local:4317/otlp
+      url: http://tempo.o11y.svc.cluster.local:4317
     nodeLogs:
       enabled: true
     podLogs:
