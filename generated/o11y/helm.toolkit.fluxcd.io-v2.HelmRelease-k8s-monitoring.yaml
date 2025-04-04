@@ -19,6 +19,8 @@ spec:
       enabled: true
     alloy-singleton:
       enabled: true
+    autoInstrumentation:
+      enabled: true
     cluster:
       name: k8s-monitoring
     clusterEvents:
@@ -41,7 +43,7 @@ spec:
       traces:
         enabled: true
       type: otlp
-      url: http://tempo.o11y.svc.cluster.local:4317
+      url: tempo.o11y.svc.cluster.local:4317
     nodeLogs:
       enabled: true
     podLogs:
