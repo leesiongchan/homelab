@@ -17,8 +17,22 @@ spec:
       enabled: true
     alloy-metrics:
       enabled: true
+    alloy-receiver:
+      alloy:
+        extraPorts:
+        - name: otlp-grpc
+          port: 4317
+          protocol: TCP
+          targetPort: 4317
+      enabled: true
     alloy-singleton:
       enabled: true
+    applicationObservability:
+      enabled: true
+      receivers:
+        otlp:
+          grpc:
+            enabled: true
     autoInstrumentation:
       enabled: true
     cluster:
@@ -34,16 +48,10 @@ spec:
     - name: loki
       type: loki
       url: http://loki-gateway.o11y.svc.cluster.local/loki/api/v1/push
-    - logs:
-        enabled: true
-      metrics:
-        enabled: true
-      name: tempo
+    - name: tempo
       protocol: grpc
-      traces:
-        enabled: true
       type: otlp
-      url: tempo.o11y.svc.cluster.local:4317
+      url: http://tempo.o11y.svc.cluster.local:4317
     nodeLogs:
       enabled: true
     podLogs:
