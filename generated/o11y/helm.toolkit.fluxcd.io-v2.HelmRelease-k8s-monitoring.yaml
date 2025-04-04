@@ -24,10 +24,6 @@ spec:
           port: 4317
           protocol: TCP
           targetPort: 4317
-        - name: otlp-http
-          port: 4318
-          protocol: TCP
-          targetPort: 4318
       enabled: true
     alloy-singleton:
       enabled: true
@@ -54,16 +50,9 @@ spec:
     - name: loki
       type: loki
       url: http://loki-gateway.o11y.svc.cluster.local/loki/api/v1/push
-    - logs:
-        enabled: false
-      metrics:
-        enabled: false
-      name: tempo
-      protocol: http
-      traces:
-        enabled: true
+    - name: tempo
       type: otlp
-      url: http://tempo.o11y.svc.cluster.local:4318/otlp
+      url: http://tempo.o11y.svc.cluster.local:4317/otlp
     nodeLogs:
       enabled: true
     podLogs:

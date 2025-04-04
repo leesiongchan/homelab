@@ -46,12 +46,12 @@ spec:
     index-cache:
       enabled: true
     ingester:
-      replicas: 2
+      replicas: 3
       resources:
         limits:
-          memory: 500Mi
+          memory: 1Gi
         requests:
-          memory: 80Mi
+          memory: 200Mi
       zoneAwareReplication:
         enabled: false
     metadata-cache:
