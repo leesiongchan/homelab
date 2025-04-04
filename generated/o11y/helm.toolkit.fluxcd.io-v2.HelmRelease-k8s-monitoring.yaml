@@ -37,6 +37,8 @@ spec:
         otlp:
           grpc:
             enabled: true
+          http:
+            enabled: true
     autoInstrumentation:
       enabled: true
     cluster:
@@ -52,8 +54,14 @@ spec:
     - name: loki
       type: loki
       url: http://loki-gateway.o11y.svc.cluster.local/loki/api/v1/push
-    - name: tempo
+    - logs:
+        enabled: false
+      metrics:
+        enabled: false
+      name: tempo
       protocol: http
+      traces:
+        enabled: true
       type: otlp
       url: http://tempo.o11y.svc.cluster.local:4318/otlp
     nodeLogs:
