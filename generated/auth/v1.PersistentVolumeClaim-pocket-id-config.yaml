@@ -1,12 +1,12 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pocket-id-data
+  name: pocket-id-config
   namespace: auth
 spec:
   accessModes:
   - ReadWriteOnce
   resources:
     requests:
-      storage: 500Mi
+      storage: 50Mi
   storageClassName: local-path
