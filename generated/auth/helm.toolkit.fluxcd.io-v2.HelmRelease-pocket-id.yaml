@@ -8,8 +8,8 @@ spec:
     spec:
       chart: pocket-id
       sourceRef:
-        apiVersion: 0.0.0
         kind: HelmRepository
         name: pocket-id-helm
+      version: 0.0.0
   interval: 1h
   values: {}
