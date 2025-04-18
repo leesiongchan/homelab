@@ -9,6 +9,6 @@ spec:
       chart: pocket-id
       sourceRef:
         kind: HelmRepository
-        name: pocket-id
+        name: pocket-id-helm
   interval: 1h
   values: {}

@@ -1,5 +1,5 @@
 {
     "gateway.networking.k8s.io-v1.HTTPRoute-pocket-id.yaml": "environments/auth/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-pocket-id.yaml": "environments/auth/main.jsonnet",
-    "source.toolkit.fluxcd.io-v1.HelmRepository-pocket-id.yaml": "environments/auth/main.jsonnet"
+    "source.toolkit.fluxcd.io-v1.HelmRepository-pocket-id-helm.yaml": "environments/auth/main.jsonnet"
 }
