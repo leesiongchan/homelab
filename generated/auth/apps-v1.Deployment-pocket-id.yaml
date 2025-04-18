@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pocket-id
+  namespace: auth
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: pocket-id
+  template:
+    metadata:
+      labels:
+        name: pocket-id
+    spec:
+      containers:
+      - args:
+        - daemon
+        image: ghcr.io/pocket-id/pocket-id:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+        name: pocket-id
+        readinessProbe:
+          httpGet:
+            path: /health
+            port: 3000
+        resources:
+          limits:
+            cpu: "1"
+            memory: 128Mi
+          requests:
+            cpu: 10m
+            memory: 64Mi
+        volumeMounts:
+        - mountPath: /config
+          name: pocket-id-config-pvc
+      volumes:
+      - name: pocket-id-config-pvc
+        persistentVolumeClaim:
+          claimName: pocket-id-config-pvc
