@@ -16,7 +16,14 @@ spec:
         name: pocket-id
     spec:
       containers:
-      - image: ghcr.io/pocket-id/pocket-id:latest
+      - env:
+        - name: CADDY_DISABLED
+          value: "true"
+        - name: PUBLIC_APP_URL
+          value: https://pocket.o5s.lol
+        - name: TRUST_PROXY
+          value: "true"
+        image: ghcr.io/pocket-id/pocket-id:latest
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
@@ -34,10 +41,13 @@ spec:
           requests:
             cpu: 10m
             memory: 64Mi
+        securityContext:
+          runAsGroup: 1000
+          runAsUser: 1000
         volumeMounts:
-        - mountPath: /config
-          name: pocket-id-config-pvc
+        - mountPath: /app/backend/data
+          name: pocket-id-data
       volumes:
-      - name: pocket-id-config-pvc
+      - name: pocket-id-data
         persistentVolumeClaim:
-          claimName: pocket-id-config-pvc
+          claimName: pocket-id-data

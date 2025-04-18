@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: pocket-id-config-pvc
+  name: pocket-id-data
   namespace: auth
 spec:
   accessModes:
