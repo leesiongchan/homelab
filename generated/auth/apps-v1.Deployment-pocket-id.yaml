@@ -19,6 +19,8 @@ spec:
       - env:
         - name: PGID
           value: "1000"
+        - name: PUBLIC_APP_URL
+          value: https://pocket.o5s.lol
         - name: PUID
           value: "1000"
         - name: TRUST_PROXY
