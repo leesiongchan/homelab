@@ -28,12 +28,12 @@ spec:
         livenessProbe:
           httpGet:
             path: /health
-            port: 3000
+            port: 80
         name: pocket-id
         readinessProbe:
           httpGet:
             path: /health
-            port: 3000
+            port: 80
         resources:
           limits:
             cpu: "1"
