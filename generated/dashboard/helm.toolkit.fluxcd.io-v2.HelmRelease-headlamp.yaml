@@ -17,7 +17,4 @@ spec:
         clientID: 85007180-d8b9-4b69-a829-8b9549e78a92
         clientSecret: PlZm0pxkGlbBvXTlEWQuAtlEs9Es6GXW
         issuerURL: https://pocket.o5s.lol
-        scopes:
-        - openid
-        - profile
-        - email
+        scopes: openid,profile,email
