@@ -47,14 +47,9 @@ spec:
           runAsGroup: 1000
           runAsUser: 1000
         volumeMounts:
-        - mountPath: /.config
-          name: pocket-id-config
         - mountPath: /app/backend/data
           name: pocket-id-data
       volumes:
-      - name: pocket-id-config
-        persistentVolumeClaim:
-          claimName: pocket-id-config
       - name: pocket-id-data
         persistentVolumeClaim:
           claimName: pocket-id-data
