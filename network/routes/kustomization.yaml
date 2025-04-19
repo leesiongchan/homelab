@@ -5,7 +5,7 @@ resources:
   - authentik.yaml
   - deluge.yaml
   - grafana.yaml
-  - headlamp.yaml
+  # - headlamp.yaml
   - homarr.yaml
   - homebox.yaml
   - jellyfin.yaml
