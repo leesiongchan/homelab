@@ -17,6 +17,10 @@ spec:
     spec:
       containers:
       - env:
+        - name: PGID
+          value: "1000"
+        - name: PUID
+          value: "1000"
         - name: TRUST_PROXY
           value: "true"
         image: ghcr.io/pocket-id/pocket-id:latest
