@@ -61,16 +61,16 @@ spec:
   interval: 24h
   url: https://grafana.github.io/helm-charts
 ---
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  labels:
-    app.kubernetes.io/component: ui
-  name: headlamp
-  namespace: flux-system
-spec:
-  interval: 24h
-  url: https://headlamp-k8s.github.io/headlamp
+# apiVersion: source.toolkit.fluxcd.io/v1
+# kind: HelmRepository
+# metadata:
+#   labels:
+#     app.kubernetes.io/component: ui
+#   name: headlamp
+#   namespace: flux-system
+# spec:
+#   interval: 24h
+#   url: https://headlamp-k8s.github.io/headlamp
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
