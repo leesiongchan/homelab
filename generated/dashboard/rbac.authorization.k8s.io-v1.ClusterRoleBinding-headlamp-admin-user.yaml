@@ -8,6 +8,5 @@ roleRef:
   name: cluster-admin
 subjects:
 - apiGroup: rbac.authorization.k8s.io
-  kind: User
-  name: leesiongchan@duck.com
-  namespace: dashboard
+  kind: Group
+  name: harflix

@@ -17,4 +17,4 @@ spec:
         clientID: 35626ae4-0a0d-420a-8739-263c6c77784f
         clientSecret: vD8Ev7Mh8CfULOInDcnp6hZHKjH0e3WJ
         issuerURL: https://pocket.o5s.lol
-        scopes: openid profile email groups
+        scopes: email,profile
