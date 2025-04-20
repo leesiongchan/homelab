@@ -10,3 +10,4 @@ subjects:
 - apiGroup: rbac.authorization.k8s.io
   kind: User
   name: 032a25b8-f507-4bbc-9ce5-ff0adc2c8e9b
+  namespace: dashboard
