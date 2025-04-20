@@ -50,3 +50,16 @@ spec:
       name: generic-oauth-secret-mount
       readOnly: true
       secretName: grafana-generic-oauth
+    grafana.ini:
+      auth.generic_oauth:
+        allow_sign_up: false
+        auth_url: https://auth.o5s.lol/authorize
+        auto_login: true
+        client_id: $__file{/etc/secrets/generic_oauth/client_id}
+        client_secret: $__file{/etc/secrets/generic_oauth/client_secret}
+        email_attribute_name: email:primary
+        enabled: true
+        name: Pocket ID
+        scopes: openid email profile groups
+        skip_org_role_sync: true
+        token_url: https://auth.o5s.lol/api/oidc/token
