@@ -13,8 +13,6 @@ spec:
         namespace: flux-system
   interval: 1h
   values:
-    adminPassword: testadmin
-    adminUser: admin
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -44,3 +42,16 @@ spec:
           type: tempo
           uid: tempo
           url: http://tempo.o11y.svc.cluster.local:3100
+    grafana.ini:
+      auth.generic_oauth:
+        allow_sign_up: false
+        auth_url: https://auth.o5s.lol/authorize
+        auto_login: true
+        client_id: 35626ae4-0a0d-420a-8739-263c6c77784f
+        client_secret: vD8Ev7Mh8CfULOInDcnp6hZHKjH0e3WJ
+        email_attribute_name: email:primary
+        enabled: true
+        name: Pocket ID
+        scopes: openid email profile groups
+        skip_org_role_sync: true
+        token_url: https://auth.o5s.lol/api/oidc/token

@@ -1,4 +1,5 @@
 {
+    "gateway.networking.k8s.io-v1.HTTPRoute-grafana.yaml": "environments/o11y/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-grafana.yaml": "environments/o11y/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-k8s-monitoring.yaml": "environments/o11y/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-loki.yaml": "environments/o11y/main.jsonnet",
