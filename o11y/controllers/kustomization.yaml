@@ -4,8 +4,4 @@ resources:
   - namespaces.yaml
   # - grafana.yaml
   # - k8s-monitoring.yaml
-  # - kube-prometheus-stack.yaml
   # - loki.yaml
-  # - prometheus-operator.yaml
-  # - prometheus.yaml
-  # - vector.yaml

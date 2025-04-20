@@ -9,6 +9,7 @@ spec:
     - name: infra-configs
   interval: 1h
   path: ./o11y/controllers
+  # path: ./generated/o11y
   prune: true
   retryInterval: 1m
   sourceRef:
