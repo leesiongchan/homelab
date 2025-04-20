@@ -20,7 +20,7 @@ spec:
         - name: PGID
           value: "1000"
         - name: PUBLIC_APP_URL
-          value: https://pocket.o5s.lol
+          value: https://auth.o5s.lol
         - name: PUID
           value: "1000"
         - name: TRUST_PROXY
@@ -31,11 +31,13 @@ spec:
           httpGet:
             path: /health
             port: 80
+          initialDelaySeconds: 60
         name: pocket-id
         readinessProbe:
           httpGet:
             path: /health
             port: 80
+          initialDelaySeconds: 60
         resources:
           limits:
             cpu: "1"

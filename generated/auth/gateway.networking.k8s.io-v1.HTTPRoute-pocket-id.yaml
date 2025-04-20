@@ -5,7 +5,7 @@ metadata:
   namespace: auth
 spec:
   hostnames:
-  - pocket.o5s.lol
+  - auth.o5s.lol
   parentRefs:
   - name: traefik-gateway
     namespace: network
