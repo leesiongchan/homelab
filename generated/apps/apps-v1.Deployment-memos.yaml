@@ -16,6 +16,6 @@ spec:
         name: memos
     spec:
       containers:
-      - image: usememos/memos:latest
+      - image: neosmemo/memos:stable
         imagePullPolicy: IfNotPresent
         name: memos
