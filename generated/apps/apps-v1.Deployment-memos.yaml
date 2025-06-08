@@ -16,6 +16,9 @@ spec:
         name: memos
     spec:
       containers:
-      - image: neosmemo/memos:stable
+      - env:
+        - name: MEMOS_PORT
+          value: "5230"
+        image: neosmemo/memos:stable
         imagePullPolicy: IfNotPresent
         name: memos
