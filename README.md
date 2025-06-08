@@ -29,7 +29,6 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 - Maybe (https://github.com/maybe-finance/maybe)
 - Minio
 - Immich
-- xpipe
 - Home Assistant
 - huginn
 - rocket.chat
@@ -43,3 +42,4 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 - janitorr
 - unpackerr
 - Frigate 
+- OpenBB
