@@ -4,11 +4,11 @@ local helm = tanka.helm.new(std.thisFile);
 
 (import 'config.libsonnet')
 + (import 'deploy.libsonnet')
-{
+  {
   gpuOperator: helm.template('amd-gpu-operator', '../../charts/gpu-operator-charts', {
     namespace: 'kube-system',
     values: {
-    
+
     },
   }),
 

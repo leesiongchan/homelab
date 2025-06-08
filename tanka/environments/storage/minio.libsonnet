@@ -41,7 +41,7 @@ local fluxcd = import 'github.com/jsonnet-libs/fluxcd-libsonnet/2.5.1/main.libso
           servers: 1,
           size: '2Gi',
           volumesPerServer: 2,
-        }]
+        }],
       },
     }),
 }
