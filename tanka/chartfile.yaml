@@ -1,0 +1,22 @@
+directory: charts
+repositories:
+- name: stable
+  url: https://charts.helm.sh/stable
+- name: grafana
+  url: https://grafana.github.io/helm-charts
+- name: jetstack
+  url: https://charts.jetstack.io
+- name: rocm
+  url: https://rocm.github.io/gpu-operator
+- name: truecharts
+  url: oci://tccr.io/truecharts
+requires:
+- chart: grafana/grafana
+  version: 8.10.4
+- chart: rocm/gpu-operator-charts
+  version: v1.2.0
+- chart: truecharts/app-template
+  version: 14.5.3
+- chart: grafana/k8s-monitoring
+  version: 2.0.21
+version: 1

@@ -1,0 +1,4 @@
+{
+    "apps-v1.Deployment-memos.yaml": "environments/apps/main.jsonnet",
+    "v1.Service-memos.yaml": "environments/apps/main.jsonnet"
+}

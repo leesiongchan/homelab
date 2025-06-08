@@ -1,0 +1,12 @@
+{
+  "apiVersion": "tanka.dev/v1alpha1",
+  "kind": "Environment",
+  "metadata": {
+    "name": "environments/dashboard"
+  },
+  "spec": {
+    "namespace": "dashboard",
+    "resourceDefaults": {},
+    "expectVersions": {}
+  }
+}
