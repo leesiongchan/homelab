@@ -22,8 +22,8 @@ spec:
         - name: PUID
           value: "1000"
         - name: TRUST_PROXY
-          value: "false"
-        image: ghcr.io/pocket-id/pocket-id:latest
+          value: "true"
+        image: ghcr.io/pocket-id/pocket-id:v1
         imagePullPolicy: IfNotPresent
         livenessProbe:
           httpGet:
