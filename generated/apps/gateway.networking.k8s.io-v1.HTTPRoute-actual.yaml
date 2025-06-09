@@ -5,7 +5,7 @@ metadata:
   namespace: apps
 spec:
   hostnames:
-  - actual.o5s.lol
+  - budget.o5s.lol
   parentRefs:
   - name: traefik-gateway
     namespace: network
