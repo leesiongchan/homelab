@@ -16,7 +16,9 @@ spec:
         name: actual
     spec:
       containers:
-      - env: []
+      - env:
+        - name: ACTUAL_PORT
+          value: "5006"
         image: actualbudget/actual-server:latest-alpine
         imagePullPolicy: IfNotPresent
         name: actual
