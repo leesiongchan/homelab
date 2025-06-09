@@ -25,7 +25,13 @@ spec:
         volumeMounts:
         - mountPath: /data
           name: actual-data
+        - mountPath: /data/config.json
+          name: actual-config
+          subPath: config.json
       volumes:
       - name: actual-data
         persistentVolumeClaim:
           claimName: actual-data
+      - configMap:
+          name: actual-config
+        name: actual-config
