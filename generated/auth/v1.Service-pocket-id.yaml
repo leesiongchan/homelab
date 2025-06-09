@@ -8,7 +8,7 @@ metadata:
 spec:
   ports:
   - name: http
-    port: 80
-    targetPort: 80
+    port: 1411
+    targetPort: 1411
   selector:
     name: pocket-id
