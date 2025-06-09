@@ -6,6 +6,7 @@
     "v1.ConfigMap-actual-config.yaml": "environments/apps/main.jsonnet",
     "v1.Namespace-apps.yaml": "environments/apps/main.jsonnet",
     "v1.PersistentVolumeClaim-actual-data.yaml": "environments/apps/main.jsonnet",
+    "v1.PersistentVolumeClaim-memos-data.yaml": "environments/apps/main.jsonnet",
     "v1.Service-actual.yaml": "environments/apps/main.jsonnet",
     "v1.Service-memos.yaml": "environments/apps/main.jsonnet"
 }
