@@ -14,7 +14,6 @@ spec:
   values:
     config:
       oidc:
-        clientID: 35626ae4-0a0d-420a-8739-263c6c77784f
-        clientSecret: vD8Ev7Mh8CfULOInDcnp6hZHKjH0e3WJ
-        issuerURL: https://pocket.o5s.lol
-        scopes: email,profile,groups
+        clientID: dd7cb89b-ea2a-41de-a336-db8b624dbc9b
+        clientSecret: X9kwu7FOcEHJqS4RRMkJVIdgUgjb0X9k
+        issuerURL: https://auth.o5s.lol
