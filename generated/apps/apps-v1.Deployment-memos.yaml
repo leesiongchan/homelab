@@ -21,4 +21,14 @@ spec:
           value: "5230"
         image: neosmemo/memos:stable
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          httpGet:
+            path: /healthz
+            port: 5230
+          initialDelaySeconds: 5
         name: memos
+        readinessProbe:
+          httpGet:
+            path: /healthz
+            port: 5230
+          initialDelaySeconds: 5

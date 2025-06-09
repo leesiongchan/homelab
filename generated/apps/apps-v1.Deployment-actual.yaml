@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: actual
+  namespace: apps
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: actual
+  template:
+    metadata:
+      labels:
+        name: actual
+    spec:
+      containers:
+      - env: []
+        image: actualbudget/actual-server:latest-alpine
+        imagePullPolicy: IfNotPresent
+        name: actual
+        volumeMounts:
+        - mountPath: /data
+          name: actual-data
+      volumes:
+      - name: actual-data
+        persistentVolumeClaim:
+          claimName: actual-data
