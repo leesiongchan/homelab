@@ -65,4 +65,4 @@ spec:
         token_url: https://auth.o5s.lol/api/oidc/token
       server:
         domain: o11y.o5s.lol
-        root_url: '%(protocol)s://%(domain)s/'
+        root_url: https://%(domain)s/
