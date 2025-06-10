@@ -22,6 +22,7 @@ spec:
         volumeMounts:
         - mountPath: /app/config/glance.yml
           name: glance-config
+          subPath: glance.yml
       volumes:
       - configMap:
           name: glance-config
