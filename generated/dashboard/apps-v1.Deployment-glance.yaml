@@ -16,19 +16,13 @@ spec:
         name: glance
     spec:
       containers:
-      - env: []
-        image: glanceapp/glance:latest
+      - image: glanceapp/glance:latest
         imagePullPolicy: IfNotPresent
         name: glance
         volumeMounts:
-        - mountPath: /app/assets
-          name: glance-assets
-        - mountPath: /app/config
+        - mountPath: /app/config/glance.yml
           name: glance-config
       volumes:
-      - name: glance-assets
-        persistentVolumeClaim:
-          claimName: glance-assets
-      - name: glance-config
-        persistentVolumeClaim:
-          claimName: glance-config
+      - configMap:
+          name: glance-config
+        name: glance-config
