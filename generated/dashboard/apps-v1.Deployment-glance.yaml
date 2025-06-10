@@ -1,0 +1,34 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: glance
+  namespace: dashboard
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: glance
+  template:
+    metadata:
+      labels:
+        name: glance
+    spec:
+      containers:
+      - env: []
+        image: glanceapp/glance:latest
+        imagePullPolicy: IfNotPresent
+        name: glance
+        volumeMounts:
+        - mountPath: /app/assets
+          name: glance-assets
+        - mountPath: /app/config
+          name: glance-config
+      volumes:
+      - name: glance-assets
+        persistentVolumeClaim:
+          claimName: glance-assets
+      - name: glance-config
+        persistentVolumeClaim:
+          claimName: glance-config
