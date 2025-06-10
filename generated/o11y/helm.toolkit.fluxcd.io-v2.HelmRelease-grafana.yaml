@@ -66,4 +66,4 @@ spec:
       server:
         domain: o11y.o5s.lol
         protocol: https
-        root_url: '%(protocol)s://%(domain)s'
+        root_url: '%(protocol)s://%(domain)s/'
