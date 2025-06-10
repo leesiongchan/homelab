@@ -8,4 +8,5 @@ spec:
   - name: http
     port: 5000
     targetPort: 5000
-  selector: synology
+  selector:
+    name: synology
