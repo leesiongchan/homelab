@@ -1,6 +1,11 @@
 apiVersion: v1
 data:
   glance.yml: |
+    theme:
+      background-color: 225 14 15
+      primary-color: 157 47 65
+      contrast-multiplier: 1.1
+
     pages:
       - name: Startpage
         width: slim
@@ -16,24 +21,27 @@ data:
                 cache: 1m
                 title: Services
                 sites:
-                  - title: Jellyfin
-                    url: https://yourdomain.com/
+                  - title: Harflix
+                    url: https://flix.o5s.lol
                     icon: si:jellyfin
-                  - title: Gitea
-                    url: https://yourdomain.com/
-                    icon: si:gitea
-                  - title: qBittorrent # only for Linux ISOs, of course
-                    url: https://yourdomain.com/
+                  - title: Harseer
+                    url: https://seer.o5s.lol
+                    icon: di:jellyseerr
+                  - title: HomeBox
+                    url: https://homebox.o5s.lol
+                    icon: di:homebox
+                  - title: Memos
+                    url: https://memos.o5s.lol
+                    icon: di:memos
+                  - title: Actual Budget
+                    url: https://budget.o5s.lol
+                    icon: di:actual-budget
+                  - title: qBittorrent
+                    url: https://bt.o5s.lol
                     icon: si:qbittorrent
                   - title: Immich
-                    url: https://yourdomain.com/
+                    url: https://photos.o5s.lol
                     icon: si:immich
-                  - title: AdGuard Home
-                    url: https://yourdomain.com/
-                    icon: si:adguard
-                  - title: Vaultwarden
-                    url: https://yourdomain.com/
-                    icon: si:vaultwarden
 
               - type: bookmarks
                 groups:
