@@ -12,7 +12,7 @@ spec:
   rules:
   - backendRefs:
     - name: grafana
-      port: 3000
+      port: 80
     matches:
     - path:
         value: /
