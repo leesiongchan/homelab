@@ -12,6 +12,32 @@ spec:
         name: grafana
   interval: 1h
   values:
+    dashboardProviders:
+      dashboardproviders.yaml:
+        apiVersion: 1
+        providers:
+        - disableDeletion: true
+          editable: true
+          folder: Kubernetes
+          name: kubernetes
+          options:
+            path: /var/lib/grafana/dashboards/kubernetes
+          orgId: 1
+          type: file
+    dashboards:
+      kubernetes:
+        k8s-system-api-server.json:
+          url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-api-server.json
+        k8s-system-coredns.json:
+          url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-system-coredns.json
+        k8s-views-global.json:
+          url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-global.json
+        k8s-views-namespaces.json:
+          url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-namespaces.json
+        k8s-views-nodes.json:
+          url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-nodes.json
+        k8s-views-pods.json:
+          url: https://raw.githubusercontent.com/dotdc/grafana-dashboards-kubernetes/master/dashboards/k8s-views-pods.json
     datasources:
       datasources.yaml:
         apiVersion: 1
