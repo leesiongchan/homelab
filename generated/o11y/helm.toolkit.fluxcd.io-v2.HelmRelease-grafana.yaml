@@ -53,16 +53,16 @@ spec:
     grafana.ini:
       auth.generic_oauth:
         allow_sign_up: true
-        api_url: https://auth.o5s.lol/api/oidc/userinfo
-        auth_url: https://auth.o5s.lol/authorize
+        api_url: https://auth.harflix.lol/api/oidc/userinfo
+        auth_url: https://auth.harflix.lol/authorize
         auto_login: true
         client_id: $__file{/etc/secrets/generic_oauth/client_id}
         client_secret: $__file{/etc/secrets/generic_oauth/client_secret}
         enabled: true
         name: Pocket ID
-        scopes: openid profile email offline_access
+        scopes: openid profile email
         skip_org_role_sync: true
-        token_url: https://auth.o5s.lol/api/oidc/token
+        token_url: https://auth.harflix.lol/api/oidc/token
       server:
         domain: o11y.o5s.lol
         root_url: https://%(domain)s/
