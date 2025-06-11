@@ -22,7 +22,7 @@ spec:
         - name: NEWT_SECRET
           value: uo5zyxee6l2q89xadi4xe6yp5kdhi96n9ht7jh7zu6tphzgh
         - name: PANGOLIN_ENDPOINT
-          value: pangolin.harflix.lol
+          value: https://pangolin.harflix.lol
         image: fosrl/newt:latest
         imagePullPolicy: IfNotPresent
         name: newt
