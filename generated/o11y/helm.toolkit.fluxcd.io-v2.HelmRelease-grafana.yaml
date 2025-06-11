@@ -10,7 +10,6 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: grafana
-        namespace: flux-system
   interval: 1h
   values:
     adminPassword: testadmin
@@ -46,8 +45,8 @@ spec:
           url: http://tempo.o11y.svc.cluster.local:3100
     extraSecretMounts:
     - defaultMode: "0440"
-      mountPath: /etc/secrets/generic_oauth
-      name: generic-oauth-secret-mount
+      mountPath: /etc/secrets/oauth
+      name: oauth-secret-mount
       readOnly: true
       secretName: grafana-generic-oauth
     grafana.ini:
@@ -56,13 +55,15 @@ spec:
         api_url: https://auth.harflix.lol/api/oidc/userinfo
         auth_url: https://auth.harflix.lol/authorize
         auto_login: false
-        client_id: $__file{/etc/secrets/generic_oauth/client_id}
-        client_secret: $__file{/etc/secrets/generic_oauth/client_secret}
+        client_id: $__file{/etc/secrets/oauth/client_id}
+        client_secret: $__file{/etc/secrets/oauth/client_secret}
         enabled: true
         name: Pocket ID
-        scopes: openid profile email
+        role_attribute_path: contains(groups[*], 'admin') && 'Admin' || 'Viewer'
+        scopes: openid email profile groups
         skip_org_role_sync: true
         token_url: https://auth.harflix.lol/api/oidc/token
+        use_pkce: true
       server:
         domain: o11y.o5s.lol
         root_url: https://%(domain)s/

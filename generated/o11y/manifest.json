@@ -5,6 +5,7 @@
     "helm.toolkit.fluxcd.io-v2.HelmRelease-loki.yaml": "environments/o11y/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-mimir.yaml": "environments/o11y/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-tempo.yaml": "environments/o11y/main.jsonnet",
+    "source.toolkit.fluxcd.io-v1.HelmRepository-grafana.yaml": "environments/o11y/main.jsonnet",
     "v1.Namespace-o11y.yaml": "environments/o11y/main.jsonnet",
     "v1.Secret-grafana-generic-oauth.yaml": "environments/o11y/main.jsonnet"
 }
