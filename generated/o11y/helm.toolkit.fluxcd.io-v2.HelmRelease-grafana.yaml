@@ -12,8 +12,6 @@ spec:
         name: grafana
   interval: 1h
   values:
-    adminPassword: testadmin
-    adminUser: admin
     datasources:
       datasources.yaml:
         apiVersion: 1
@@ -59,12 +57,14 @@ spec:
         client_id: $__file{/etc/secrets/oauth/client_id}
         client_secret: $__file{/etc/secrets/oauth/client_secret}
         enabled: true
+        login_attribute_path: preferred_username
         name: Pocket ID
         role_attribute_path: contains(groups[*], 'admin') && 'GrafanaAdmin' || 'Viewer'
         scopes: openid email profile groups
-        skip_org_role_sync: true
+        skip_org_role_sync: false
         token_url: https://auth.harflix.lol/api/oidc/token
         use_pkce: true
+        use_refresh_token: true
       server:
         domain: o11y.o5s.lol
         root_url: https://%(domain)s/
