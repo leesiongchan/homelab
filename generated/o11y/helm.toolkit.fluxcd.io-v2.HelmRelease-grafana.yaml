@@ -51,6 +51,7 @@ spec:
       secretName: grafana-generic-oauth
     grafana.ini:
       auth.generic_oauth:
+        allow_assign_grafana_admin: true
         allow_sign_up: true
         api_url: https://auth.harflix.lol/api/oidc/userinfo
         auth_url: https://auth.harflix.lol/authorize
