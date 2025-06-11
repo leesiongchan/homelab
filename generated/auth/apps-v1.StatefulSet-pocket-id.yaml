@@ -16,7 +16,7 @@ spec:
       containers:
       - env:
         - name: APP_URL
-          value: https://auth.o5s.lol
+          value: https://auth.harflix.lol
         - name: PGID
           value: "1000"
         - name: PUID
