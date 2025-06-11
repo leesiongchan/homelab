@@ -60,7 +60,7 @@ spec:
         client_secret: $__file{/etc/secrets/oauth/client_secret}
         enabled: true
         name: Pocket ID
-        role_attribute_path: contains(groups[*], 'admin') && 'Admin' || 'Viewer'
+        role_attribute_path: contains(groups[*], 'admin') && 'GrafanaAdmin' || 'Viewer'
         scopes: openid email profile groups
         skip_org_role_sync: true
         token_url: https://auth.harflix.lol/api/oidc/token
