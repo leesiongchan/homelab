@@ -61,6 +61,6 @@ spec:
       type: otlp
       url: http://tempo.o11y.svc.cluster.local:4317
     nodeLogs:
-      enabled: false
+      enabled: true
     podLogs:
       enabled: true
