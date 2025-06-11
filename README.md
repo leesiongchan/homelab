@@ -25,7 +25,6 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 
 - oauth for weave, grafana, portainer
 - suggestarr (https://github.com/giuseppe99barchetta/SuggestArr)
-- omegabrr (https://github.com/autobrr/omegabrr)
 - Maybe (https://github.com/maybe-finance/maybe)
 - Minio
 - Immich
@@ -36,10 +35,15 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 - logseq
 - Vector
 - changedetection
-- actual budget
 - borg
 - unbound
 - janitorr
 - unpackerr
 - Frigate 
 - OpenBB
+- Homarr
+- tinyauth
+- n8n
+- backrest
+- pingvin-share
+- linkding

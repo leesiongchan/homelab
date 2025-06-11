@@ -1,6 +1,8 @@
 local k = import 'ksonnet-util/kausal.libsonnet';
 
 {
+  local appName = 'bazarr',
+
   _config+:: {
     port: 6767,
     version: 'latest',
@@ -13,7 +15,7 @@ local k = import 'ksonnet-util/kausal.libsonnet';
   local pvc = k.core.v1.persistentVolumeClaim,
 
   pvc:
-    pvc.new('bazarr-config-pvc') +
+    pvc.new(appName + '-config-pvc') +
     pvc.spec.withAccessModes('ReadWriteOnce') +
     pvc.spec.withStorageClassName('local-path') +
     pvc.spec.resources.withRequests({ storage: '1Gi' }),
@@ -22,11 +24,10 @@ local k = import 'ksonnet-util/kausal.libsonnet';
 
   local container = k.core.v1.container,
   local envVar = k.core.v1.envVar,
-  local volumeMount = k.core.v1.volumeMount,
   local httpHeader = k.core.v1.httpHeader,
 
   container::
-    container.new('bazarr', $._image) +
+    container.new(appName, $._image) +
     container.livenessProbe.httpGet.withPath('/api/system/health') +
     container.livenessProbe.httpGet.withPort($._config.port) +
     container.livenessProbe.httpGet.withHttpHeadersMixin(
@@ -49,10 +50,9 @@ local k = import 'ksonnet-util/kausal.libsonnet';
     container.withResourcesRequests('100m', '256Mi'),
 
   local deployment = k.apps.v1.deployment,
-  local volume = k.core.v1.volume,
 
   deployment:
-    deployment.new('bazarr', 1, [$.container]) +
+    deployment.new(appName, 1, [$.container]) +
     k.util.pvcVolumeMount($.pvc.metadata.name, '/config') +
     k.util.pvcVolumeMount('media-nfs', '/Media'),
 

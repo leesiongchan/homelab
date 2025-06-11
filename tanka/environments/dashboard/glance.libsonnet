@@ -1,48 +1,37 @@
 local k = import 'ksonnet-util/kausal.libsonnet';
 
 {
-  local appName = 'memos',
+  local appName = 'glance',
 
   _config+:: {
-    domain: 'memos.o5s.lol',
-    port: 5230,
-    version: 'stable',
+    domain: 'o5s.lol',
+    port: 8080,
+    version: 'latest',
   },
 
-  _image+:: 'neosmemo/memos:' + $._config.version,
+  _image+:: 'glanceapp/glance:' + $._config.version,
 
-  // ---
+  local configMap = k.core.v1.configMap,
 
-  local pvc = k.core.v1.persistentVolumeClaim,
-
-  dataPvc:
-    pvc.new(appName + '-data') +
-    pvc.spec.withAccessModes('ReadWriteOnce') +
-    pvc.spec.withStorageClassName('local-path') +
-    pvc.spec.resources.withRequests({ storage: '1Gi' }),
+  configMap:
+    configMap.new(appName + '-config') +
+    configMap.withDataMixin({
+      'glance.yml': importstr 'configs/glance.glance.yml',
+    }),
 
   // ---
 
   local container = k.core.v1.container,
 
   container::
-    container.new(appName, $._image) +
-    container.livenessProbe.withInitialDelaySeconds(5) +
-    container.livenessProbe.httpGet.withPath('/healthz') +
-    container.livenessProbe.httpGet.withPort($._config.port) +
-    container.readinessProbe.withInitialDelaySeconds(5) +
-    container.readinessProbe.httpGet.withPath('/healthz') +
-    container.readinessProbe.httpGet.withPort($._config.port) +
-    // @ref https://www.usememos.com/docs/install/runtime-options
-    container.withEnvMap({
-      MEMOS_PORT: std.toString($._config.port),
-    }),
+    container.new(appName, $._image),
 
   local deployment = k.apps.v1.deployment,
+  local volumeMount = k.core.v1.volumeMount,
 
   deployment:
     deployment.new(appName, 1, [$.container]) +
-    k.util.pvcVolumeMount($.dataPvc.metadata.name, '/var/opt/memos'),
+    k.util.configVolumeMount($.configMap.metadata.name, '/app/config/glance.yml', volumeMount.withSubPath('glance.yml')),
 
   // ---
 

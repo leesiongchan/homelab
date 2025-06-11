@@ -1,0 +1,9 @@
+{
+    "openId": {
+        "authMethod": "openid",
+        "client_id": "952b09d7-7e56-4932-a7b6-e4bf2c475712",
+        "client_secret": "UhXrO9pU837KfbUCVX67NnOb3PPh29Uh",
+        "discoveryURL": "https://auth.o5s.lol/.well-known/openid-configuration",
+        "server_hostname": "https://budget.o5s.lol"
+    }
+}

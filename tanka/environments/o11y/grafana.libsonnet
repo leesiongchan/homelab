@@ -13,8 +13,8 @@ local k = import 'ksonnet-util/kausal.libsonnet';
   genericOauthSecret:
     secret.new('grafana-generic-oauth', {}) +
     secret.withStringData({
-      client_id: '5cd3a2a4-fd53-46b0-bb7a-f5bbaa4d5814',
-      client_secret: 'vbVltlNMp0VVbiVh6QnlYPTLiumqwEbv',
+      client_id: '5e5add90-d124-4a5f-a96d-30866fa20fe3',
+      client_secret: 'LYmGEAuD2W7n2JAni7TUgzNhyr81linL',
     }),
 
   // ---
@@ -78,21 +78,26 @@ local k = import 'ksonnet-util/kausal.libsonnet';
         },
       },
 
-      // 'grafana.ini': {
-      //   'auth.generic_oauth': {
-      //     enabled: true,
-      //     name: 'Pocket ID',
-      //     allow_sign_up: false,
-      //     auth_url: 'https://auth.o5s.lol/authorize',
-      //     auto_login: true,
-      //     client_id: '$__file{/etc/secrets/generic_oauth/client_id}',
-      //     client_secret: '$__file{/etc/secrets/generic_oauth/client_secret}',
-      //     email_attribute_name: 'email:primary',
-      //     scopes: 'openid email profile groups',
-      //     skip_org_role_sync: true,
-      //     token_url: 'https://auth.o5s.lol/api/oidc/token',
-      //   },
-      // },
+      'grafana.ini': {
+        server: {
+          domain: $._config.domain,
+          root_url: 'https://%(domain)s/',
+        },
+        'auth.generic_oauth': {
+          enabled: true,
+          allow_sign_up: true,
+          api_url: 'https://auth.harflix.lol/api/oidc/userinfo',
+          auth_url: 'https://auth.harflix.lol/authorize',
+          auto_login: false,
+          client_id: '$__file{/etc/secrets/generic_oauth/client_id}',
+          client_secret: '$__file{/etc/secrets/generic_oauth/client_secret}',
+          name: 'Pocket ID',
+          scopes: 'openid profile email',
+          skip_org_role_sync: false,
+          token_url: 'https://auth.harflix.lol/api/oidc/token',
+          role_attribute_path: "contains(groups[*], 'admin') && 'Admin' || contains(groups[*], 'editor') && 'Editor' || 'Viewer'",
+        },
+      },
 
       extraSecretMounts: [
         {

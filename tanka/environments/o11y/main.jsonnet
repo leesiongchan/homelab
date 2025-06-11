@@ -1,13 +1,13 @@
-local grafana = import 'grafana.libsonnet';
-local k8sMonitoring = import 'k8s-monitoring.libsonnet';
-local loki = import 'loki.libsonnet';
-local mimir = import 'mimir.libsonnet';
-local tempo = import 'tempo.libsonnet';
+local k = import 'ksonnet-util/kausal.libsonnet';
 
 {
-  grafana: grafana,
-  k8sMonitoring: k8sMonitoring,
-  loki: loki,
-  mimir: mimir,
-  tempo: tempo,
+  namespace: k.core.v1.namespace.new('o11y'),
+
+  // ---
+
+  grafana: import 'grafana.libsonnet',
+  k8sMonitoring: import 'k8s-monitoring.libsonnet',
+  loki: import 'loki.libsonnet',
+  mimir: import 'mimir.libsonnet',
+  tempo: import 'tempo.libsonnet',
 }

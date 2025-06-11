@@ -1,4 +1,4 @@
-local bazarr = import 'bazarr/main.libsonnet';
+local bazarr = import 'bazarr.libsonnet';
 local crossSeed = import 'cross-seed/main.libsonnet';
 local recyclarr = import 'recyclarr/main.libsonnet';
 local unpackerr = import 'unpackerr/main.libsonnet';
