@@ -1,0 +1,28 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: newt
+  namespace: apps
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: newt
+  template:
+    metadata:
+      labels:
+        name: newt
+    spec:
+      containers:
+      - env:
+        - name: NEWT_ID
+          value: xailz8nlpd7uf4g
+        - name: NEWT_SECRET
+          value: uo5zyxee6l2q89xadi4xe6yp5kdhi96n9ht7jh7zu6tphzgh
+        - name: PANGOLIN_ENDPOINT
+          value: pangolin.harflix.lol
+        image: fosrl/newt:latest
+        imagePullPolicy: IfNotPresent
+        name: newt

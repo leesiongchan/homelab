@@ -1,6 +1,7 @@
 {
     "apps-v1.Deployment-actual.yaml": "environments/apps/main.jsonnet",
     "apps-v1.Deployment-memos.yaml": "environments/apps/main.jsonnet",
+    "apps-v1.Deployment-newt.yaml": "environments/apps/main.jsonnet",
     "gateway.networking.k8s.io-v1.HTTPRoute-actual.yaml": "environments/apps/main.jsonnet",
     "gateway.networking.k8s.io-v1.HTTPRoute-memos.yaml": "environments/apps/main.jsonnet",
     "gateway.networking.k8s.io-v1.HTTPRoute-synology.yaml": "environments/apps/main.jsonnet",
