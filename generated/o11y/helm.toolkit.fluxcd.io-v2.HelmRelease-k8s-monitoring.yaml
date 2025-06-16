@@ -55,12 +55,8 @@ spec:
       enabled: true
       node-exporter:
         enabled: true
-        extraDiscoveryRules:
-          rule:
-            action: replace
-            source_labels:
-            - __meta_kubernetes_pod_node_name
-            target_label: instance
+        extraDiscoveryRules: '{"rule": {"action": "replace", "source_labels": ["__meta_kubernetes_pod_node_name"],
+          "target_label": "instance"}}'
       windows-exporter:
         enabled: false
     destinations:
