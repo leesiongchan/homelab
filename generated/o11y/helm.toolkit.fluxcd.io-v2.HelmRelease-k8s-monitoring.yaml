@@ -13,9 +13,16 @@ spec:
   interval: 1h
   values:
     alloy-logs:
+      alloy:
+        clustering:
+          enabled: true
+        mounts:
+          varlog: false
       enabled: true
     alloy-metrics:
       enabled: true
+    alloy-profiles:
+      enabled: false
     alloy-receiver:
       alloy:
         extraPorts:
@@ -43,6 +50,8 @@ spec:
     clusterEvents:
       enabled: true
     clusterMetrics:
+      controlPlane:
+        enabled: true
       enabled: true
     destinations:
     - name: mimir
