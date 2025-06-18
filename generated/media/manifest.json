@@ -4,7 +4,7 @@
     "apps-v1.Deployment-recyclarr.yaml": "environments/media/main.jsonnet",
     "apps-v1.Deployment-rtorrent.yaml": "environments/media/main.jsonnet",
     "apps-v1.Deployment-unpackerr.yaml": "environments/media/main.jsonnet",
-    "external-secrets.io-v1beta1.ExternalSecret-cross-seed-config-secret.yaml": "environments/media/main.jsonnet",
+    "external-secrets.io-v1.ExternalSecret-cross-seed-config-secret.yaml": "environments/media/main.jsonnet",
     "gateway.networking.k8s.io-v1.HTTPRoute-rtorrent.yaml": "environments/media/main.jsonnet",
     "v1.ConfigMap-recyclarr-config.yaml": "environments/media/main.jsonnet",
     "v1.PersistentVolumeClaim-bazarr-config-pvc.yaml": "environments/media/main.jsonnet",
