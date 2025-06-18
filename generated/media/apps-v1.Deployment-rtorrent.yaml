@@ -1,0 +1,88 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rtorrent
+  namespace: media
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: rtorrent
+  template:
+    metadata:
+      labels:
+        name: rtorrent
+    spec:
+      containers:
+      - env:
+        - name: RUTORRENT_PORT
+          value: "8080"
+        image: crazymax/rtorrent-rutorrent:latest
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - /usr/local/bin/healthcheck
+        name: rtorrent
+        readinessProbe:
+          exec:
+            command:
+            - /usr/local/bin/healthcheck
+        resources:
+          limits:
+            cpu: "1"
+            memory: 512Mi
+          requests:
+            cpu: 100m
+            memory: 256Mi
+        startupProbe:
+          exec:
+            command:
+            - /usr/local/bin/healthcheck
+        volumeMounts:
+        - mountPath: /data
+          name: rtorrent-data
+        - mountPath: /Media
+          name: media-nfs
+      - env:
+        - name: BLOCK_ADS
+          value: "off"
+        - name: BLOCK_MALICIOUS
+          value: "off"
+        - name: BLOCK_SURVEILLANCE
+          value: "off"
+        - name: DOT
+          value: "off"
+        - name: VPN_SERVICE_PROVIDER
+          value: private internet access
+        - name: OPENVPN_USER
+          valueFrom:
+            secretKeyRef:
+              key: PIA__USERNAME
+              name: media-secret
+        - name: OPENVPN_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              key: PIA__PASSWORD
+              name: media-secret
+        image: qmcgaw/gluetun:latest
+        imagePullPolicy: IfNotPresent
+        name: gluetun
+        securityContext:
+          capabilities:
+            add:
+            - NET_ADMIN
+        volumeMounts:
+        - mountPath: /data
+          name: rtorrent-data
+        - mountPath: /Media
+          name: media-nfs
+      volumes:
+      - name: rtorrent-data
+        persistentVolumeClaim:
+          claimName: rtorrent-data
+      - name: media-nfs
+        persistentVolumeClaim:
+          claimName: media-nfs
