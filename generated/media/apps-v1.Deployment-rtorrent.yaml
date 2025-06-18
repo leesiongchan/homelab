@@ -53,10 +53,20 @@ spec:
           value: "off"
         - name: BLOCK_SURVEILLANCE
           value: "off"
+        - name: DNS_KEEP_NAMESERVER
+          value: "off"
         - name: DOT
           value: "off"
+        - name: FIREWALL_INPUT_PORTS
+          value: 8080,8888
+        - name: HTTPPROXY
+          value: "on"
+        - name: HTTPPROXY_LOG
+          value: "on"
         - name: VPN_SERVICE_PROVIDER
           value: private internet access
+        - name: VPN_TYPE
+          value: openvpn
         - name: OPENVPN_USER
           valueFrom:
             secretKeyRef:
