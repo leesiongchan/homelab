@@ -47,3 +47,7 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 - backrest
 - pingvin-share
 - linkding
+- Ghostfolio
+- AFFiNE
+- FreshRSS
+- Infisical

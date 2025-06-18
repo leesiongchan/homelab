@@ -1,4 +1,4 @@
-local k = import 'ksonnet-util/kausal.libsonnet';
+local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 local deployment = k.apps.v1.deployment;
 local statefulset = k.apps.v1.statefulSet;
 local service = k.core.v1.service;

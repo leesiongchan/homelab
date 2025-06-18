@@ -23,6 +23,15 @@
       "source": {
         "git": {
           "remote": "https://github.com/grafana/jsonnet-libs.git",
+          "subdir": "prometheus-ksonnet"
+        }
+      },
+      "version": "master"
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/grafana/jsonnet-libs.git",
           "subdir": "tanka-util"
         }
       },
@@ -59,7 +68,7 @@
       "source": {
         "git": {
           "remote": "https://github.com/jsonnet-libs/external-secrets-libsonnet.git",
-          "subdir": "0.9"
+          "subdir": "0.15"
         }
       },
       "version": "main"
@@ -99,6 +108,15 @@
         }
       },
       "version": "main"
+    },
+    {
+      "source": {
+        "git": {
+          "remote": "https://github.com/kubernetes-monitoring/kubernetes-mixin.git",
+          "subdir": ""
+        }
+      },
+      "version": "master"
     }
   ],
   "legacyImports": true

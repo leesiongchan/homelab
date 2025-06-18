@@ -7,5 +7,6 @@ local unpackerr = import 'unpackerr/main.libsonnet';
   bazarr: bazarr,
   crossSeed: crossSeed,
   recyclarr: recyclarr,
+  rtorrent: import 'rtorrent.libsonnet',
   unpackerr: unpackerr,
 }

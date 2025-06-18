@@ -1,5 +1,5 @@
-local externalSecrets = import 'github.com/jsonnet-libs/external-secrets-libsonnet/0.9/main.libsonnet';
-local k = import 'ksonnet-util/kausal.libsonnet';
+local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
+local externalSecrets = import 'github.com/jsonnet-libs/external-secrets-libsonnet/0.15/main.libsonnet';
 
 {
   _config+:: {

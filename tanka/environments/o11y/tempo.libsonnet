@@ -1,14 +1,19 @@
 local fluxcd = import 'github.com/jsonnet-libs/fluxcd-libsonnet/2.5.1/main.libsonnet';
 
+local repository = import './repository.libsonnet';
+
 {
+  local appName = 'tempo',
+
+  // ---
+
   local release = fluxcd.helm.v2.helmRelease,
 
   release:
-    release.new('tempo') +
+    release.new(appName) +
     release.spec.chart.spec.withChart('tempo') +
     release.spec.chart.spec.sourceRef.withKind('HelmRepository') +
-    release.spec.chart.spec.sourceRef.withName('grafana') +
-    release.spec.chart.spec.sourceRef.withNamespace('flux-system') +
+    release.spec.chart.spec.sourceRef.withName(repository.grafana.metadata.name) +
     release.spec.withInterval('1h') +
     // @ref https://github.com/grafana/helm-charts/blob/main/charts/tempo/values.yaml
     release.spec.withValues({

@@ -1,5 +1,5 @@
 local fluxcd = import 'github.com/jsonnet-libs/fluxcd-libsonnet/2.5.1/main.libsonnet';
-local k = import 'ksonnet-util/kausal.libsonnet';
+local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 
 {
   local appName = 'headlamp',

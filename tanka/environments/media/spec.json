@@ -5,8 +5,6 @@
     "name": "environments/media"
   },
   "spec": {
-    "namespace": "media",
-    "resourceDefaults": {},
-    "expectVersions": {}
+    "namespace": "media"
   }
 }
