@@ -57,7 +57,7 @@ spec:
         - name: BLOCK_SURVEILLANCE
           value: "off"
         - name: DNS_ADDRESS
-          value: 192.168.0.241
+          value: 192.168.0.240
         - name: DOT
           value: "off"
         - name: FIREWALL_INPUT_PORTS
