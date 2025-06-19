@@ -68,6 +68,8 @@ spec:
           value: malaysia401,malaysia402,singapore401,singapore402,singapore403,singapore404
         - name: VPN_PORT_FORWARDING
           value: "on"
+        - name: VPN_PORT_FORWARDING_LISTENING_PORT
+          value: "50000"
         - name: VPN_SERVICE_PROVIDER
           value: private internet access
         - name: OPENVPN_USER
