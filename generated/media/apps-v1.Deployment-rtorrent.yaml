@@ -89,8 +89,6 @@ spec:
           capabilities:
             add:
             - NET_ADMIN
-          runAsGroup: 1000
-          runAsUser: 1000
         volumeMounts:
         - mountPath: /data
           name: rtorrent-data
