@@ -7,7 +7,7 @@ metadata:
   namespace: media
 spec:
   ports:
-  - name: http
+  - name: rtorrent-http
     port: 8080
     targetPort: 8080
   selector:

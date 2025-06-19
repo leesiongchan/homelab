@@ -26,6 +26,9 @@ spec:
             command:
             - /usr/local/bin/healthcheck
         name: rtorrent
+        ports:
+        - containerPort: 8080
+          name: http
         readinessProbe:
           exec:
             command:
@@ -62,7 +65,7 @@ spec:
         - name: HTTP_CONTROL_SERVER_ADDRESS
           value: :8088
         - name: SERVER_NAMES
-          value: sg
+          value: malaysia401,malaysia402,singapore401,singapore402,singapore403,singapore404
         - name: VPN_PORT_FORWARDING
           value: "on"
         - name: VPN_SERVICE_PROVIDER
