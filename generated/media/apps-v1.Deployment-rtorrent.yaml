@@ -56,6 +56,8 @@ spec:
           value: "off"
         - name: BLOCK_SURVEILLANCE
           value: "off"
+        - name: DNS_ADDRESS
+          value: 192.168.0.240
         - name: DOT
           value: "off"
         - name: FIREWALL_INPUT_PORTS
@@ -68,8 +70,6 @@ spec:
           value: malaysia401,malaysia402,singapore401,singapore402,singapore403,singapore404
         - name: VPN_PORT_FORWARDING
           value: "on"
-        - name: VPN_PORT_FORWARDING_LISTENING_PORT
-          value: "50000"
         - name: VPN_SERVICE_PROVIDER
           value: private internet access
         - name: OPENVPN_USER
@@ -89,6 +89,8 @@ spec:
           capabilities:
             add:
             - NET_ADMIN
+          runAsGroup: 1000
+          runAsUser: 1000
         volumeMounts:
         - mountPath: /data
           name: rtorrent-data
