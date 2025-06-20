@@ -12,8 +12,11 @@ spec:
         name: headlamp
   interval: 1h
   values:
+    clusterRoleBinding:
+      create: false
     config:
       oidc:
-        clientID: dd7cb89b-ea2a-41de-a336-db8b624dbc9b
-        clientSecret: X9kwu7FOcEHJqS4RRMkJVIdgUgjb0X9k
-        issuerURL: https://auth.o5s.lol
+        clientID: 14c2579d-25b9-4dbb-b6fa-daf546d87518
+        clientSecret: Ryh9lpojjgYjBBxCO3aKq4sHoNC2hRyh
+        issuerURL: https://auth.harflix.lol
+        scopes: openid,profile,email,groups
