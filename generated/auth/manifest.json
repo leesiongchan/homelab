@@ -1,6 +1,7 @@
 {
     "apps-v1.StatefulSet-pocket-id.yaml": "environments/auth/main.jsonnet",
     "gateway.networking.k8s.io-v1.HTTPRoute-pocket-id.yaml": "environments/auth/main.jsonnet",
+    "v1.Namespace-auth.yaml": "environments/auth/main.jsonnet",
     "v1.PersistentVolumeClaim-pocket-id-data.yaml": "environments/auth/main.jsonnet",
     "v1.Service-pocket-id.yaml": "environments/auth/main.jsonnet"
 }
