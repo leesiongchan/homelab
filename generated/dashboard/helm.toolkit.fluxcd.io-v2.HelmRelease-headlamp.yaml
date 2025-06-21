@@ -12,11 +12,32 @@ spec:
         name: headlamp
   interval: 1h
   values:
-    clusterRoleBinding:
-      create: true
     config:
       oidc:
         clientID: 14c2579d-25b9-4dbb-b6fa-daf546d87518
         clientSecret: Ryh9lpojjgYjBBxCO3aKq4sHoNC2hRyh
         issuerURL: https://auth.harflix.lol
         scopes: openid,profile,email,groups
+      pluginsDir: /build/plugins
+    initContainers:
+    - command:
+      - /bin/sh
+      - -c
+      - mkdir -p /build/plugins && cp -r /plugins/* /build/plugins/
+      image: ghcr.io/headlamp-k8s/headlamp-plugin-flux:latest
+      name: headlamp-plugins
+      volumeMounts:
+      - mountPath: /build/plugins
+        name: headlamp-plugins
+    persistentVolumeClaim:
+      accessModes:
+      - ReadWriteOnce
+      enabled: true
+      size: 1Gi
+    volumeMounts:
+    - mountPath: /build/plugins
+      name: headlamp-plugins
+    volumes:
+    - name: headlamp-plugins
+      persistentVolumeClaim:
+        claimName: headlamp
