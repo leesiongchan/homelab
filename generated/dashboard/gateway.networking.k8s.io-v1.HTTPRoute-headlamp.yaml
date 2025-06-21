@@ -5,13 +5,14 @@ metadata:
   namespace: dashboard
 spec:
   hostnames:
-  - k8s.o5s.lol
+  - kube-system
   parentRefs:
   - name: traefik-gateway
     namespace: network
   rules:
   - backendRefs:
     - name: headlamp
+      namespace: dashboard
       port: 80
     matches:
     - path:
