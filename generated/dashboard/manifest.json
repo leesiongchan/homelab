@@ -3,7 +3,6 @@
     "gateway.networking.k8s.io-v1.HTTPRoute-glance.yaml": "environments/dashboard/main.jsonnet",
     "gateway.networking.k8s.io-v1.HTTPRoute-headlamp.yaml": "environments/dashboard/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-headlamp.yaml": "environments/dashboard/main.jsonnet",
-    "rbac.authorization.k8s.io-v1.ClusterRoleBinding-headlamp-admin.yaml": "environments/dashboard/main.jsonnet",
     "source.toolkit.fluxcd.io-v1.HelmRepository-headlamp.yaml": "environments/dashboard/main.jsonnet",
     "v1.ConfigMap-glance-config.yaml": "environments/dashboard/main.jsonnet",
     "v1.Service-glance.yaml": "environments/dashboard/main.jsonnet"

@@ -13,7 +13,7 @@ spec:
   interval: 1h
   values:
     clusterRoleBinding:
-      create: false
+      create: true
     config:
       oidc:
         clientID: 14c2579d-25b9-4dbb-b6fa-daf546d87518
