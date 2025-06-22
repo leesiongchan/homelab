@@ -12,6 +12,8 @@ spec:
         name: headlamp
   interval: 1h
   values:
+    clusterRoleBinding:
+      create: false
     config:
       oidc:
         clientID: 14c2579d-25b9-4dbb-b6fa-daf546d87518
@@ -43,6 +45,8 @@ spec:
       - ReadWriteOnce
       enabled: true
       size: 1Gi
+    serviceAccount:
+      create: false
     volumeMounts:
     - mountPath: /build/plugins
       name: headlamp-plugins
