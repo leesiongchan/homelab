@@ -9,6 +9,6 @@ spec:
       chart: nginx-gateway-fabric
       sourceRef:
         kind: HelmRepository
-        name: ngf
+        name: nginx-gateway-fabric
   interval: 1h
   values: {}

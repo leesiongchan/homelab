@@ -6,7 +6,7 @@ metadata:
   name: nginx-gateway
   namespace: network
 spec:
-  gatewayClassName: nginx-gateway
+  gatewayClassName: nginx
   listeners:
   - allowedRoutes:
       namespaces:
