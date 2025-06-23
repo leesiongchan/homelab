@@ -1,4 +1,5 @@
 {
     "gateway.networking.k8s.io-v1.Gateway-nginx-gateway.yaml": "environments/network/main.jsonnet",
-    "helm.toolkit.fluxcd.io-v2.HelmRelease-nginx-gateway.yaml": "environments/network/main.jsonnet"
+    "helm.toolkit.fluxcd.io-v2.HelmRelease-nginx-gateway.yaml": "environments/network/main.jsonnet",
+    "source.toolkit.fluxcd.io-v1.HelmRepository-nginx-gateway-fabric.yaml": "environments/network/main.jsonnet"
 }
