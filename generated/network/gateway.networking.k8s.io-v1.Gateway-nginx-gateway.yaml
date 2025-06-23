@@ -14,7 +14,7 @@ spec:
     name: websecure
     port: 443
     protocol: HTTPS
-  - tls:
+    tls:
       certificateRefs:
       - name: o5s-lol-ca
       mode: Terminate
