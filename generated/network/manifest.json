@@ -1,0 +1,3 @@
+{
+    "helm.toolkit.fluxcd.io-v2.HelmRelease-nginx-gateway.yaml": "environments/network/main.jsonnet"
+}

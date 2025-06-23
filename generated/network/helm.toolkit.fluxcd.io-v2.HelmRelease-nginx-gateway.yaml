@@ -1,0 +1,14 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: nginx-gateway
+  namespace: network
+spec:
+  chart:
+    spec:
+      chart: ngf
+      sourceRef:
+        kind: HelmRepository
+        name: ngf
+  interval: 1h
+  values: {}
