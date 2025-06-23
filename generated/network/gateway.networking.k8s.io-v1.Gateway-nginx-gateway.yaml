@@ -1,0 +1,20 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: Gateway
+metadata:
+  annotations:
+    cert-manager.io/cluster-issuer: o5s-issuer
+  name: nginx-gateway
+  namespace: network
+spec:
+  gatewayClassName: nginx-gateway
+  listeners:
+  - allowedRoutes:
+      namespaces:
+        from: All
+    name: websecure
+    port: 443
+    protocol: HTTPS
+  - tls:
+      certificateRefs:
+      - name: o5s-lol-ca
+      mode: Terminate
