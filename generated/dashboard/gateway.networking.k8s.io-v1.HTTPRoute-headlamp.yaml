@@ -7,7 +7,7 @@ spec:
   hostnames:
   - k8s.o5s.lol
   parentRefs:
-  - name: traefik-gateway
+  - name: nginx-gateway
     namespace: network
   rules:
   - backendRefs:
