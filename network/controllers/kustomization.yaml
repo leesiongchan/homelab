@@ -3,4 +3,4 @@ kind: Kustomization
 resources:
   - namespaces.yaml
   - blocky.yaml
-  # - traefik.yaml
+  - traefik.yaml
