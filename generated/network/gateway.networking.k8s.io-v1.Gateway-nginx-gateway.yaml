@@ -11,6 +11,7 @@ spec:
   - allowedRoutes:
       namespaces:
         from: All
+    hostname: '*.o5s.lol'
     name: websecure
     port: 443
     protocol: HTTPS
