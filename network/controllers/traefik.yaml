@@ -17,7 +17,7 @@ spec:
   # @ref https://github.com/traefik/traefik-helm-chart/tree/master
   values:
     gateway:
-      enabled: true
+      enabled: false
       annotations:
         cert-manager.io/cluster-issuer: o5s-issuer
       listeners:
