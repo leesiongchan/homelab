@@ -19,3 +19,4 @@ spec:
     targetPort: 53
   selector:
     name: blocky
+  type: LoadBalancer
