@@ -5,14 +5,14 @@ metadata:
   namespace: media
 spec:
   hostnames:
-  - rt.o5s.lol
+    - rt.o5s.lol
   parentRefs:
-  - name: traefik-gateway
-    namespace: network
+    - name: nginx-gateway
+      namespace: network
   rules:
-  - backendRefs:
-    - name: rtorrent
-      port: 8080
-    matches:
-    - path:
-        value: /
+    - backendRefs:
+        - name: rtorrent
+          port: 8080
+      matches:
+        - path:
+            value: /

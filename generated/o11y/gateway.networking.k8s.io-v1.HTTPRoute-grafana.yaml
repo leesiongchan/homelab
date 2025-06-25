@@ -5,14 +5,14 @@ metadata:
   namespace: o11y
 spec:
   hostnames:
-  - o11y.o5s.lol
+    - o11y.o5s.lol
   parentRefs:
-  - name: traefik-gateway
-    namespace: network
+    - name: nginx-gateway
+      namespace: network
   rules:
-  - backendRefs:
-    - name: grafana
-      port: 80
-    matches:
-    - path:
-        value: /
+    - backendRefs:
+        - name: grafana
+          port: 80
+      matches:
+        - path:
+            value: /

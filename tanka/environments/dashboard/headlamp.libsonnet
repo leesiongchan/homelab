@@ -1,5 +1,7 @@
-local fluxcd = import 'github.com/jsonnet-libs/fluxcd-libsonnet/2.5.1/main.libsonnet';
 local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
+local fluxcd = import 'github.com/jsonnet-libs/fluxcd-libsonnet/2.5.1/main.libsonnet';
+
+local util = import 'util.libsonnet';
 
 {
   local appName = 'headlamp',
@@ -14,16 +16,15 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
   local subject = k.rbac.v1.subject,
 
   clusterRoleBinding:
-    clusterRoleBinding.new('headlamp-admin-user') +
+    clusterRoleBinding.new('headlamp-admin') +
     clusterRoleBinding.roleRef.withKind('ClusterRole') +
     clusterRoleBinding.roleRef.withName('cluster-admin') +
     clusterRoleBinding.roleRef.withApiGroup('rbac.authorization.k8s.io') +
-    clusterRoleBinding.withSubjects(
-      subject.withKind('User') +
-      subject.withName('leesiongchan') +
-      subject.withNamespace('dashboard') +
-      subject.withApiGroup('rbac.authorization.k8s.io')
-    ),
+    clusterRoleBinding.withSubjects([
+      subject.withKind('Group') +
+      subject.withName('admin') +
+      subject.withApiGroup('rbac.authorization.k8s.io'),
+    ]),
 
   // ---
 
@@ -47,33 +48,64 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
     // @ref https://github.com/kubernetes-sigs/headlamp/blob/main/charts/headlamp/values.yaml
     release.spec.withValues({
       config: {
+        pluginsDir: '/build/plugins',
         oidc: {
-          clientID: 'dd7cb89b-ea2a-41de-a336-db8b624dbc9b',
-          clientSecret: 'X9kwu7FOcEHJqS4RRMkJVIdgUgjb0X9k',
-          issuerURL: 'https://auth.o5s.lol',
+          clientID: '14c2579d-25b9-4dbb-b6fa-daf546d87518',
+          clientSecret: 'Ryh9lpojjgYjBBxCO3aKq4sHoNC2hRyh',
+          issuerURL: 'https://auth.harflix.lol',
+          scopes: 'openid,profile,email,groups',
         },
       },
+      serviceAccount: {
+        create: false,
+      },
+      clusterRoleBinding: {
+        create: false,
+      },
+      initContainers: [{
+        command: [
+          '/bin/sh',
+          '-c',
+          'mkdir -p /build/plugins && cp -r /plugins/* /build/plugins/',
+        ],
+        image: 'ghcr.io/headlamp-k8s/headlamp-plugin-flux:latest',
+        name: 'headlamp-plugin-flux',
+        volumeMounts: [{
+          mountPath: '/build/plugins',
+          name: 'headlamp-plugins',
+        }],
+      }, {
+        command: [
+          '/bin/sh',
+          '-c',
+          'mkdir -p /build/plugins && cp -r /plugins/* /build/plugins/',
+        ],
+        image: 'ghcr.io/headlamp-k8s/headlamp-plugin-cert-manager:latest',
+        name: 'headlamp-plugin-cert-manager',
+        volumeMounts: [{
+          mountPath: '/build/plugins',
+          name: 'headlamp-plugins',
+        }],
+      }],
+      persistentVolumeClaim: {
+        accessModes: ['ReadWriteOnce'],
+        enabled: true,
+        size: '1Gi',
+      },
+      volumeMounts: [{
+        mountPath: '/build/plugins',
+        name: 'headlamp-plugins',
+      }],
+      volumes: [{
+        name: 'headlamp-plugins',
+        persistentVolumeClaim: {
+          claimName: 'headlamp',
+        },
+      }],
     }),
 
   // ---
 
-  local gatewayApi = import 'github.com/jsonnet-libs/gateway-api-libsonnet/1.1/main.libsonnet',
-  local httpRoute = gatewayApi.gateway.v1.httpRoute,
-
   httpRoute:
-    httpRoute.new(appName) +
-    httpRoute.spec.withHostnames($._config.domain) +
-    httpRoute.spec.withParentRefs([
-      httpRoute.spec.parentRefs.withName('traefik-gateway') +
-      httpRoute.spec.parentRefs.withNamespace('network'),
-    ]) +
-    httpRoute.spec.withRules([
-      httpRoute.spec.rules.withMatches([
-        httpRoute.spec.rules.matches.path.withValue('/'),
-      ]) +
-      httpRoute.spec.rules.withBackendRefs([
-        httpRoute.spec.rules.backendRefs.withName($.release.metadata.name) +
-        httpRoute.spec.rules.backendRefs.withPort(80),
-      ]),
-    ]),
+    util.httpRouteFor($.release.metadata.name, $._config.domain, 80),
 }

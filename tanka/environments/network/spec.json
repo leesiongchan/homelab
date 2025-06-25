@@ -2,9 +2,9 @@
   "apiVersion": "tanka.dev/v1alpha1",
   "kind": "Environment",
   "metadata": {
-    "name": "environments/apps"
+    "name": "environments/network"
   },
   "spec": {
-    "namespace": "apps"
+    "namespace": "network"
   }
 }

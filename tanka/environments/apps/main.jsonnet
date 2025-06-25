@@ -8,5 +8,4 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
   actual: import 'actual.libsonnet',
   memos: import 'memos.libsonnet',
   newt: import 'newt.libsonnet',
-  synology: import 'synology.libsonnet',
 }

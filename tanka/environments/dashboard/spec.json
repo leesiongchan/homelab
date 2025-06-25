@@ -5,8 +5,6 @@
     "name": "environments/dashboard"
   },
   "spec": {
-    "namespace": "dashboard",
-    "resourceDefaults": {},
-    "expectVersions": {}
+    "namespace": "dashboard"
   }
 }

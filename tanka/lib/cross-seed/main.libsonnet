@@ -15,6 +15,8 @@ local externalSecrets = import 'github.com/jsonnet-libs/external-secrets-libsonn
 
   externalSecret:
     externalSecret.new('cross-seed-config-secret') +
+    // FIXME: Shouldnt need to override the apiVersion
+    { apiVersion: 'external-secrets.io/v1' } +
     externalSecret.spec.secretStoreRef.withKind('ClusterSecretStore') +
     externalSecret.spec.secretStoreRef.withName('bitwarden-secret-store') +
     externalSecret.spec.withRefreshInterval('1h') +

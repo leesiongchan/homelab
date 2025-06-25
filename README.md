@@ -33,7 +33,6 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 - rocket.chat
 - novu
 - logseq
-- Vector
 - changedetection
 - borg
 - unbound
@@ -51,3 +50,9 @@ More info refer to k3s [cluster upkeep](https://github.com/NixOS/nixpkgs/blob/ma
 - AFFiNE
 - FreshRSS
 - Infisical
+- Syncthing
+- readeck
+- ntfy.sh
+- donetick
+- kubero
+- Vikunja

@@ -1,5 +1,8 @@
 local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 
+local gluetun = import 'gluetun.libsonnet';
+local util = import 'util.libsonnet';
+
 {
   local appName = 'rtorrent',
 
@@ -24,8 +27,7 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
   // ---
 
   local container = k.core.v1.container,
-  local envVar = k.core.v1.envVar,
-  local httpHeader = k.core.v1.httpHeader,
+  local containerPort = k.core.v1.containerPort,
 
   local healthCheckCommand = ['/usr/local/bin/healthcheck'],
 
@@ -38,64 +40,26 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
       RUTORRENT_PORT: std.toString($._config.port),
     }) +
     container.withResourcesLimits('1', '512Mi') +
-    container.withResourcesRequests('100m', '256Mi'),
-
-  gluetunContainer::
-    container.new('gluetun', 'qmcgaw/gluetun:latest') +
-    container.withEnvMap({
-      VPN_SERVICE_PROVIDER: 'private internet access',
-      // ---
-      BLOCK_ADS: 'off',
-      BLOCK_MALICIOUS: 'off',
-      BLOCK_SURVEILLANCE: 'off',
-      DOT: 'off',
-    }) +
-    container.withEnvMixin([
-      envVar.fromSecretRef('OPENVPN_USER', 'media-secret', 'PIA__USERNAME'),
-      envVar.fromSecretRef('OPENVPN_PASSWORD', 'media-secret', 'PIA__PASSWORD'),
-    ]) +
-    container.securityContext.capabilities.withAdd(['NET_ADMIN']),
+    container.withResourcesRequests('100m', '256Mi') +
+    container.withPorts(
+      containerPort.new('http', $._config.port),
+    ),
 
   local deployment = k.apps.v1.deployment,
 
   deployment:
-    deployment.new(appName, 1, [$.container, $.gluetunContainer]) +
-    k.util.pvcVolumeMount($.dataPvc.metadata.name, '/data') +
-    k.util.pvcVolumeMount('media-nfs', '/Media'),
+    deployment.new(appName, 1, [$.container, gluetun.container]) +
+    deployment.pvcVolumeMount($.dataPvc.metadata.name, '/data') +
+    deployment.pvcVolumeMount('media-nfs', '/Media'),
 
   // ---
 
   local service = k.core.v1.service,
 
   service:
-    k.util.serviceFor($.deployment) +
-    service.spec.withPortsMixin([
-      service.spec.portsType.newNamed(
-        name='http',
-        port=$._config.port,
-        targetPort=$._config.port,
-      ),
-    ]),
+    k.util.serviceFor($.deployment),
 
   // ---
 
-  local gatewayApi = import 'github.com/jsonnet-libs/gateway-api-libsonnet/1.1/main.libsonnet',
-  local httpRoute = gatewayApi.gateway.v1.httpRoute,
-
-  httpRoute:
-    httpRoute.new(appName) +
-    httpRoute.spec.withHostnames($._config.domain) +
-    httpRoute.spec.withParentRefs([
-      httpRoute.spec.parentRefs.withName('traefik-gateway') +
-      httpRoute.spec.parentRefs.withNamespace('network'),
-    ]) +
-    httpRoute.spec.withRules([
-      httpRoute.spec.rules.withMatches([
-        httpRoute.spec.rules.matches.path.withValue('/'),
-      ]) +
-      httpRoute.spec.rules.withBackendRefs([
-        httpRoute.spec.rules.backendRefs.withName($.service.metadata.name) +
-        httpRoute.spec.rules.backendRefs.withPort($._config.port),
-      ]),
-    ]),
+  httpRoute: util.httpRouteFor($.service.metadata.name, $._config.domain, $._config.port),
 }
