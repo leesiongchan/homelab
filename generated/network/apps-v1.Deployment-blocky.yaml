@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: blocky
+  namespace: network
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: blocky
+  template:
+    metadata:
+      labels:
+        name: blocky
+    spec:
+      containers:
+      - image: spx01/blocky:main
+        imagePullPolicy: IfNotPresent
+        name: blocky
+        ports:
+        - containerPort: 4000
+          name: http-admin
+        - containerPort: 53
+          name: dns-tcp
+        - containerPort: 53
+          name: dns-udp
+          protocol: UDP
+        volumeMounts:
+        - mountPath: /app/config.yml
+          name: blocky-config
+          subPath: config.yml
+      volumes:
+      - configMap:
+          name: blocky-config
+        name: blocky-config
