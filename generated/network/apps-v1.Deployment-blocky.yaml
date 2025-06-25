@@ -18,6 +18,11 @@ spec:
       containers:
       - image: spx01/blocky:main
         imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - /app/blocky
+            - healthcheck
         name: blocky
         ports:
         - containerPort: 4000
@@ -27,6 +32,16 @@ spec:
         - containerPort: 53
           name: dns-udp
           protocol: UDP
+        readinessProbe:
+          exec:
+            command:
+            - /app/blocky
+            - healthcheck
+        startupProbe:
+          exec:
+            command:
+            - /app/blocky
+            - healthcheck
         volumeMounts:
         - mountPath: /app/config.yml
           name: blocky-config

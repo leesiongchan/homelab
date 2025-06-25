@@ -4,6 +4,7 @@ data:
     upstream:
       default:
         - unbound.network.svc.cluster.local
+
     customDNS:
       mapping:
         o5s.lol: 192.168.0.242
