@@ -17,7 +17,8 @@ spec:
     spec:
       containers:
       - env:
-        - TZ: Asia/Kuala_Lumpur
+        - name: TZ
+          value: Asia/Kuala_Lumpur
         image: spx01/blocky:main
         imagePullPolicy: IfNotPresent
         livenessProbe:
