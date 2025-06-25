@@ -37,6 +37,13 @@ spec:
             - drill-hc
             - '@127.0.0.1'
             - dnssec.works
+        resources:
+          limits:
+            cpu: 2
+            memory: 128Mi
+          requests:
+            cpu: 1
+            memory: 64Mi
         startupProbe:
           exec:
             command:

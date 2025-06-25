@@ -1,6 +1,7 @@
 {
     "apps-v1.Deployment-blocky.yaml": "environments/network/main.jsonnet",
     "apps-v1.Deployment-unbound.yaml": "environments/network/main.jsonnet",
+    "autoscaling-v2.HorizontalPodAutoscaler-unbound.yaml": "environments/network/main.jsonnet",
     "gateway.networking.k8s.io-v1.Gateway-nginx-gateway.yaml": "environments/network/main.jsonnet",
     "helm.toolkit.fluxcd.io-v2.HelmRelease-nginx-gateway.yaml": "environments/network/main.jsonnet",
     "source.toolkit.fluxcd.io-v1.HelmRepository-ngf.yaml": "environments/network/main.jsonnet",
