@@ -21,7 +21,6 @@ spec:
         livenessProbe:
           exec:
             command:
-            - CMD
             - drill-hc
             - '@127.0.0.1'
             - dnssec.works
@@ -35,14 +34,12 @@ spec:
         readinessProbe:
           exec:
             command:
-            - CMD
             - drill-hc
             - '@127.0.0.1'
             - dnssec.works
         startupProbe:
           exec:
             command:
-            - CMD
             - drill-hc
             - '@127.0.0.1'
             - dnssec.works
