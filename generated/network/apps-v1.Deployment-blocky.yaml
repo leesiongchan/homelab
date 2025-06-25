@@ -39,6 +39,13 @@ spec:
             command:
             - /app/blocky
             - healthcheck
+        resources:
+          limits:
+            cpu: 500m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi
         startupProbe:
           exec:
             command:
