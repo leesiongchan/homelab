@@ -1,7 +1,7 @@
 apiVersion: v1
 data:
   config.yml: |
-    upstreams:
+    upstream:
       default:
         - unbound.network.svc.cluster.local
     customDNS:
