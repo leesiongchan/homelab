@@ -1,0 +1,48 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: unbound
+  namespace: network
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: unbound
+  template:
+    metadata:
+      labels:
+        name: unbound
+    spec:
+      containers:
+      - image: klutchell/unbound:main
+        imagePullPolicy: IfNotPresent
+        livenessProbe:
+          exec:
+            command:
+            - CMD
+            - drill-hc
+            - '@127.0.0.1'
+            - dnssec.works
+        name: unbound
+        ports:
+        - containerPort: 53
+          name: dns-tcp
+        - containerPort: 53
+          name: dns-udp
+          protocol: UDP
+        readinessProbe:
+          exec:
+            command:
+            - CMD
+            - drill-hc
+            - '@127.0.0.1'
+            - dnssec.works
+        startupProbe:
+          exec:
+            command:
+            - CMD
+            - drill-hc
+            - '@127.0.0.1'
+            - dnssec.works
