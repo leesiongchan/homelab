@@ -11,8 +11,19 @@ spec:
   - allowedRoutes:
       namespaces:
         from: All
+    hostname: o5s.lol
+    name: https-root
+    port: 443
+    protocol: HTTPS
+    tls:
+      certificateRefs:
+      - name: o5s-lol-ca
+      mode: Terminate
+  - allowedRoutes:
+      namespaces:
+        from: All
     hostname: '*.o5s.lol'
-    name: websecure
+    name: https
     port: 443
     protocol: HTTPS
     tls:
