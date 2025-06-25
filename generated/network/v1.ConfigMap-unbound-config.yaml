@@ -1,0 +1,9 @@
+apiVersion: v1
+data:
+  unbound.conf: |
+    server:
+      verbosity: 1
+kind: ConfigMap
+metadata:
+  name: unbound-config
+  namespace: network

@@ -5,6 +5,7 @@
     "helm.toolkit.fluxcd.io-v2.HelmRelease-nginx-gateway.yaml": "environments/network/main.jsonnet",
     "source.toolkit.fluxcd.io-v1.HelmRepository-ngf.yaml": "environments/network/main.jsonnet",
     "v1.ConfigMap-blocky-config.yaml": "environments/network/main.jsonnet",
+    "v1.ConfigMap-unbound-config.yaml": "environments/network/main.jsonnet",
     "v1.Namespace-network.yaml": "environments/network/main.jsonnet",
     "v1.Service-blocky.yaml": "environments/network/main.jsonnet",
     "v1.Service-unbound.yaml": "environments/network/main.jsonnet"

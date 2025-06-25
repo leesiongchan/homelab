@@ -16,7 +16,9 @@ spec:
         name: blocky
     spec:
       containers:
-      - image: spx01/blocky:main
+      - env:
+        - TZ: Asia/Kuala_Lumpur
+        image: spx01/blocky:main
         imagePullPolicy: IfNotPresent
         livenessProbe:
           exec:
