@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: newt
-  namespace: apps
+  namespace: network
 spec:
   minReadySeconds: 10
   replicas: 1

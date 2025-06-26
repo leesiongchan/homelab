@@ -4,7 +4,7 @@ metadata:
   labels:
     name: actual
   name: actual
-  namespace: apps
+  namespace: app
 spec:
   ports:
   - name: http

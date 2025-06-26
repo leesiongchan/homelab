@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: actual
-  namespace: apps
+  namespace: app
 spec:
   minReadySeconds: 10
   replicas: 1
