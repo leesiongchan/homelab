@@ -31,16 +31,29 @@ spec:
           runAsGroup: 845
           runAsUser: 845
         volumeMounts:
-        - mountPath: /factorio/config
-          name: config
-        - mountPath: /factorio/config/server-settings.json
+        - mountPath: /factorio
+          name: factorio-data
+        - mountPath: /tmp
           name: factorio-config
-          subPath: server-settings.json
+      initContainers:
+      - command:
+        - /bin/sh
+        - -c
+        - mkdir -p /factorio/config && cp /tmp/server-settings.json /factorio/config/server-settings.json
+        image: busybox:latest
+        imagePullPolicy: IfNotPresent
+        name: init-factorio
+        volumeMounts:
+        - mountPath: /factorio
+          name: factorio-data
+        - mountPath: /tmp
+          name: factorio-config
       securityContext:
         fsGroup: 845
       volumes:
-      - emptyDir: {}
-        name: config
+      - name: factorio-data
+        persistentVolumeClaim:
+          claimName: factorio-data
       - configMap:
           name: factorio-config
         name: factorio-config
