@@ -12,5 +12,7 @@ spec:
         name: dragonfly
   interval: 1h
   values:
+    image:
+      tag: v1.31.0
     storage:
       enabled: true
