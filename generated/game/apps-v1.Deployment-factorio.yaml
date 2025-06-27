@@ -33,9 +33,36 @@ spec:
         volumeMounts:
         - mountPath: /factorio/config/server-settings.json
           name: factorio-config
+        - mountPath: /factorio/config/rconpw
+          name:
+            apiVersion: v1
+            data:
+              rconpw: abcd
+            kind: Secret
+            metadata:
+              name: factorio-rcon
+            type: Opaque
       securityContext:
         fsGroup: 845
       volumes:
       - configMap:
           name: factorio-config
         name: factorio-config
+      - name:
+          apiVersion: v1
+          data:
+            rconpw: abcd
+          kind: Secret
+          metadata:
+            name: factorio-rcon
+          type: Opaque
+        secret:
+          defaultMode: 256
+          secretName:
+            apiVersion: v1
+            data:
+              rconpw: abcd
+            kind: Secret
+            metadata:
+              name: factorio-rcon
+            type: Opaque
