@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        factorio-config-hash: 10c86447536af2507fa22dd7be7ae740
+        factorio-config-hash: 1d18e47eac2bb072553d1bb20a16d03e
       labels:
         name: factorio
     spec:
@@ -33,21 +33,9 @@ spec:
         volumeMounts:
         - mountPath: /factorio
           name: factorio-data
-        - mountPath: /tmp
+        - mountPath: /factorio/config/server-settings.json
           name: factorio-config
-      initContainers:
-      - command:
-        - /bin/sh
-        - -c
-        - mkdir -p /factorio/config && envsubst < /tmp/server-settings.json > /factorio/config/server-settings.json
-        image: factoriotools/factorio:2.0.47
-        imagePullPolicy: IfNotPresent
-        name: factorio-init
-        volumeMounts:
-        - mountPath: /factorio
-          name: factorio-data
-        - mountPath: /tmp
-          name: factorio-config
+          subPath: server-settings.json
       securityContext:
         fsGroup: 845
       volumes:
