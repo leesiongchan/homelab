@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        factorio-config-hash: 707ba771e520a334eb3724ceed8e6882
+        factorio-config-hash: fb6b615e4e1cce58e5b8a0c9fe85f3d4
       labels:
         name: factorio
     spec:
@@ -33,6 +33,7 @@ spec:
         volumeMounts:
         - mountPath: /factorio/config
           name: factorio-config
+          readOnly: false
       securityContext:
         fsGroup: 845
       volumes:
