@@ -39,7 +39,7 @@ spec:
       - command:
         - /bin/sh
         - -c
-        - mkdir -p /factorio/config && cp /tmp/server-settings.json /factorio/config/server-settings.json
+        - mkdir -p /factorio/config && envsubst < /tmp/server-settings.json > /factorio/config/server-settings.json
         image: busybox:latest
         imagePullPolicy: IfNotPresent
         name: init-factorio
