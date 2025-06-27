@@ -6,7 +6,7 @@ metadata:
 spec:
   chart:
     spec:
-      chart: nginx-gateway-fabric
+      chart: factorio-server-charts
       sourceRef:
         kind: HelmRepository
         name: factorio
