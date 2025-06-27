@@ -14,3 +14,7 @@ spec:
   values:
     image:
       tag: 2.0.47
+    rcon:
+      type: ClusterIP
+    service:
+      type: ClusterIP
