@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        factorio-config-hash: fb6b615e4e1cce58e5b8a0c9fe85f3d4
+        factorio-config-hash: 707ba771e520a334eb3724ceed8e6882
       labels:
         name: factorio
     spec:
@@ -31,38 +31,11 @@ spec:
           runAsGroup: 845
           runAsUser: 845
         volumeMounts:
-        - mountPath: /factorio/config/server-settings.json
+        - mountPath: /factorio/config
           name: factorio-config
-        - mountPath: /factorio/config/rconpw
-          name:
-            apiVersion: v1
-            data:
-              rconpw: abcd
-            kind: Secret
-            metadata:
-              name: factorio-rcon
-            type: Opaque
       securityContext:
         fsGroup: 845
       volumes:
       - configMap:
           name: factorio-config
         name: factorio-config
-      - name:
-          apiVersion: v1
-          data:
-            rconpw: abcd
-          kind: Secret
-          metadata:
-            name: factorio-rcon
-          type: Opaque
-        secret:
-          defaultMode: 256
-          secretName:
-            apiVersion: v1
-            data:
-              rconpw: abcd
-            kind: Secret
-            metadata:
-              name: factorio-rcon
-            type: Opaque
