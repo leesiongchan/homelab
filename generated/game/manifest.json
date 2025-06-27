@@ -1,0 +1,5 @@
+{
+    "apps-v1.Deployment-factorio.yaml": "environments/game/main.jsonnet",
+    "v1.Namespace-game.yaml": "environments/game/main.jsonnet",
+    "v1.Service-factorio.yaml": "environments/game/main.jsonnet"
+}

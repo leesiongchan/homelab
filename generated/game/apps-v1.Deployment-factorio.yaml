@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: factorio
+  namespace: game
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: factorio
+  template:
+    metadata:
+      labels:
+        name: factorio
+    spec:
+      containers:
+      - image: factoriotools/factorio:latest
+        imagePullPolicy: IfNotPresent
+        name: factorio
+        ports:
+        - containerPort: 27015
+          name: tcp
+        - containerPort: 34197
+          name: udp
+          protocol: UDP
