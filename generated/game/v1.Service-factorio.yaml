@@ -16,4 +16,3 @@ spec:
     targetPort: 34197
   selector:
     name: factorio
-  type: NodePort
