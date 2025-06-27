@@ -10,10 +10,8 @@ spec:
       sourceRef:
         kind: HelmRepository
         name: dragonfly
+      version: v1.31.0
   interval: 1h
   values:
-    image:
-      repository: ghcr.io/dragonflydb/dragonfly/helm/dragonfly
-      tag: v1.31.0
     storage:
       enabled: true
