@@ -1,0 +1,14 @@
+apiVersion: v1
+data:
+  server-settings.json: |
+    {
+        "visibility": {
+            "public": false,
+            "lan": true
+        },
+        "require_user_verification": false
+    }
+kind: ConfigMap
+metadata:
+  name: factorio-config
+  namespace: game
