@@ -25,10 +25,15 @@ spec:
         - containerPort: 34197
           name: udp
           protocol: UDP
+        securityContext:
+          runAsGroup: 845
+          runAsUser: 845
         volumeMounts:
         - mountPath: /factorio/config/server-settings.json
           name: factorio-config
           subPath: server-settings.json
+      securityContext:
+        fsGroup: 845
       volumes:
       - configMap:
           name: factorio-config
