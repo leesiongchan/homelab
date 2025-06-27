@@ -13,7 +13,7 @@ spec:
   template:
     metadata:
       annotations:
-        factorio-config-hash: 97921526f35530cc6159043ff7de4764
+        factorio-config-hash: 1d18e47eac2bb072553d1bb20a16d03e
       labels:
         name: factorio
     spec:
