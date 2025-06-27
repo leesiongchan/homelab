@@ -36,6 +36,7 @@ spec:
         - mountPath: /factorio/config
           name: factorio-config
           readOnly: false
+          subPath: /factorio/config/server-settings.json
       securityContext:
         fsGroup: 845
       volumes:
