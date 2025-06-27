@@ -1,13 +1,8 @@
 apiVersion: v1
 data:
-  server-settings.json: |
-    {
-        "visibility": {
-            "public": false,
-            "lan": true
-        },
-        "require_user_verification": false
-    }
+  server-settings.json: "{\n    \"name\": \"Harflix Factorio Server\",\n\n    \"visibility\":
+    {\n        \"public\": false,\n        \"lan\": true\n    },\n    \n    \"require_user_verification\":
+    false\n}\n"
 kind: ConfigMap
 metadata:
   name: factorio-config
