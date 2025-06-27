@@ -40,9 +40,9 @@ spec:
         - /bin/sh
         - -c
         - mkdir -p /factorio/config && envsubst < /tmp/server-settings.json > /factorio/config/server-settings.json
-        image: busybox:latest
+        image: factoriotools/factorio:2.0.47
         imagePullPolicy: IfNotPresent
-        name: init-factorio
+        name: factorio-init
         volumeMounts:
         - mountPath: /factorio
           name: factorio-data
