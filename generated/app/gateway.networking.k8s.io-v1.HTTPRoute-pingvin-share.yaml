@@ -1,0 +1,18 @@
+apiVersion: gateway.networking.k8s.io/v1
+kind: HTTPRoute
+metadata:
+  name: pingvin-share
+  namespace: app
+spec:
+  hostnames:
+  - transfer.o5s.lol
+  parentRefs:
+  - name: nginx-gateway
+    namespace: network
+  rules:
+  - backendRefs:
+    - name: pingvin-share
+      port: 3000
+    matches:
+    - path:
+        value: /

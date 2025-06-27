@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    name: pingvin-share
+  name: pingvin-share
+  namespace: app
+spec:
+  ports:
+  - name: pingvin-share-http
+    port: 3000
+    targetPort: 3000
+  selector:
+    name: pingvin-share

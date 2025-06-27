@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pingvin-share
+  namespace: app
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: pingvin-share
+  template:
+    metadata:
+      labels:
+        name: pingvin-share
+    spec:
+      containers:
+      - image: stonith404/pingvin-share:latest
+        imagePullPolicy: IfNotPresent
+        name: pingvin-share
+        ports:
+        - containerPort: 3000
+          name: http
+        volumeMounts:
+        - mountPath: /opt/app/backend/data
+          name: pingvin-share-data
+      volumes:
+      - name: pingvin-share-data
+        persistentVolumeClaim:
+          claimName: pingvin-share-data
