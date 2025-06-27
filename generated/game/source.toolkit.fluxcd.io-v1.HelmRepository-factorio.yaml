@@ -1,0 +1,8 @@
+apiVersion: source.toolkit.fluxcd.io/v1
+kind: HelmRepository
+metadata:
+  name: factorio
+  namespace: game
+spec:
+  interval: 24h
+  url: https://sqljames.github.io/factorio-server-charts

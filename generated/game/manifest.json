@@ -1,5 +1,5 @@
 {
-    "apps-v1.Deployment-factorio.yaml": "environments/game/main.jsonnet",
-    "v1.Namespace-game.yaml": "environments/game/main.jsonnet",
-    "v1.Service-factorio.yaml": "environments/game/main.jsonnet"
+    "helm.toolkit.fluxcd.io-v2.HelmRelease-factorio.yaml": "environments/game/main.jsonnet",
+    "source.toolkit.fluxcd.io-v1.HelmRepository-factorio.yaml": "environments/game/main.jsonnet",
+    "v1.Namespace-game.yaml": "environments/game/main.jsonnet"
 }
