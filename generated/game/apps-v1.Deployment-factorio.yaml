@@ -31,12 +31,16 @@ spec:
           runAsGroup: 845
           runAsUser: 845
         volumeMounts:
+        - mountPath: /factorio/config
+          name: config
         - mountPath: /factorio/config/server-settings.json
           name: factorio-config
           subPath: server-settings.json
       securityContext:
         fsGroup: 845
       volumes:
+      - emptyDir: {}
+        name: config
       - configMap:
           name: factorio-config
         name: factorio-config
