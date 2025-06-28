@@ -17,7 +17,7 @@ spec:
         clustering:
           enabled: true
         mounts:
-          varlog: false
+          varlog: true
       enabled: true
     alloy-metrics:
       enabled: true
