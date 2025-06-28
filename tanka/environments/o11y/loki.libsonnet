@@ -15,5 +15,5 @@ local repository = import './repository.libsonnet';
     release.spec.chart.spec.sourceRef.withKind('HelmRepository') +
     release.spec.chart.spec.sourceRef.withName(repository.grafana.metadata.name) +
     release.spec.withInterval('1h') +
-    release.spec.withValues(std.parseYaml(importstr './configs/loki-values.yaml')),
+    release.spec.withValues(std.parseYaml(importstr 'configs/loki-values.yaml')),
 }

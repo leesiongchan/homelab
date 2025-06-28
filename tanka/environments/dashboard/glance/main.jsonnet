@@ -18,7 +18,7 @@ local util = import 'util.libsonnet';
   configMap:
     configMap.new(appName + '-config') +
     configMap.withDataMixin({
-      'glance.yml': importstr 'configs/glance.glance.yml',
+      'glance.yml': importstr 'config/glance.yml',
     }),
 
   // ---

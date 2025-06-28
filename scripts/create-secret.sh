@@ -10,11 +10,11 @@ while read -p "" secret_pair; do
     secrets+="$secret_pair\n"
 done
 
-echo -e $secrets > $file_name.encrypted
+echo -e $secrets > $file_name.enc
 nix shell nixpkgs#sops \
     --command sops \
     --encrypt \
     --in-place \
     --input-type dotenv \
     --output-type dotenv \
-    $file_name.encrypted
+    $file_name.enc

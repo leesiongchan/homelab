@@ -7,8 +7,8 @@ local tk = import 'tk';
 
   // ---
 
-  blocky: import 'blocky.libsonnet',
+  blocky: import 'blocky/main.jsonnet',
   newt: import 'newt.libsonnet',
   nginxGateway: import 'nginx-gateway.libsonnet',
-  unbound: import 'unbound.libsonnet',
+  unbound: import 'unbound/main.jsonnet',
 }

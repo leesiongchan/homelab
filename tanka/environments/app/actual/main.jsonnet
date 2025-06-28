@@ -28,7 +28,7 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
   configMap:
     configMap.new(appName + '-config') +
     configMap.withDataMixin({
-      'config.json': importstr 'config/actual.config.json',
+      'config.json': importstr 'config/config.json',
     }),
 
   // ---

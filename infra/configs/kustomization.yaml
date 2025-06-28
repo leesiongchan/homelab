@@ -9,6 +9,6 @@ secretGenerator:
   - name: bitwarden-secret
     namespace: security
     envs:
-      - bitwarden-secret.encrypted
+      - bitwarden-secret.enc
 generatorOptions:
   disableNameSuffixHash: true

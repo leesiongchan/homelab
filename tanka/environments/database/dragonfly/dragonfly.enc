@@ -1,0 +1,7 @@
+password=ENC[AES256_GCM,data:pp751wmhA0shDR+C2G/eOGbRLZ98ZB9KwL8FK2dKams=,iv:3DchP3BmRRWarHIk7OWUAptw/KgPQssSag2KQcDc1a0=,tag:b2TtqKoAI+q6bzxqq7gSjQ==,type:str]
+sops_age__list_0__map_enc=-----BEGIN AGE ENCRYPTED FILE-----\nYWdlLWVuY3J5cHRpb24ub3JnL3YxCi0+IFgyNTUxOSA0Y2poeFgwd2dlL0RobHE0\nQ2RENE1JbjR5WnQ3SnZ3R2M1ZXVQdmhqdlVvCkhIM1lJSjZKeGhXL0JuRzBSRGlM\nVnVjczNZU01vOW85b0xPaDN3NWRmdWMKLS0tIGd0VU9SMGx6bkN6WTl0V3NwOVFN\ndzNMVkpHTGw5TTNqUkJpSU9UZ0RwdnMKLuaJ4B+NTQijbd5wpQg7+Ky5MHLINIFY\nFe2gaeQYo9uU7PoayEOqLJ1XwSVQZrSTncOmXrqrhO5syWYinMVZ2Q==\n-----END AGE ENCRYPTED FILE-----\n
+sops_age__list_0__map_recipient=age1tz53d84qcl20t4u29hv956tdgz2j56us0lx0343wew7zrg9zcumqk9wctr
+sops_lastmodified=2025-06-27T17:41:47Z
+sops_mac=ENC[AES256_GCM,data:8CQrdWHnVKGgG3o5okAlppwa23ahhgWOZhaSmPQsAVft1seSPcd6LV51yERILIVMUOpf1ISnkTKPvmfrdjHnadJ6hRrEoDGCuK9D+UhM8kDLS9ftYviJJ2WKOoqkfn1N2riBcZuqza4QEGaxWxFWsgl2IVNhiCNE4Julj0utl38=,iv:syDSOAD1wo2y5YNg3J7gDAbrimsMoi8Bg63Sprxfw5Q=,tag:VaZGdusOY6XJkWLy3QFY+w==,type:str]
+sops_unencrypted_suffix=_unencrypted
+sops_version=3.10.2

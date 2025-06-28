@@ -5,6 +5,6 @@ creation_rules:
     encrypted_regex: ^(data|stringData)$
     key_groups:
       - age: [*leesiongchan]
-  - path_regex: .*.encrypted$
+  - path_regex: .*.enc$
     key_groups:
       - age: [*leesiongchan]

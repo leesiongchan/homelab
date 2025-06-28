@@ -6,5 +6,5 @@ local tk = import 'tk';
 
   // ---
 
-  factorio: import 'factorio/main.libsonnet',
+  factorio: (import 'factorio/main.libsonnet'),
 }

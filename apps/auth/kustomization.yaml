@@ -9,7 +9,7 @@ secretGenerator:
   - name: authentik-secret
     namespace: auth
     envs:
-      - configs/authentik-secret.encrypted
+      - configs/authentik-secret.enc
     options:
       annotations:
         reflector.v1.k8s.emberstack.com/reflection-allowed-namespaces: "flux-system"

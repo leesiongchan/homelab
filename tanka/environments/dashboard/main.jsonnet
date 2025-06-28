@@ -1,4 +1,4 @@
 {
-  glance: import 'glance.libsonnet',
+  glance: import 'glance/main.jsonnet',
   headlamp: import 'headlamp.libsonnet',
 }

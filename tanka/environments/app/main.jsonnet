@@ -6,7 +6,7 @@ local tk = import 'tk';
 
   // ---
 
-  actual: import 'actual.libsonnet',
+  actual: import 'actual/main.jsonnet',
   memos: import 'memos.libsonnet',
   pingvinShare: import 'pingvin-share/main.jsonnet',
 }
