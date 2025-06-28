@@ -1,14 +1,6 @@
-local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
-local tk = import 'tk';
-
 {
-  repo: import 'repository.libsonnet',
-  namespace: k.core.v1.namespace.new(tk.env.spec.namespace),
-
-  // ---
-
-  blocky: import 'blocky/main.jsonnet',
-  newt: import 'newt.libsonnet',
-  nginxGateway: import 'nginx-gateway.libsonnet',
-  unbound: import 'unbound/main.jsonnet',
+  blocky: (import 'blocky/main.jsonnet'),
+  newt: (import 'newt/main.jsonnet'),
+  nginxGateway: (import 'nginx-gateway/main.jsonnet'),
+  unbound: (import 'unbound/main.jsonnet'),
 }

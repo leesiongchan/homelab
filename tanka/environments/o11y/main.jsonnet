@@ -1,8 +1,5 @@
-local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
-
-(import './repository.libsonnet') +
 {
-  namespace: k.core.v1.namespace.new('o11y'),
+  repository: import 'repository.libsonnet',
 
   // ---
 
