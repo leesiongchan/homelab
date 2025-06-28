@@ -5,13 +5,12 @@ resources:
   # - authentik.yaml
   - deluge.yaml
   # - grafana.yaml
-  # - headlamp.yaml
   - homarr.yaml
   - homebox.yaml
   - jellyfin.yaml
   - jellyseerr.yaml
   - jellystat.yaml
-  - minio.yaml
+  # - minio.yaml
   - portainer.yaml
   - qbittorrent.yaml
   - sabnzbd.yaml
