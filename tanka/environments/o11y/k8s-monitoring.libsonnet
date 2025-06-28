@@ -55,6 +55,7 @@ local repository = import './repository.libsonnet';
         },
         'windows-exporter': {
           enabled: false,
+          deploy: false,
         },
       },
       clusterEvents: {

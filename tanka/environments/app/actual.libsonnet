@@ -1,15 +1,15 @@
 local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 
 {
-  local appName = 'memos',
+  local appName = 'actual',
 
   _config+:: {
-    domain: 'memos.o5s.lol',
-    port: 5230,
-    version: 'stable',
+    domain: 'budget.o5s.lol',
+    port: 5006,
+    version: 'latest-alpine',
   },
 
-  _image+:: 'neosmemo/memos:' + $._config.version,
+  _image+:: 'actualbudget/actual-server:' + $._config.version,
 
   // ---
 
@@ -23,26 +23,32 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
 
   // ---
 
+  local configMap = k.core.v1.configMap,
+
+  configMap:
+    configMap.new(appName + '-config') +
+    configMap.withDataMixin({
+      'config.json': importstr 'config/actual.config.json',
+    }),
+
+  // ---
+
   local container = k.core.v1.container,
 
   container::
     container.new(appName, $._image) +
-    container.livenessProbe.withInitialDelaySeconds(5) +
-    container.livenessProbe.httpGet.withPath('/healthz') +
-    container.livenessProbe.httpGet.withPort($._config.port) +
-    container.readinessProbe.withInitialDelaySeconds(5) +
-    container.readinessProbe.httpGet.withPath('/healthz') +
-    container.readinessProbe.httpGet.withPort($._config.port) +
-    // @ref https://www.usememos.com/docs/install/runtime-options
+    // @ref https://actualbudget.org/docs/config/
     container.withEnvMap({
-      MEMOS_PORT: std.toString($._config.port),
+      ACTUAL_PORT: std.toString($._config.port),
     }),
 
   local deployment = k.apps.v1.deployment,
+  local volumeMount = k.core.v1.volumeMount,
 
   deployment:
     deployment.new(appName, 1, [$.container]) +
-    k.util.pvcVolumeMount($.dataPvc.metadata.name, '/var/opt/memos'),
+    k.util.pvcVolumeMount($.dataPvc.metadata.name, '/data') +
+    k.util.configVolumeMount($.configMap.metadata.name, '/data/config.json', volumeMount.withSubPath('config.json')),
 
   // ---
 
@@ -67,7 +73,7 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
     httpRoute.new(appName) +
     httpRoute.spec.withHostnames($._config.domain) +
     httpRoute.spec.withParentRefs([
-      httpRoute.spec.parentRefs.withName('traefik-gateway') +
+      httpRoute.spec.parentRefs.withName('nginx-gateway') +
       httpRoute.spec.parentRefs.withNamespace('network'),
     ]) +
     httpRoute.spec.withRules([

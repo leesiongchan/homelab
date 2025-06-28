@@ -23,6 +23,15 @@ local repository = import './repository.libsonnet';
   local gatewayApi = import 'github.com/jsonnet-libs/gateway-api-libsonnet/1.1/main.libsonnet',
   local gateway = gatewayApi.gateway.v1.gateway,
 
+  local httpsListener =
+    gateway.spec.listeners.withPort(443) +
+    gateway.spec.listeners.withProtocol('HTTPS') +
+    gateway.spec.listeners.allowedRoutes.namespaces.withFrom('All') +
+    gateway.spec.listeners.tls.withMode('Terminate') +
+    gateway.spec.listeners.tls.withCertificateRefs([
+      gateway.spec.listeners.tls.certificateRefs.withName('o5s-lol-ca'),
+    ]),
+
   gateway:
     gateway.new(appName) +
     gateway.metadata.withAnnotations({
@@ -30,14 +39,11 @@ local repository = import './repository.libsonnet';
     }) +
     gateway.spec.withGatewayClassName('nginx') +
     gateway.spec.withListeners([
+      httpsListener +
+      gateway.spec.listeners.withName('https-root') +
+      gateway.spec.listeners.withHostname('o5s.lol'),
+      httpsListener +
       gateway.spec.listeners.withName('https') +
-      gateway.spec.listeners.withPort(443) +
-      gateway.spec.listeners.withProtocol('HTTPS') +
-      gateway.spec.listeners.withHostname('*.o5s.lol') +
-      gateway.spec.listeners.allowedRoutes.namespaces.withFrom('All') +
-      gateway.spec.listeners.tls.withMode('Terminate') +
-      gateway.spec.listeners.tls.withCertificateRefs([
-        gateway.spec.listeners.tls.certificateRefs.withName('o5s-lol-ca'),
-      ]),
+      gateway.spec.listeners.withHostname('*.o5s.lol'),
     ]),
 }

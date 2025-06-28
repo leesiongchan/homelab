@@ -1,5 +1,7 @@
 local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
 
+local util = import 'util.libsonnet';
+
 {
   local appName = 'glance',
 
@@ -49,23 +51,6 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
 
   // ---
 
-  local gatewayApi = import 'github.com/jsonnet-libs/gateway-api-libsonnet/1.1/main.libsonnet',
-  local httpRoute = gatewayApi.gateway.v1.httpRoute,
-
   httpRoute:
-    httpRoute.new(appName) +
-    httpRoute.spec.withHostnames($._config.domain) +
-    httpRoute.spec.withParentRefs([
-      httpRoute.spec.parentRefs.withName('traefik-gateway') +
-      httpRoute.spec.parentRefs.withNamespace('network'),
-    ]) +
-    httpRoute.spec.withRules([
-      httpRoute.spec.rules.withMatches([
-        httpRoute.spec.rules.matches.path.withValue('/'),
-      ]) +
-      httpRoute.spec.rules.withBackendRefs([
-        httpRoute.spec.rules.backendRefs.withName($.service.metadata.name) +
-        httpRoute.spec.rules.backendRefs.withPort($._config.port),
-      ]),
-    ]),
+    util.httpRouteFor($.service.metadata.name, $._config.domain, $._config.port),
 }

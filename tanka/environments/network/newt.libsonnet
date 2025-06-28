@@ -8,7 +8,7 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
     version: 'latest',
   },
 
-  _image+:: 'fosrl/newt:' + $._config.version,
+  _image+:: 'fosrl/newt:%s' % $._config.version,
 
   // ---
 

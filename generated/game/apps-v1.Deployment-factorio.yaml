@@ -18,7 +18,7 @@ spec:
         name: factorio
     spec:
       containers:
-      - image: factoriotools/factorio:2.0.47
+      - image: factoriotools/factorio:2.0.55
         imagePullPolicy: IfNotPresent
         name: factorio
         ports:

@@ -1,5 +1,0 @@
-{
-    "helm.toolkit.fluxcd.io-v2.HelmRelease-dragonfly.yaml": "environments/database/main.jsonnet",
-    "source.toolkit.fluxcd.io-v1.HelmRepository-dragonfly.yaml": "environments/database/main.jsonnet",
-    "v1.Namespace-database.yaml": "environments/database/main.jsonnet"
-}

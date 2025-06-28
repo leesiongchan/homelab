@@ -1,7 +1,0 @@
-{
-    "apps-v1.Deployment-factorio.yaml": "environments/game/main.jsonnet",
-    "v1.ConfigMap-factorio-config.yaml": "environments/game/main.jsonnet",
-    "v1.Namespace-game.yaml": "environments/game/main.jsonnet",
-    "v1.PersistentVolumeClaim-factorio-data.yaml": "environments/game/main.jsonnet",
-    "v1.Service-factorio.yaml": "environments/game/main.jsonnet"
-}

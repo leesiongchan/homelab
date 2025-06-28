@@ -1,5 +1,0 @@
-{
-    "helm.toolkit.fluxcd.io-v2.HelmRelease-minio-operator.yaml": "environments/storage/main.jsonnet",
-    "helm.toolkit.fluxcd.io-v2.HelmRelease-minio-tenant.yaml": "environments/storage/main.jsonnet",
-    "source.toolkit.fluxcd.io-v1.HelmRepository-minio-operator.yaml": "environments/storage/main.jsonnet"
-}

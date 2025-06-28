@@ -76,7 +76,7 @@ local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet'
     httpRoute.new(appName) +
     httpRoute.spec.withHostnames($._config.domain) +
     httpRoute.spec.withParentRefs([
-      httpRoute.spec.parentRefs.withName('traefik-gateway') +
+      httpRoute.spec.parentRefs.withName('nginx-gateway') +
       httpRoute.spec.parentRefs.withNamespace('network'),
     ]) +
     httpRoute.spec.withRules([

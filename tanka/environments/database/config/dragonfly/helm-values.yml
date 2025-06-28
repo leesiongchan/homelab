@@ -1,0 +1,20 @@
+# @ref https://github.com/dragonflydb/dragonfly/blob/main/contrib/charts/dragonfly/values.yaml
+
+passwordFromSecret:
+  enable: false
+  existingSecret:
+    name: dragonfly-auth
+    key: password
+
+storage:
+  enabled: true
+# podSecurityContext:
+#   fsGroup: 2000
+
+# securityContext:
+#   capabilities:
+#     drop:
+#       - ALL
+#   readOnlyRootFilesystem: true
+#   runAsNonRoot: true
+#   runAsUser: 1000

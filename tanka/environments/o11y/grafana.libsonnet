@@ -1,5 +1,5 @@
-local fluxcd = import 'github.com/jsonnet-libs/fluxcd-libsonnet/2.5.1/main.libsonnet';
 local k = import 'github.com/grafana/jsonnet-libs/ksonnet-util/kausal.libsonnet';
+local fluxcd = import 'github.com/jsonnet-libs/fluxcd-libsonnet/2.5.1/main.libsonnet';
 
 local repository = import './repository.libsonnet';
 
@@ -15,7 +15,7 @@ local repository = import './repository.libsonnet';
   local secret = k.core.v1.secret,
 
   oauthSecret:
-    secret.new(appName + '-generic-oauth', {}) +
+    secret.new('%s-generic-oauth' % appName, {}) +
     secret.withStringData({
       client_id: '5e5add90-d124-4a5f-a96d-30866fa20fe3',
       client_secret: 'LYmGEAuD2W7n2JAni7TUgzNhyr81linL',
@@ -157,7 +157,7 @@ local repository = import './repository.libsonnet';
     httpRoute.new(appName) +
     httpRoute.spec.withHostnames($._config.domain) +
     httpRoute.spec.withParentRefs([
-      httpRoute.spec.parentRefs.withName('traefik-gateway') +
+      httpRoute.spec.parentRefs.withName('nginx-gateway') +
       httpRoute.spec.parentRefs.withNamespace('network'),
     ]) +
     httpRoute.spec.withRules([

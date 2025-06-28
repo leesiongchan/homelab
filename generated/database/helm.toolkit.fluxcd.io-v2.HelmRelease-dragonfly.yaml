@@ -13,5 +13,10 @@ spec:
       version: v1.31.0
   interval: 1h
   values:
+    passwordFromSecret:
+      enable: false
+      existingSecret:
+        key: password
+        name: dragonfly-auth
     storage:
       enabled: true
