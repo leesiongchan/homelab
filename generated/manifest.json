@@ -74,6 +74,7 @@
     "o11y/grafana-generic-oauth.Secret.yaml": "environments/o11y/main.jsonnet",
     "o11y/grafana.HTTPRoute.yaml": "environments/o11y/main.jsonnet",
     "o11y/grafana.HelmRelease.yaml": "environments/o11y/main.jsonnet",
+    "o11y/grafana.HelmRepository.yaml": "environments/o11y/main.jsonnet",
     "o11y/k8s-monitoring.HelmRelease.yaml": "environments/o11y/main.jsonnet",
     "o11y/loki.HelmRelease.yaml": "environments/o11y/main.jsonnet",
     "o11y/mimir.HelmRelease.yaml": "environments/o11y/main.jsonnet",
