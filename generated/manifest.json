@@ -82,6 +82,7 @@
     "o11y/loki.HelmRelease.yaml": "environments/o11y/main.jsonnet",
     "o11y/mimir.HelmRelease.yaml": "environments/o11y/main.jsonnet",
     "o11y/tempo.HelmRelease.yaml": "environments/o11y/main.jsonnet",
+    "storage/minio-console.HTTPRoute.yaml": "environments/storage/main.jsonnet",
     "storage/minio-operator.HelmRelease.yaml": "environments/storage/main.jsonnet",
     "storage/minio-operator.HelmRepository.yaml": "environments/storage/main.jsonnet",
     "storage/minio-tenant.HelmRelease.yaml": "environments/storage/main.jsonnet"
