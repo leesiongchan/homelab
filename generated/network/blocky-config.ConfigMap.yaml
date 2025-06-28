@@ -10,9 +10,8 @@ data:
     customDNS:
       mapping:
         o5s.lol: 192.168.0.241
-
-    redis:
-      address: dragonfly.database.svc.cluster.local:6379
+    # redis:
+    #   address: dragonfly.database.svc.cluster.local:6379
 kind: ConfigMap
 metadata:
   name: blocky-config
