@@ -13,4 +13,5 @@ spec:
   interval: 1h
   values:
     environment:
-      GARAGE_ADMIN_TOKEN: helloworld
+    - name: GARAGE_ADMIN_TOKEN
+      value: helloworld
