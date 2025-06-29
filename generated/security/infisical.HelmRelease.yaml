@@ -12,8 +12,8 @@ spec:
         name: infisical
   interval: 1h
   values:
-    fullnameOverride: infisical
     infisical:
+      fullnameOverride: infisical
       kubeSecretRef: infisical-secret
     ingress:
       enabled: false
