@@ -10,24 +10,6 @@ spec:
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
-  name: authentik
-  namespace: flux-system
-spec:
-  interval: 24h
-  url: https://charts.goauthentik.io
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: cloudnative-pg
-  namespace: flux-system
-spec:
-  interval: 24h
-  url: https://cloudnative-pg.github.io/charts
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
   name: csi-driver-nfs
   namespace: flux-system
 spec:
@@ -51,26 +33,6 @@ metadata:
 spec:
   interval: 24h
   url: https://charts.external-secrets.io
----
-# apiVersion: source.toolkit.fluxcd.io/v1
-# kind: HelmRepository
-# metadata:
-#   name: grafana
-#   namespace: flux-system
-# spec:
-#   interval: 24h
-#   url: https://grafana.github.io/helm-charts
-# ---
-# apiVersion: source.toolkit.fluxcd.io/v1
-# kind: HelmRepository
-# metadata:
-#   labels:
-#     app.kubernetes.io/component: ui
-#   name: headlamp
-#   namespace: flux-system
-# spec:
-#   interval: 24h
-#   url: https://headlamp-k8s.github.io/headlamp
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
@@ -137,26 +99,6 @@ spec:
   interval: 24h
   url: https://prometheus-community.github.io/helm-charts
 ---
-apiVersion: source.toolkit.fluxcd.io/v1beta2
-kind: HelmRepository
-metadata:
-  name: tf-controller
-  namespace: flux-system
-spec:
-  interval: 24h
-  type: oci
-  url: oci://ghcr.io/flux-iac/charts
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: traefik
-  namespace: flux-system
-spec:
-  interval: 24h
-  type: oci
-  url: oci://ghcr.io/traefik/helm
----
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
 metadata:
@@ -166,15 +108,6 @@ spec:
   interval: 24h
   type: oci
   url: oci://tccr.io/truecharts
----
-apiVersion: source.toolkit.fluxcd.io/v1
-kind: HelmRepository
-metadata:
-  name: vector
-  namespace: flux-system
-spec:
-  interval: 24h
-  url: https://helm.vector.dev
 ---
 apiVersion: source.toolkit.fluxcd.io/v1
 kind: HelmRepository
