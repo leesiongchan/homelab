@@ -14,8 +14,7 @@ spec:
   values:
     cluster:
       roles:
-      - ensure: present
-        login: true
+      - login: true
         name: infisical
         passwordSecret:
           name: cloudnative-pg-role-infisical-cred

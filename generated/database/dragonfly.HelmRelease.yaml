@@ -15,3 +15,4 @@ spec:
   values:
     storage:
       enabled: true
+      requests: 1Gi
