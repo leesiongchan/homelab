@@ -15,3 +15,6 @@ spec:
     environment:
     - name: GARAGE_ADMIN_TOKEN
       value: helloworld
+    monitoring:
+      metrics:
+        enabled: true

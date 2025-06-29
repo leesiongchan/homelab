@@ -17,6 +17,8 @@ spec:
     spec:
       containers:
       - env:
+        - name: API_ADMIN_KEY
+          value: helloworld
         - name: API_BASE_URL
           value: http://garage-metrics.storage.svc.cluster.local:3903
         - name: S3_ENDPOINT_URL
