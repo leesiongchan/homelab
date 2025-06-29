@@ -19,7 +19,8 @@ spec:
     port: 3902
     protocol: TCP
     targetPort: 3902
-  - port: webui
+  - name: webui
+    port: 3909
     targetPort: 3909
   selector:
     app.kubernetes.io/instance: garage
