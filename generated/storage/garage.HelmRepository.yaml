@@ -5,4 +5,4 @@ metadata:
   namespace: storage
 spec:
   interval: 24h
-  url: git+https://git.deuxfleurs.fr/Deuxfleurs/garage.git@script/helm?ref=main-v1
+  url: https://helm.charliemaiors.dev
