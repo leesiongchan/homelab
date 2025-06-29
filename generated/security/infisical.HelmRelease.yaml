@@ -12,6 +12,7 @@ spec:
         name: infisical
   interval: 1h
   values:
+    fullnameOverride: infisical
     infisical:
       kubeSecretRef: infisical-secret
     ingress:
