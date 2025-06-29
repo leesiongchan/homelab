@@ -13,8 +13,7 @@ spec:
       version: v1.31.0
   interval: 1h
   values:
-    command:
-    - dragonfly
+    extraArgs:
     - --cluster_mode
     - emulated
     storage:
