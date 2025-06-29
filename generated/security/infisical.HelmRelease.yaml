@@ -14,3 +14,9 @@ spec:
   values:
     infisical:
       kubeSecretRef: infisical-secret
+    ingress:
+      enabled: false
+    postgresql:
+      enabled: false
+    redis:
+      enabled: false

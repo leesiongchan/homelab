@@ -2,7 +2,7 @@ apiVersion: postgresql.cnpg.io/v1
 kind: Database
 metadata:
   name: infisical-db
-  namespace: security
+  namespace: database
 spec:
   cluster:
     name: cloudnative-pg-cluster
