@@ -13,6 +13,8 @@ spec:
       version: v1.31.0
   interval: 1h
   values:
+    command:
+    - --cluster_mode
+    - emulated
     storage:
       enabled: true
-      requests: 1Gi
