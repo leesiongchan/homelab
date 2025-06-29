@@ -82,9 +82,13 @@
     "o11y/loki.HelmRelease.yaml": "environments/o11y/main.jsonnet",
     "o11y/mimir.HelmRelease.yaml": "environments/o11y/main.jsonnet",
     "o11y/tempo.HelmRelease.yaml": "environments/o11y/main.jsonnet",
-    "storage/garage-webui.Deployment.yaml": "environments/storage/main.jsonnet",
-    "storage/garage-webui.HTTPRoute.yaml": "environments/storage/main.jsonnet",
-    "storage/garage-webui.Service.yaml": "environments/storage/main.jsonnet",
-    "storage/garage.HelmRelease.yaml": "environments/storage/main.jsonnet",
-    "storage/garage.HelmRepository.yaml": "environments/storage/main.jsonnet"
+    "storage/allow-crds-for-default-garage.ClusterRoleBinding.yaml": "environments/storage/main.jsonnet",
+    "storage/garage-config.ConfigMap.yaml": "environments/storage/main.jsonnet",
+    "storage/garage-headless.Service.yaml": "environments/storage/main.jsonnet",
+    "storage/garage-rpc-secret.Secret.yaml": "environments/storage/main.jsonnet",
+    "storage/garage.HTTPRoute.yaml": "environments/storage/main.jsonnet",
+    "storage/garage.Service.yaml": "environments/storage/main.jsonnet",
+    "storage/garage.ServiceAccount.yaml": "environments/storage/main.jsonnet",
+    "storage/garage.StatefulSet.yaml": "environments/storage/main.jsonnet",
+    "storage/manage-crds-default-garage.ClusterRole.yaml": "environments/storage/main.jsonnet"
 }
