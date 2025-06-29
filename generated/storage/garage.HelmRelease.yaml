@@ -1,14 +1,14 @@
 apiVersion: helm.toolkit.fluxcd.io/v2
 kind: HelmRelease
 metadata:
-  name: minio-operator
+  name: garage
   namespace: storage
 spec:
   chart:
     spec:
-      chart: operator
+      chart: garage
       sourceRef:
         kind: HelmRepository
-        name: minio-operator
+        name: garage
   interval: 1h
   values: {}

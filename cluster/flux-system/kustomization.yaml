@@ -6,4 +6,3 @@ resources:
   # - github.com/fluxcd/flux2/manifests/install?ref=v2.4.0
   - https://github.com/kubernetes-sigs/gateway-api/releases/download/v1.2.0/standard-install.yaml
   - sources.yaml
-  - tf-controller.yaml

@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: garage-webui
+  namespace: storage
+spec:
+  minReadySeconds: 10
+  replicas: 1
+  revisionHistoryLimit: 10
+  selector:
+    matchLabels:
+      name: garage-webui
+  template:
+    metadata:
+      labels:
+        name: garage-webui
+    spec:
+      containers:
+      - image: khairul169/garage-webui:latest
+        imagePullPolicy: IfNotPresent
+        name: garage-webui
+        ports:
+        - containerPort: 3909
+          name: http
+        volumeMounts:
+        - mountPath: /etc/garage.toml
+          name: garage-config
+          readOnly: true
+          subPath: garage.toml
+      volumes:
+      - configMap:
+          name: garage-config
+        name: garage-config

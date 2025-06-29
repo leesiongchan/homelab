@@ -16,7 +16,10 @@ spec:
         name: pingvin-share
     spec:
       containers:
-      - image: stonith404/pingvin-share:latest
+      - env:
+        - name: TRUST_PROXY
+          value: "true"
+        image: stonith404/pingvin-share:latest
         imagePullPolicy: IfNotPresent
         name: pingvin-share
         ports:
