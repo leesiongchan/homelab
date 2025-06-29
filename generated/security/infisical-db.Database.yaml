@@ -1,0 +1,10 @@
+apiVersion: postgresql.cnpg.io/v1
+kind: Database
+metadata:
+  name: infisical-db
+  namespace: security
+spec:
+  cluster:
+    name: cloudnative-pg-cluster
+  name: infisical
+  owner: infisical
