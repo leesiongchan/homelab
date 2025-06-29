@@ -90,6 +90,7 @@
     "o11y/tempo.HelmRelease.yaml": "environments/o11y/main.jsonnet",
     "security/infisical-db.Database.yaml": "environments/security/main.jsonnet",
     "security/infisical-secret.Secret.yaml": "environments/security/main.jsonnet",
+    "security/infisical.HTTPRoute.yaml": "environments/security/main.jsonnet",
     "security/infisical.HelmRelease.yaml": "environments/security/main.jsonnet",
     "security/infisical.HelmRepository.yaml": "environments/security/main.jsonnet",
     "storage/garage-webui.Deployment.yaml": "environments/storage/main.jsonnet",
