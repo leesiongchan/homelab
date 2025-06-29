@@ -1,0 +1,16 @@
+apiVersion: helm.toolkit.fluxcd.io/v2
+kind: HelmRelease
+metadata:
+  name: garage
+  namespace: storage
+spec:
+  chart:
+    spec:
+      chart: garage
+      sourceRef:
+        kind: HelmRepository
+        name: garage
+  interval: 1h
+  values:
+    environment:
+      GARAGE_ADMIN_TOKEN: helloworld
